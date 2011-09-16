@@ -1,0 +1,8 @@
+# Various rewrite rules.
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	RewriteCond %{REQUEST_FILENAME} !^(.+)\.html$
+	RewriteRule ^(.*)$ index.php?method=$1 [QSA,L]
+
+</IfModule>

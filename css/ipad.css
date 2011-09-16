@@ -1,0 +1,8 @@
+
+body.section-homepage {
+background-color: #9EC9F6;
+background-image:none !important; 
+}
+body.section-homepage #my-global-wrap {
+background: url(../images/nuvoTV-ReSkin_bkg_ipad.jpg) no-repeat 50% 0 !important; 
+}

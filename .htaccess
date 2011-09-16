@@ -1,0 +1,38 @@
+# Various rewrite rules.
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	RewriteRule ^osmin$ http://stage.mynuvotv.com/operation-osmin [R=301,L]
+	RewriteRule ^osmin/$ http://stage.mynuvotv.com/operation-osmin [R=301,L]
+
+	RewriteRule ^pastport$ http://stage.mynuvotv.com/pastport-venezuela [R=301,L]
+	RewriteRule ^pastport/$ http://stage.mynuvotv.com/pastport-venezuela [R=301,L]
+
+	RewriteRule ^video$ http://www.mynuvotv.com/videos [R=301,L]
+
+	RewriteRule ^affiliate$ http://affiliates.mynuvotv.com/ [R=301,L]
+	RewriteRule ^affiliate/$ http://affiliates.mynuvotv.com/ [R=301,L]
+
+	RewriteCond $1 !^(series)
+	RewriteCond $2 ^(video)$
+	RewriteRule ^(.*)/(.*)$ http://www.mynuvotv.com/series/$1/video [R=301,L]
+	
+	#remove trailing slashes
+	RewriteCond $1 !^(operation-osmin|model-latina-las-vegas|model-latina-vegas-cast|sites|css|misc|adsales|getnuvotv|getscaredfit|images|js|podcast|press|osmin|affilate)
+	RewriteRule ^(.*)/$ /$1 [R=301,L]
+
+	#add the stage
+	#RewriteCond %{HTTP_HOST} ^mynuvotv.com [NC]
+	#RewriteRule ^(.*)$ http://stage.mynuvotv.com/$1 [R=301,L]
+
+	#some pages might still have index.php on the end -- remove it
+	RewriteCond $1 !^(index.php|operation-osmin|model-latina-las-vegas|model-latina-vegas-cast|sites|css|misc|adsales|getnuvotv|getscaredfit|images|js|podcast|press)
+	RewriteRule ^(.*)/index.php$ /$1 [L]
+
+	#pass all other requests to index.php, exclude certain directories & files
+	RewriteCond $1 !^(assets|favicon\.ico|robots\.txt|index\.php|sitemap\.xml|getschedule\.php|operation-osmin|model-latina-las-vegas|model-latina-vegas-cast|sites|css|misc|adsales|getnuvotv|getscaredfit|images|js|podcast|press)
+	RewriteRule ^(.*)$ /index.php?pageID=$1 [QSA,L]
+
+</IfModule>
+
+

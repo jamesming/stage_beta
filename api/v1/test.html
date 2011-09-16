@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+	<ul id="schedule">
+	</ul>
+
+	<script>
+		$(document).ready(function() {
+			$.getJSON("http://stage.sitv.com/api/v1/getScheduleByDate",
+			{
+				date: "2011-06-28"
+			},
+			function(data) {
+				$.each(data, function(i, item) {
+					$("<li/>").html(item.title).appendTo("#schedule");
+					if ( i == 20 ) return false;
+				});
+			});
+		});
+	</script>
+</body>
+</html>

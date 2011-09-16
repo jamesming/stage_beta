@@ -1,0 +1,88 @@
+    <script type="text/javascript"> 
+    var player;//a reference to the experience module
+    var videoPlayer;  //a reference to the videoPlayer module
+ 
+    // called when template loads, we use this to store a reference to the player and modules
+    // and add event listeners for the video load (when the user clicks on a video)
+    function onTemplateLoaded(experienceId) {
+        player = brightcove.getExperience(experienceId);
+        videoPlayer = player.getModule(APIModules.VIDEO_PLAYER);
+        pauseState = false;
+    }
+ 
+    function togglePause(){
+        //if you pass true (or no parameters) to pause 
+        //the video will pause
+        //see http://docs.brightcove.com/en/player/com/brightcove/api/modules/VideoPlayerModule.html#pause()
+        //for more info
+        if(videoPlayer.isPlaying()){
+            videoPlayer.pause(true);
+        }else{
+            videoPlayer.pause(false);
+        }
+    }
+    
+    </script> 
+
+<!-- Start of Brightcove Player -->
+
+<div style="display:none">
+
+</div>
+
+<!--
+By use of this code snippet, I agree to the Brightcove Publisher T and C 
+found at https://accounts.brightcove.com/en/terms-and-conditions/. 
+-->
+
+<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/APIModules_all.js"></script> 
+<object id="myExperience" class="BrightcoveExperience">
+  <param name="wmode" value="transparent" />
+  <param name="width" value="242" />
+  <param name="height" value="422" />
+  <param name="playerID" value="1154506721001" />
+  <param name="playerKey" value="AQ~~,AAAAADEdZAY~,VHcBVNPqDVshrDLVr-FIOiEabfcn5IxW" />
+  <param name="isVid" value="true" />
+  <param name="isUI" value="true" />
+  <param name="dynamicStreaming" value="true" />
+  
+</object>
+
+<!-- 
+This script tag will cause the Brightcove Players defined above it to be created as soon
+as the line is read by the browser. If you wish to have the player instantiated only after
+the rest of the HTML is processed and the page load is complete, remove the line.
+-->
+<script type="text/javascript">brightcove.createExperiences();</script>
+
+<!-- End of Brightcove Player -->
+
+    <script type="text/javascript"> 
+    var player;//a reference to the experience module
+    var videoPlayer;  //a reference to the videoPlayer module
+ 
+    // called when template loads, we use this to store a reference to the player and modules
+    // and add event listeners for the video load (when the user clicks on a video)
+    function onTemplateLoaded(experienceId) {
+        player = brightcove.getExperience(experienceId);
+        videoPlayer = player.getModule(APIModules.VIDEO_PLAYER);
+        pauseState = false;
+    }
+ 
+    function togglePause(){
+        //if you pass true (or no parameters) to pause 
+        //the video will pause
+        //see http://docs.brightcove.com/en/player/com/brightcove/api/modules/VideoPlayerModule.html#pause()
+        //for more info
+        if(videoPlayer.isPlaying()){
+            videoPlayer.pause(true);
+        }else{
+            videoPlayer.pause(false);
+        }
+    }
+    
+</script>
+
+<br/> 
+<button onclick="togglePause()">Toggle Pause</button> 
