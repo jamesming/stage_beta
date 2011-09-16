@@ -51,7 +51,7 @@ EOHERO;
 			<ul class="unstyled episode-content">
 				<li>
 					<h2>Eps. 101: Boca Grande (Mexican)</h2>
-					<p>Keith, a former rock musician, is now the owner of a cool Mexican restaurant.  His menu, however, is not so hot.  To keep Keith in business, the Mission Menu Team travels to Mexico to find unique authentic dishes, including a one-of-a-kind dirt-baked tamale.  But will G and the Chefs’ unusual take on Day of the Dead cuisine bring Keith’s business back to life?</p>
+					<p>Keith, a former rock musician, is now the owner of a cool Mexican restaurant.  His menu, however, is not so hot.  To keep Keith in business, the Mission Menu Team travels to Mexico to find unique authentic dishes, including a one-of-a-kind dirt-baked tamale.  But will G and the Chefs' unusual take on Day of the Dead cuisine bring Keith's business back to life?</p>
 				</li>
 			</ul>
 		</div>
