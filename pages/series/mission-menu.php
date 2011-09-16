@@ -44,7 +44,7 @@ EOHERO;
 		</div>
 		<div class="about white-box block">
 			<h2>About</h2>
-			<p>The greatest Executive Chefs in the world are not masters of just one cuisine - they are ambassadors of food.   Whether the fare is French, Thai or a fusion of the two, master chefs employ their experience, tastes and talents to combine flavors and ingredients to create culinary artistry.   Because of this rare expertise, restaurant owners of all varieties turn to these superstar chefs to overhaul their menus and save their failing restaurants.</p>
+			<p>The greatest executive chefs in the world are not masters of just one cuisine - they are ambassadors of food.   Whether the fare is French, Thai or a fusion of the two, master chefs employ their experience, tastes and talents to combine flavors and ingredients to create culinary artistry.   Because of this rare expertise, restaurant owners of all varieties turn to these superstar chefs to overhaul their menus and save their failing restaurants.</p>
 		</div>
 		<div class="ad ad-tall block"></div>
 	</div>

@@ -40,7 +40,7 @@ EOHERO;
 		<div class="episodes white-box block">
 			<h2>Episode Guide</h2>
 			<ul class="episode-list">
-				<li><a href="#">Eps. 101: Boca Grande (Mexican)</a></li>
+				<li><a href="#">Eps. 1: Mission Mexican</a></li>
 				
 			</ul>			
 		</div>
@@ -50,7 +50,7 @@ EOHERO;
 		<div class="episode white-box block">
 			<ul class="unstyled episode-content">
 				<li>
-					<h2>Eps. 101: Boca Grande (Mexican)</h2>
+					<h2>Eps. 1: Mission Mexican, Season Premiere!, Below The Border</h2>
 					<p>Keith, a former rock musician, is now the owner of a cool Mexican restaurant.  His menu, however, is not so hot.  To keep Keith in business, the Mission Menu Team travels to Mexico to find unique authentic dishes, including a one-of-a-kind dirt-baked tamale.  But will G and the Chefs' unusual take on Day of the Dead cuisine bring Keith's business back to life?</p>
 				</li>
 			</ul>

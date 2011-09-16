@@ -651,6 +651,8 @@ function getShowSchedule() {
 		"episode_title": episode_title
 	},
 	function(data) {
+
+		
 		var result = "";
 		if (data && data.length > 0) {
 			results = parseScheduleData(data).data;
