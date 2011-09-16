@@ -24,7 +24,7 @@ EOHERO;
 		<ul class="unstyled">
 			<li class="active first"><a href="/series/$seriesBase">Show</a></li>
 			<li><a href="/series/$seriesBase/cast">Cast</a></li>
-			<li><a href="/series/$seriesBase/video">Video</a></li>
+			 <li><a href="/series/$seriesBase/video">Video</a></li>
 			<li class="last"><a href="/series/$seriesBase/episodes">Episodes</a></li>
 			<!--<li><a href="/series/$seriesBase/features">Features</a></li>  -->
 			<!--<li class="last"><a href="/series/$seriesBase/photos">Photos</a></li>  -->
@@ -84,6 +84,16 @@ EOHERO;
 						<p>With a larger-than-life personality and penchant for doing things his own way, Ricardo often causes friction with other team members.  No one can argue with his unbelievable cooking skills though!  An award-winning chef, Ricardo is an expert at creating dishes as bold as his fiery temper.</p>
 					</div>
 				</li>
+				<li class="block">
+					<img class="bordered media" src="/assets/images/cast/Mission-Menu/Diane_148x148.jpg" />
+					<div class="copy">
+						<h3>Diane</h3>
+						
+						<p>Her motto is: "I can out-cook most, and fear nothing."  From raising livestock on her family's ranch, to owning her own condiment company, Diane has built a culinary career that includes opening her own espresso bar and bakery while in college to working at many top restaurants as one of the few female Executive Chefs.  Sparks fly when this fearless Korean-Persian female chef gets in front of the stove.</p>
+					</div>
+				</li>				
+				
+
 			</ul>
 			<a class="sub-page-more" href="/series/mission-menu/cast">See the entire cast +</a>
 		</div>
@@ -102,6 +112,7 @@ EOHERO;
 		<div class="facebook block">
 			<fb:like-box href="http://www.facebook.com/pages/Mission-Menu/124750807626746" width="300" height="475" show_faces="true" border_color="#fff" stream="true" header="false"></fb:like-box>
 		</div>
+		<!--
 		<div class="photos block">
 			<h2>Photos</h2>
 			<div class="col">
@@ -113,7 +124,7 @@ EOHERO;
 				<img class="bordered" src="/assets/images/galleries/_ModelLatina_NYC/_thmbs/thmb_4.jpg" />
 			</div>
 			<a class="sub-page-more" href="/series/$seriesBase/photos">See all photos +</a>
-		</div>
+		</div>  -->
 	</div>
 EOCONTENT;
 

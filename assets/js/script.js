@@ -1053,20 +1053,22 @@ function addYouTubeWidget(){
 			})
 			
 			
-			$('#close_button').click(function(event) {
-					//toggleBrightCovePlayer();
-					$('#player_div').hide();
-					$('#youtube_iframe').attr('src','');
-			});	
+//			$('#close_button').click(function(event) {
+//					//toggleBrightCovePlayer();
+//					$('#player_div').hide();
+//					$('#youtube_iframe').attr('src','');
+//			});	
+
+
 }
 
-function toggleBrightCovePlayer(){
-    if(videoPlayer.isPlaying()){
-        videoPlayer.pause(true);
-    }else{
-        videoPlayer.pause(false);
-    }
-}
+//function toggleBrightCovePlayer(){
+//    if(videoPlayer.isPlaying()){
+//        videoPlayer.pause(true);
+//    }else{
+//        videoPlayer.pause(false);
+//    }
+//}
 
 $(document).ready(function () {
 

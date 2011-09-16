@@ -488,14 +488,14 @@ list-style-type:none;
 float:left;
 margin:0px 5px 0px 0px;	
 }	
-.youtube_widget .playlist a, #player_div #close_button{
+.youtube_widget .playlist a /*, #player_div #close_button*/{
 cursor:pointer;
 }
-#player_div #close_button{
+/*#player_div #close_button{
 text-align:right;
 font-size:9px;
 padding:3px 10px 3px 0px;
-}
+}*/
 .youtube_widget .playlist img{
 width:52px;
 }

@@ -3296,7 +3296,7 @@ EOHERO;
 					<ul class="playlist">
 					</ul>
 					<div  id='youtube_widget_bottom'  class='clearfix ' >
-						<a target='_blank' href='http://www.youtube.com/user/mynuvoTV?feature=mhee'>Watch our Youtube Channel</a>
+						<a target='_blank' href='http://www.youtube.com/user/mynuvoTV?feature=mhee'>Watch our YouTube Channel</a>
 					</div>	
 				</div>
 				
