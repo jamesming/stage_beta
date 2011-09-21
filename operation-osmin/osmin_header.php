@@ -50,7 +50,7 @@ br { clear: both; }
 </style>
 <link rel="stylesheet" type="text/css" href="css/fcs_style.css" />
 <?
-if(strstr($_SERVER[REQUEST_URI], 'blog')) {
+if(strstr($_SERVER['REQUEST_URI'], 'blog')) {
 	if(strpos($_SERVER['HTTP_USER_AGENT'],'iPhone')) {
 		echo '<link rel="stylesheet" href="css/ipad_blog.css" type="text/css" />
 	';
@@ -79,7 +79,9 @@ if(strstr($_SERVER[REQUEST_URI], 'blog')) {
 <script type="text/javascript" src="js/jquery.bgpos.js"></script>
 <script type="text/javascript" src="js/jquery-easing-1.3.pack.js"></script>
 <script type="text/javascript" src="js/jquery-easing-compatibility.1.2.pack.js"></script>
-<script type="text/javascript" src="js/coda-slider.1.1.1.pack.js"></script>
+ 
+<script type="text/javascript" src="js/coda-slider.1.1.1.js"></script>
+
 <script type="text/javascript" src="js/jquery.countdown_new.js"></script>
 <script src="/misc/prettyphoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
@@ -622,7 +624,7 @@ if($_GET[wed]) {
 		<div class="next_showing">
 			<div style="float: left; padding-left: 31px; width: 350px; padding-top: 27px;">
 				<div style="float: left; font-size: 19px; font-weight: bold; height: 25px; padding-top: 0px; color: #FFFFFF;">
-					CHECK SCHEDULE FOR SHOWTIMES
+					MONDAYS 9/8c
 				</div>
 			</div>
 			<div style="font-size: 18px; font-family: Arial; float: left; font-weight: bold; height: 30px; color: black; margin-top: 22px; padding-left: 45px; width: 350px;">

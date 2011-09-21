@@ -41,19 +41,6 @@ if($_GET[wed]) {
 	$now = strtotime("August 31, 2011 8:01am");
 }
 
-?>
-
-<div id="middle_block" style="float: left; height: 940px;">
-	<div style="float: left; width: 733px;">
-		<div style="float: left; font-size: 27px; font-weight: bold; color: #FFFFFF; height: 32px; width: 600px; padding-left: 10px; padding-top: 5px;">
-			&nbsp;
-		</div>
-		<div class="slider-wrap">
-		<div id="main-photo-slider" class="csw">
-
-			<div class="panelContainer">
-
-<?
 
 if(time() % 4 == 3) {
 	$vid_id = 1021472590001; 
@@ -72,6 +59,17 @@ if($now > $wed) {
 }
 
 ?>
+<div id="middle_block" style="float: left; height: 940px;">
+	<div style="float: left; width: 733px;">
+		<div style="float: left; font-size: 27px; font-weight: bold; color: #FFFFFF; height: 32px; width: 600px; padding-left: 10px; padding-top: 5px;">
+			&nbsp;
+		</div>
+		<div class="slider-wrap">
+		<div id="main-photo-slider" class="csw">
+
+			<div class="panelContainer">
+
+
 				<div class="panel" title="Panel 1">
 					<div class="wrapper">
 						<!-- <img src="images/centerpiece/face-lrg.png" alt="temp" /> -->
@@ -215,7 +213,7 @@ function onTemplateLoaded(experienceID) {
 	}
 ?>					
 					
-					<div style="float: left; padding-top: 28px;">
+				<!-- <div style="float: left; padding-top: 28px;">
 						<a href="casting.php"><img src="images/OSMIN-pic2.png" /></a>
 					</div>
 					<div style="float: left; padding-left: 15px; font-weight: bold; padding-top: 25px;">
@@ -223,7 +221,7 @@ function onTemplateLoaded(experienceID) {
 					</div>
 					<div style="float: left; padding-left: 15px; width: 250px; font-size: 13px;">
 						We're looking for charismatic, outgoing individuals in the Miami area who are up to the challenge.
-					</div>
+					</div> -->
 
 	
 				</div>

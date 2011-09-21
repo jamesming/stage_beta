@@ -71,6 +71,14 @@ EOHERO;
 					</div>
 					<p>Growing up in New Haven, CT, 'Meat' developed a keen sense of "taste" and a "hunger" for success.  Though new to cooking, Meat aspires to become a chef and does his best to help out in every way.   Unfortunately, Meat's pea-sized brain and inability to stop tasting the dishes leaves doubt as to his ever becoming an executive chef.</p>
 				</li>
+				
+				<li class="last block">
+					<img class="bordered media" src="/assets/images/cast/Mission-Menu/Yenny_148x148.jpg" />
+					<div class="meta">
+						<h3>Yenny Love</h3>
+					</div>
+					<p>Yenny relates cooking to her childhood and culture. She remembers being eight years old and being with her grandmother in the kitchen where "magic happens" she says. "I remember all the cuentos (stories) that my abuelita (grandmother) would tell me while she was cooking and at the same time she would teach me the ingredients and flavors that go with each dish."  Cooking is major part of her life and she seeks to share it with the world!</p>
+				</li>				
 			</ul>
 
 		</div>

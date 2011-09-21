@@ -35,17 +35,42 @@ blockquote									{ padding: 0 20px; margin-left: 20px; border-left: 20px solid
 /*
 	SLIDER
 */
-.slider-wrap								{ width: 737px; float: left; height: 419px;}			
-.stripViewer .panelContainer 
-.panel ul									{ text-align: left; margin: 0 15px 0 30px; }
-.stripViewer								{ position: relative; overflow: hidden; width: 737px; height: 380px; }
-.stripViewer .panelContainer				{ position: relative; left: 0; top: 0; }
-.stripViewer .panelContainer .panel			{ float: left; height: 100%; position: relative; width: 737px; }
+.slider-wrap{ 
+	width: 737px; 
+	float: left; 
+	height: 419px;
+}			
+.stripViewer 
+.panelContainer 
+.panel ul	{ 
+	text-align: left; 
+	margin: 0 15px 0 30px; 
+}
+.stripViewer{ 
+	position: relative; 
+	overflow: hidden; 
+	width: 737px; 
+	height: 380px; 
+}
+.stripViewer .panelContainer				{ 
+	position: relative; 
+	left: 0px; 
+	top: 0px; 
+}
+.stripViewer .panelContainer .panel			{ 
+	float: left; 
+	height: 100%; 
+	position: relative; 
+	width: 737px; 
+}
+
 .stripNavL, .stripNavR, .stripNav			{ display: none; }
 .nav-thumb 									{ border: 1px solid black; margin-right: 5px; }
+
 #movers-row									{ margin: -43px 0 0 62px; }
 #movers-row div								{ width: 14%; float: left; }
 #movers-row div a.cross-link 				{ float: right; }
+
 .photo-meta-data							{ background: url(images/transpBlack.png); padding: 10px; height: 30px; 
 											  margin-top: -50px; position: relative; z-index: 9999; color: white; }
 .photo-meta-data span 						{ font-size: 13px; }

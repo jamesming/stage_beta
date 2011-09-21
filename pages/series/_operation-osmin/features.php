@@ -32,18 +32,10 @@ EOHERO;
 	</div>
 	<div class="main">
 		<div class="white-box block">
-			<h2>Watch: Dr. Vicks VapoRub Cures All</h2>
+			<h2>Feature 1</h2>
 			<img class="bordered media" src="http://placehold.it/458x248" />
-			<p>Momma knows best! You have a zit? Put Vicks VapoRub on it. You have a bad rash? Put Vicks VapoRub on it. You broke your arm? Put Vicks VapoRub on it! Well, we now know a quick visit to the doctor overrules Vicks VapoRub any day. Try to telling that to your mother. That’s what we thought. Check out the other uses of Vicks VapoRub in the clip below.</p>
-			<p><object height="382" width="446" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,47,0" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="flashObj">
-			<param value="http://c.brightcove.com/services/viewer/federated_f9?isVid=1" name="movie" />
-			<param value="#FFFFFF" name="bgcolor" />
-			<param value="@videoPlayer=79668860001&amp;playerID=18178083001&amp;playerKey=AQ~~,AAAAADEdZAY~,VHcBVNPqDVvDUPiiCQ774F5olb1DR8Pw&amp;domain=embed&amp;dynamicStreaming=true" name="flashVars" />
-			<param value="http://admin.brightcove.com" name="base" />
-			<param value="false" name="seamlesstabbing" />
-			<param value="true" name="allowFullScreen" />
-			<param value="true" name="swLiveConnect" />
-			<param value="always" name="allowScriptAccess" /><embed height="382" width="446" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" allowscriptaccess="always" swliveconnect="true" allowfullscreen="true" type="application/x-shockwave-flash" seamlesstabbing="false" name="flashObj" base="http://admin.brightcove.com" flashvars="@videoPlayer=79668860001&amp;playerID=18178083001&amp;playerKey=AQ~~,AAAAADEdZAY~,VHcBVNPqDVvDUPiiCQ774F5olb1DR8Pw&amp;domain=embed&amp;dynamicStreaming=true" bgcolor="#FFFFFF" src="http://c.brightcove.com/services/viewer/federated_f9?isVid=1"></embed></object></p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nulla nisi, fermentum sed gravida eu, tincidunt quis lorem. Vestibulum gravida, purus vitae fermentum semper, magna arcu malesuada quam, sit amet tempus nibh dolor eget libero. Pellentesque at enim justo, id faucibus urna. Integer hendrerit nisi tristique turpis malesuada vulputate. Quisque ut libero est, sit amet molestie leo. Donec a lacus felis.</p>			
+<!--			<a class="no-break" href="#">Read More +</a>-->
 		</div>
 	</div>
 	<div class="sidebar-right">

@@ -16,8 +16,10 @@ EOHERO;
 		<div class="series-nav">
 			<ul class="unstyled">
 				<!-- <li class="first"><a href="?apps=1">APPS</a></li> -->
-				<li class="first active"><a href="?ringtones=1">RINGTONES</a></li>
-				<li class="last"><a href="?wallpapers=1">WALLPAPERS</a></li>
+				<li class="first"><a target='_blank' href="http://www.cafepress.com/mynuvotv">NU GEAR</a></li>
+				<li class=" active"><a href="?ringtones=1">NU RINGTONES</a></li>
+				<li class="last"><a href="?wallpapers=1">NU WALLPAPERS</a></li>
+				
 			</ul>
 		</div>
 		<div class="main">
@@ -167,16 +169,16 @@ EOHERO;
 				<div style="border-top: 3px solid #767676; height: 20px; width: 100%; float: left;">
 				</div>
 				<div style="float: left; height: 100px;">
-					<!-- <img src="/assets/images/latino101-icon.png" style="float: left; padding-right: 54px;" /> -->
+					<img src="/assets/images/latino101-icon.png" style="float: left; padding-right: 54px;" />
 				</div>
 				<ul class="unstyled ringtones">
 					<li>
-					<!-- <div style="min-height: 40px;">
+						<div style="min-height: 40px;">
 							<img src="/assets/images/ringtone-icon.png" style="float: left; padding-right: 10px; margin-top: 3px;" />
 							<h3 style="font-size: 15px; margin-bottom: 3px;">1.	Everybody's Latino</h3>
 							<a style="font-size: 13px;" href="/misc/Everybodys_Latino.php?ring=1" />Download</a>
 						</div>
-					</li> -->											
+					</li>											
 					<!-- <li class="col2">
 						<div style="min-height: 40px;">
 							<img src="/assets/images/ringtone-icon.png" style="float: left; padding-right: 10px; margin-top: 3px;" />
@@ -198,9 +200,10 @@ EOCONTENT;
 		<div class="series-nav">
 			<ul class="unstyled">
 				<!-- <li class="first"><a href="/series/$seriesBase">APPS</a></li> -->
-				<li class="first"><a href="?ringtones=1">RINGTONES</a></li>
-				<li class="active last"><a href="?wallpapers=1">WALLPAPERS</a></li>
-			</ul>
+				<li class="first"><a target='_blank' href="http://www.cafepress.com/mynuvotv">NU GEAR</a></li>
+				<li class=""><a href="?ringtones=1">NU RINGTONES</a></li>
+				<li class="last active"><a href="?wallpapers=1">NU WALLPAPERS</a></li>
+							</ul>
 		</div>
 		<div class="main">
 			<div class="white-box block">

@@ -337,7 +337,7 @@ button::-moz-focus-inner { border: 0; }
 .page-home .c-spot .ad { float: left; height: 600px; margin-right: 20px; position: relative; width: 160; }
 .page-home .c-spot .social { background: transparent url(/assets/images/bg-social.png) no-repeat 0 0; float: left; padding: 45px 20px 20px; position: relative; width: 760px; border-radius: 0 15px 0 15px; }
 .page-home .c-spot .social .facebook { background: #fff url(/assets/images/bg-facebook.gif) no-repeat 0 0; float: left; margin-right: 20px; padding-top: 40px; width: 370px; height: 560px; }
-.page-home .c-spot .social .twitter { background: #fff url(/assets/images/bg-twitter.gif) no-repeat 0 0; float: left; padding-top: 40px; width: 370px; height: 560px; }
+.page-home .c-spot .social .twitter { background: #fff url(/assets/images/bg-twitter.gif) no-repeat 0 0; float: left; padding-top: 40px; width: 370px; height: 409px; }
 
 .section-series.page-cast .content .main .cast { padding-top: 20px }
 .section-series.page-cast .content .main .cast li { border: none; margin: 0 0 5px 0; }
@@ -472,12 +472,13 @@ select.skinned option { font-size: 14px; padding:2px 5px; }
 /* Widgets
 ------------------------------------------ */
 
+
 .youtube_widget{
 background:white;
 width:370px;
 height:125px;	
 padding:0px 0px 10px 0px;
-margin:2px 0px 15px 0px;
+margin:0px 0px 15px 0px;
 }
 .youtube_widget ul.playlist{
 margin:15px 0px 0px 0px;
@@ -532,7 +533,7 @@ margin:0px 0px 0px 33px;
 }
 */
 
------------------------------------------- */
+
 .twtr-hd { display: none }
 .twtr-doc,
 .twtr-timeline { border-radius: 0 }
