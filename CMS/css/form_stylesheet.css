@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* CSS Document */
+
+.wrapper {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000;
+	margin-right: auto;
+	margin-left: auto;
+	width: 600px;
+	min-height: 100%;
+	height: auto !important;
+}
+
+body{
+	padding: 20px;
+	background-color: #FFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+h1,h2,p{margin: 0 10px}
+h1{
+	font-size: 16px;
+	color: #FFF
+}
+h2{
+	font-size: 16px;
+	color: #FFFFFF
+}
+p{padding-bottom:1em}
+h2{padding-top: 0.3em}
+div#left_main_content{
+	margin: 0;
+	background-color: #CCC;
+	width: 600px;
+}
+
+div#right_main_content{
+	margin: 0 10%;
+	background-color: #CCC;
+	width: 600px;
+	float: right;
+}
+
+b.rtop, b.rbottom{display:block;background: #FFF}
+b.rtop b, b.rbottom b{
+	display:block;
+	height: 1px;
+	overflow: hidden;
+	background-color: #CCC;
+}
+b.r1{margin: 0 5px}
+b.r2{margin: 0 3px}
+b.r3{margin: 0 2px}
+b.rtop b.r4, b.rbottom b.r4{margin: 0 1px;height: 2px}
+
+
+div.submit-send{
+	height:50px;
+	float:right;
+	width:100px;
+	background-image: url(images/submit_button.png);
+	background-repeat: no-repeat;
+}
