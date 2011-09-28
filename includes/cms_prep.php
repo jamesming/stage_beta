@@ -1,6 +1,13 @@
 <?php     
-//
-$host = "localhost"; 
+
+
+
+if( $_SERVER['HTTP_HOST'] == 'james.mynuvotv.com' ){
+	$host = "192.168.110.211"; 
+}elseif( $_SERVER['HTTP_HOST'] == 'localhost' ){
+	$host = "localhost";
+};
+
 $user = "jamesming";  
 $pw = "ourlady";     
 $database = "mynuvotv_db";  
