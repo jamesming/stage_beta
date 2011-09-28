@@ -26,6 +26,7 @@ $query = 	"SELECT
 					 	nu_spotlight_items_sets.order,
 					 	nu_spotlight_items.name AS 	nu_spotlight_items_name,
 					 	nu_spotlight_items.title AS 	nu_spotlight_items_title,
+					 	nu_spotlight_items.link AS 	nu_spotlight_items_link,
 					 	nu_spotlight_items.blurb AS 	nu_spotlight_items_blurb,
 					 	nu_spotlight_items_images.id AS nu_spotlight_items_image_id
 					 FROM 
@@ -88,6 +89,7 @@ foreach( $sets  as  $set){
 			$item['order'] = $set['order'];
 			$item['nu_spotlight_items_name'] = $set['nu_spotlight_items_name'];
 			$item['nu_spotlight_items_title'] = $set['nu_spotlight_items_title'];
+			$item['nu_spotlight_items_link'] = $set['nu_spotlight_items_link'];
 			$item['nu_spotlight_items_blurb'] = $set['nu_spotlight_items_blurb'];
 				
 			foreach( $set  as  $field => $value){
