@@ -138,7 +138,7 @@ include('includes/cms_prep.php');
 					</div>
 				</li>
 				<li>
-					<a target="_blank" href="/model-latina-las-vegas/?videos=1" class="no-break"><img class="bordered media" src="/assets/uploads/nu_spotlight_items_images/{$items[0]['images']['feature']}/image.png" /></a>
+					<a target="_blank" href="/model-latina-las-vegas/?videos=1" class="no-break"><img class="bordered media" src="http://cms.mynuvotv.com/uploads/nu_spotlight_items_images/{$items[0]['images']['feature']}/image.png" /></a>
 					<div class="copy">
 						<h2>Nu Spotlight</h2>
 						<h3>{$items[0]['nu_spotlight_items_title']}</h3>
@@ -146,7 +146,7 @@ include('includes/cms_prep.php');
 					</div>
 				</li>
 				<li>
-					<a target="_blank" href="http://www.cafepress.com/mynuvotv" class="no-break"><img class="bordered media" src="/assets/uploads/nu_spotlight_items_images/{$items[1]['images']['feature']}/image.png" /></a>
+					<a target="_blank" href="http://www.cafepress.com/mynuvotv" class="no-break"><img class="bordered media" src="http://cms.mynuvotv.com/uploads/nu_spotlight_items_images/{$items[1]['images']['feature']}/image.png" /></a>
 					<div class="copy">
 						<h2>Nu Spotlight</h2>
 						<h3>{$items[1]['nu_spotlight_items_title']}</h3>
@@ -154,7 +154,7 @@ include('includes/cms_prep.php');
 					</div>
 				</li>
 				<li>
-					<a target="_blank" href="http://www.hulu.com/model-latina" class="no-break"><img class="bordered media" src="/assets/uploads/nu_spotlight_items_images/{$items[2]['images']['feature']}/image.png" /></a>
+					<a target="_blank" href="http://www.hulu.com/model-latina" class="no-break"><img class="bordered media" src="http://cms.mynuvotv.com/uploads/nu_spotlight_items_images/{$items[2]['images']['feature']}/image.png" /></a>
 					<div class="copy">
 						<h2>Nu Spotlight</h2>
 						<h3>{$items[2]['nu_spotlight_items_title']}</h3>
@@ -162,7 +162,7 @@ include('includes/cms_prep.php');
 					</div>
 				</li>
 				<li>
-					<a target="_blank" href="/model-latina-vegas-cast/twitter.php" class="no-break"><img class="bordered media" src="/assets/uploads/nu_spotlight_items_images/{$items[3]['images']['feature']}/image.png" /></a>
+					<a target="_blank" href="/model-latina-vegas-cast/twitter.php" class="no-break"><img class="bordered media" src="http://cms.mynuvotv.com/uploads/nu_spotlight_items_images/{$items[3]['images']['feature']}/image.png" /></a>
 					<div class="copy">
 						<h2>Nu Spotlight</h2>
 						<h3>{$items[3]['nu_spotlight_items_title']}</h3>
@@ -170,7 +170,7 @@ include('includes/cms_prep.php');
 					</div>
 				</li>
 				<li>
-					<a target="_blank" href="/misc/referafriend.php" class="no-break"><img class="bordered media" src="/assets/uploads/nu_spotlight_items_images/{$items[4]['images']['feature']}/image.png" /></a>
+					<a target="_blank" href="/misc/referafriend.php" class="no-break"><img class="bordered media" src="http://cms.mynuvotv.com/uploads/nu_spotlight_items_images/{$items[4]['images']['feature']}/image.png" /></a>
 					<div class="copy">
 						<h2>Nu Spotlight</h2>
 						<h3>{$items[4]['nu_spotlight_items_title']}</h3>
