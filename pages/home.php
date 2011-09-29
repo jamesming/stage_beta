@@ -4,10 +4,6 @@
 //	$page->description = "";
 //	$page->keywords = "";
 	
-$now = time();
-
-
-
 $page->template = "standard";
 
 	$page->components["theme"]  = <<<EOTHEME
@@ -70,6 +66,7 @@ include('includes/cms_prep.php');
 //echo 'FIRST SPOT BLURB:' . $items[0]['nu_spotlight_items_blurb']."<br />";
 //echo 'FIRST SPOT FEATURE:' . $items[0]['images']['feature']."<br />";
 //echo 'FIRST SPOT THUMB:' . $items[0]['images']['thumb']."<br />";
+
 
 
 	

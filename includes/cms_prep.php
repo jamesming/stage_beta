@@ -18,6 +18,14 @@ $db = mysql_connect($host,$user,$pw)
 
 mysql_select_db($database,$db)
     or die("Cannot connect to database.");
+    
+    
+if( $_GET['date'] ){ 
+		$day_to_view = date('z',  strtotime($_GET['date']));
+}else{
+		$day_to_view = strtotime($_GET['date']);	
+};
+
 
 $query = 	"SELECT
 						nu_spotlight_sets_calendars.day_of_year,
@@ -38,27 +46,13 @@ $query = 	"SELECT
 					 WHERE
 					 	nu_spotlight_sets.id = nu_spotlight_sets_calendars.nu_spotlight_set_id
 					 AND
-					 	nu_spotlight_sets_calendars.day_of_year <= ".date('z',time())."
+					 	nu_spotlight_sets_calendars.day_of_year <= ". $day_to_view ."
 					 AND
 					 	nu_spotlight_items_sets.nu_spotlight_set_id = nu_spotlight_sets.id
 					 AND
 					 	nu_spotlight_items.id = nu_spotlight_items_sets.nu_spotlight_item_id
 					 AND
 					 	nu_spotlight_items_images.nu_spotlight_item_id = nu_spotlight_items.id
-					 AND
-					 	nu_spotlight_items_images.image_type_id = 4
-					 OR
-					 	nu_spotlight_sets.id = nu_spotlight_sets_calendars.nu_spotlight_set_id
-					 AND
-					 	nu_spotlight_sets_calendars.day_of_year <= ".date('z',time())."
-					 AND 	
-					 	nu_spotlight_items_sets.nu_spotlight_set_id = nu_spotlight_sets.id
-					 AND
-					 	nu_spotlight_items.id = nu_spotlight_items_sets.nu_spotlight_item_id
-					 AND
-					 	nu_spotlight_items_images.nu_spotlight_item_id = nu_spotlight_items.id
-					 AND
-					 	nu_spotlight_items_images.image_type_id = 5
 					 ORDER BY
 					 	nu_spotlight_sets_calendars.day_of_year DESC,
 					 	nu_spotlight_items_sets.id,
@@ -116,7 +110,7 @@ foreach( $sets  as  $set){
 	$previous_name = $set['nu_spotlight_items_sets_id'];		
 };
 
-//echo '<pre>';print_r(  $items );echo '</pre>';  exit;
+// echo '<pre>';print_r(  $items );echo '</pre>';  exit;
 
 
 //echo 'FIRST SPOT TITLE:' . $items[0]['nu_spotlight_items_title']."<br />";
