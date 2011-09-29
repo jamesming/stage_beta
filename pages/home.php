@@ -68,6 +68,26 @@ include('includes/cms_prep.php');
 //echo 'FIRST SPOT THUMB:' . $items[0]['images']['thumb']."<br />";
 
 
+$nu_spotlight_li = "";
+for($i=0; $i<=4; $i++){
+	
+		if( $items[$i]['nu_spotlight_items_launch'] == 1){
+			$target = ' target=\"_blank\" ';
+		}else{
+			$target = ' ';
+		};
+	
+		$nu_spotlight_li .= "
+						<li>
+							<a ". $target ." href=\"{$items[$i]['nu_spotlight_items_link']}\" class=\"no-break\"><img class=\"bordered media\" src=\"http://cms.mynuvotv.com/uploads/nu_spotlight_items_images/{$items[$i]['images']['feature']}/image.png\" /></a>
+							<div class=\"copy\">
+								<h2>Nu Spotlight</h2>
+								<h3>{$items[$i]['nu_spotlight_items_title']}</h3>
+								<p>{$items[$i]['nu_spotlight_items_blurb']}&nbsp;&nbsp;<a ". $target ." href=\"{$items[$i]['nu_spotlight_items_link']}\" class=\"no-break\">Read More +</a></p>
+							</div>
+						</li>
+		";
+};
 
 	
 	$page->components["content"] = <<<EOCONTENT
@@ -135,46 +155,7 @@ include('includes/cms_prep.php');
 						<p>This week on nuvoTV the ladies of <i>Model Latina</i> explore the seven deadly sins --- hot!   If action-packed police drama is your thing, witness the Battle of the Blues!  Of course, the tattoos of <i>Miami Ink</i> are always in style, especially on the genetically-enhanced beauty of <i>Dark Angel</i>!</p>
 					</div>
 				</li>
-				<li>
-					<a target="_blank" href="{$items[0]['nu_spotlight_items_link']}" class="no-break"><img class="bordered media" src="http://cms.mynuvotv.com/uploads/nu_spotlight_items_images/{$items[0]['images']['feature']}/image.png" /></a>
-					<div class="copy">
-						<h2>Nu Spotlight</h2>
-						<h3>{$items[0]['nu_spotlight_items_title']}</h3>
-						<p>{$items[0]['nu_spotlight_items_blurb']}&nbsp;&nbsp;<a target="_blank" href="{$items[0]['nu_spotlight_items_link']}" class="no-break">Read More +</a></p>
-					</div>
-				</li>
-				<li>
-					<a target="_blank" href="{$items[1]['nu_spotlight_items_link']}" class="no-break"><img class="bordered media" src="http://cms.mynuvotv.com/uploads/nu_spotlight_items_images/{$items[1]['images']['feature']}/image.png" /></a>
-					<div class="copy">
-						<h2>Nu Spotlight</h2>
-						<h3>{$items[1]['nu_spotlight_items_title']}</h3>
-						<p>{$items[1]['nu_spotlight_items_blurb']}&nbsp;&nbsp;<a target="_blank" href="{$items[1]['nu_spotlight_items_link']}" class="no-break">Read More +</a></p>
-					</div>
-				</li>
-				<li>
-					<a target="_blank" href="{$items[2]['nu_spotlight_items_link']}" class="no-break"><img class="bordered media" src="http://cms.mynuvotv.com/uploads/nu_spotlight_items_images/{$items[2]['images']['feature']}/image.png" /></a>
-					<div class="copy">
-						<h2>Nu Spotlight</h2>
-						<h3>{$items[2]['nu_spotlight_items_title']}</h3>
-						<p>{$items[2]['nu_spotlight_items_blurb']}&nbsp;&nbsp;<a target="_blank" href="{$items[2]['nu_spotlight_items_link']}" class="no-break">Read More +</a></p>
-					</div>
-				</li>
-				<li>
-					<a target="_blank" href="{$items[3]['nu_spotlight_items_link']}" class="no-break"><img class="bordered media" src="http://cms.mynuvotv.com/uploads/nu_spotlight_items_images/{$items[3]['images']['feature']}/image.png" /></a>
-					<div class="copy">
-						<h2>Nu Spotlight</h2>
-						<h3>{$items[3]['nu_spotlight_items_title']}</h3>
-						<p>{$items[3]['nu_spotlight_items_blurb']}&nbsp;&nbsp;<a href="{$items[3]['nu_spotlight_items_link']}" class="no-break">Read More +</a></p>
-					</div>
-				</li>
-				<li>
-					<a target="_blank" href="{$items[4]['nu_spotlight_items_link']}" class="no-break"><img class="bordered media" src="http://cms.mynuvotv.com/uploads/nu_spotlight_items_images/{$items[4]['images']['feature']}/image.png" /></a>
-					<div class="copy">
-						<h2>Nu Spotlight</h2>
-						<h3>{$items[4]['nu_spotlight_items_title']}</h3>
-						<p>{$items[4]['nu_spotlight_items_blurb']}&nbsp;&nbsp;<a href="{$items[4]['nu_spotlight_items_link']}" class="no-break">Read More +</a></p>
-					</div>
-				</li>				
+				{$nu_spotlight_li}		
 			</ul>
 			<div style="bottom: 60px; position: absolute; left: 268px;"><b>Click tabs for more spotlights.</b></div>
 			<ul class="inline thumbs">

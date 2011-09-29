@@ -4,7 +4,7 @@
 
 if( $_SERVER['HTTP_HOST'] == 'james.mynuvotv.com' ){
 	$host = "192.168.110.211"; 
-}elseif( $_SERVER['HTTP_HOST'] == 'localhost' ){
+}elseif( $_SERVER['HTTP_HOST'] == 'tv.localhost' ){
 	$host = "localhost";
 };
 
@@ -19,12 +19,23 @@ $db = mysql_connect($host,$user,$pw)
 mysql_select_db($database,$db)
     or die("Cannot connect to database.");
     
+
     
-if( $_GET['date'] ){ 
+if( $_GET['date'] ){
+	
+		$date_array = explode('-', $_GET['date']);
+		$year_to_view = $date_array[0];
+		$year_to_view_minus_one_year = $year_to_view - 1;
+	 
 		$day_to_view = date('z',  strtotime($_GET['date']));
+		
 }else{
+		$year_to_view = date('Y');
+		$year_to_view_minus_one_year = $year_to_view - 1;
 		$day_to_view = strtotime($_GET['date']);	
 };
+
+
 
 
 $query = 	"SELECT
@@ -35,6 +46,7 @@ $query = 	"SELECT
 					 	nu_spotlight_items.name AS 	nu_spotlight_items_name,
 					 	nu_spotlight_items.title AS 	nu_spotlight_items_title,
 					 	nu_spotlight_items.link AS 	nu_spotlight_items_link,
+					 	nu_spotlight_items.launch AS 	nu_spotlight_items_launch,
 					 	nu_spotlight_items.blurb AS 	nu_spotlight_items_blurb,
 					 	nu_spotlight_items_images.id AS nu_spotlight_items_image_id
 					 FROM 
@@ -47,6 +59,20 @@ $query = 	"SELECT
 					 	nu_spotlight_sets.id = nu_spotlight_sets_calendars.nu_spotlight_set_id
 					 AND
 					 	nu_spotlight_sets_calendars.day_of_year <= ". $day_to_view ."
+					 AND
+					 	nu_spotlight_sets_calendars.year = ". $year_to_view ."
+					 AND
+					 	nu_spotlight_items_sets.nu_spotlight_set_id = nu_spotlight_sets.id
+					 AND
+					 	nu_spotlight_items.id = nu_spotlight_items_sets.nu_spotlight_item_id
+					 AND
+					 	nu_spotlight_items_images.nu_spotlight_item_id = nu_spotlight_items.id
+					 OR
+					 	nu_spotlight_sets.id = nu_spotlight_sets_calendars.nu_spotlight_set_id
+					 AND
+					 	nu_spotlight_sets_calendars.day_of_year <= 365
+					 AND
+					 	nu_spotlight_sets_calendars.year = ". $year_to_view_minus_one_year ."
 					 AND
 					 	nu_spotlight_items_sets.nu_spotlight_set_id = nu_spotlight_sets.id
 					 AND
@@ -63,7 +89,6 @@ $query = 	"SELECT
 
 $result = mysql_query($query);
 
-
 //echo $query."<br />";exit;
 					
 while ($row = mysql_fetch_assoc($result)) {
@@ -78,19 +103,15 @@ foreach( $sets  as  $set){
 	
 	if( $previous_name != $set['nu_spotlight_items_sets_id']	){
 		
-			$item['day_of_year'] = $set['day_of_year'];
-			$item['nu_spotlight_sets_name'] = $set['nu_spotlight_sets_name'];
-			$item['order'] = $set['order'];
-			$item['nu_spotlight_items_name'] = $set['nu_spotlight_items_name'];
-			$item['nu_spotlight_items_title'] = $set['nu_spotlight_items_title'];
-			$item['nu_spotlight_items_link'] = $set['nu_spotlight_items_link'];
-			$item['nu_spotlight_items_blurb'] = $set['nu_spotlight_items_blurb'];
-				
 			foreach( $set  as  $field => $value){
+				
+				$item[$field] = $set[$field];
+				
 				if( $field == 'nu_spotlight_items_image_id'){
 
 					$image['feature'] = $value;
 				};
+				
 			};	
 
 		
@@ -110,7 +131,7 @@ foreach( $sets  as  $set){
 	$previous_name = $set['nu_spotlight_items_sets_id'];		
 };
 
-// echo '<pre>';print_r(  $items );echo '</pre>';  exit;
+//echo '<pre>';print_r(  $items );echo '</pre>';  exit;
 
 
 //echo 'FIRST SPOT TITLE:' . $items[0]['nu_spotlight_items_title']."<br />";
