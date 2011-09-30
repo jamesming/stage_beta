@@ -142,8 +142,8 @@ for($i=0; $i<=4; $i++){
 					</div>
 					<div class="copy">
 						<h2>What's NU This Week</h2>
-						<h3>Sins! Blues! Dreams! ...and Genes!</h3>
-						<p>This week on nuvoTV the ladies of <i>Model Latina</i> explore the seven deadly sins --- hot!   If action-packed police drama is your thing, witness the Battle of the Blues!  Of course, the tattoos of <i>Miami Ink</i> are always in style, especially on the genetically-enhanced beauty of <i>Dark Angel</i>!</p>
+						<h3>{$video_contents[0]['title']}</h3>
+						<p>{$video_contents[0]['blurb']}</p>
 					</div>
 				</li>
 				{$nu_spotlight_li}		
