@@ -70,7 +70,7 @@ for($i=0; $i<=4; $i++){
 	
 		$nu_spotlight_li .= "
 						<li>
-							<a ". $target ." href=\"{$items[$i]['nu_spotlight_items_link']}\" class=\"no-break\"><img class=\"bordered media\" src=\"http://cms.mynuvotv.com/uploads/nu_spotlight_items_images/{$items[$i]['images']['feature']}/image.png\" /></a>
+							<a ". $target ." href=\"{$items[$i]['nu_spotlight_items_link']}\" class=\"no-break\"><img class=\"bordered media\" src=\"{$base_url}uploads/nu_spotlight_items_images/{$items[$i]['images']['feature']}/image.png\" /></a>
 							<div class=\"copy\">
 								<h2>Nu Spotlight</h2>
 								<h3>{$items[$i]['nu_spotlight_items_title']}</h3>
@@ -151,11 +151,11 @@ for($i=0; $i<=4; $i++){
 			<div style="bottom: 60px; position: absolute; left: 268px;"><b>Click tabs for more spotlights.</b></div>
 			<ul class="inline thumbs">
 				<li id='video_player_link' style="background-image:url(/assets/images/spotlight/spotlight-thumb_video.png);"><a href="#" title="Whats' Nu!">Link2</a></li>
-				<li style="background-image:url(/assets/uploads/nu_spotlight_items_images/{$items[0]['images']['thumb']}/image.png);"><a href="#" title="Exclusive Behind-the-Scenes footage">Link1</a></li>
-				<li style="background-image:url(/assets/uploads/nu_spotlight_items_images/{$items[1]['images']['thumb']}/image.png);"><a href="#" title="Our Nu Store">Link2</a></li>				
-				<li style="background-image:url(/assets/uploads/nu_spotlight_items_images/{$items[2]['images']['thumb']}/image.png);"><a href="#" title="Model Latina on Hulu">Link1</a></li>
-				<li style="background-image:url(/assets/uploads/nu_spotlight_items_images/{$items[3]['images']['thumb']}/image.png);"><a href="#" title="Tweet with Us">Link1</a></li>
-				<li style="background-image:url(/assets/uploads/nu_spotlight_items_images/{$items[4]['images']['thumb']}/image.png);"><a href="#" title="FREE T-Shirt">Link2</a></li>
+				<li style="background-image:url({$base_url}uploads/nu_spotlight_items_images/{$items[0]['images']['thumb']}/image.png);"><a href="#" title="Exclusive Behind-the-Scenes footage">Link1</a></li>
+				<li style="background-image:url({$base_url}uploads/nu_spotlight_items_images/{$items[1]['images']['thumb']}/image.png);"><a href="#" title="Our Nu Store">Link2</a></li>				
+				<li style="background-image:url({$base_url}uploads/nu_spotlight_items_images/{$items[2]['images']['thumb']}/image.png);"><a href="#" title="Model Latina on Hulu">Link1</a></li>
+				<li style="background-image:url({$base_url}uploads/nu_spotlight_items_images/{$items[3]['images']['thumb']}/image.png);"><a href="#" title="Tweet with Us">Link1</a></li>
+				<li style="background-image:url({$base_url}uploads/nu_spotlight_items_images/{$items[4]['images']['thumb']}/image.png);"><a href="#" title="FREE T-Shirt">Link2</a></li>
 			</ul>
 			
 		</div>

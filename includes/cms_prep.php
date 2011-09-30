@@ -2,11 +2,17 @@
 
 
 
-if( $_SERVER['HTTP_HOST'] == 'james.mynuvotv.com' ){
-	$host = "192.168.110.211"; 
-}elseif( $_SERVER['HTTP_HOST'] == 'tv.localhost' ){
+if( $_SERVER['HTTP_HOST'] == 'tv.localhost'  ){
 	$host = "localhost";
+//		$base_url = 'localhost/cms/';
+$base_url = 'http://cms.mynuvotv.com/';
+}else{
+	$host = "192.168.110.211"; 
+	$base_url = 'http://cms.mynuvotv.com/';
 };
+
+
+
 
 $user = "jamesming";  
 $pw = "ourlady";     
