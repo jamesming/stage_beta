@@ -25,7 +25,7 @@ EOHERO;
 			<li><a href="/series/$seriesBase/cast">Cast</a></li>
 			 <li><a href="/series/$seriesBase/video">Video</a></li>
 			<li><a href="/series/$seriesBase/episodes">Episodes</a></li>
-			<li><a href="/series/$seriesBase/features">Features</a></li>
+			<li  class="last"><a href="/series/$seriesBase/features">Features</a></li>
 			<li class="active last"><a href="/series/$seriesBase/photos">Photos</a></li>
 			<li class="season-nav">
 				<span>Season:</span>
