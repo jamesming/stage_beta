@@ -52,23 +52,24 @@ EOHERO;
 	</div>
 	<div class="main">
 	<div class="featured white-box block">
-	 <!--
-			<h2>BeChicMag: 3 Latinas Rising in Fashion</h2>
+
+			<h2>Top 10 Latin-Flavored American Restaurants</h2>
 			<img class="bordered media" src="/assets/images/featured/thumbs/screen_shot_2011-05-24_at_10.50.01_am_138x138.jpg" />
 			<div class="copy">
-				<p>Our fashion-obsessed friend, Mercedes Sanchez of BeChicMag.com, recently profiled three Latinas making a name for themselves in fashion. Representing Peru, Puerto Rico, and Cuba, these up-and-coming designers have seen their creations on everyone from Chloe Sevigny to Beyonce, and our very own Model Latinas!</p>
+				<p>Nuvo's Mission Menu follows a self-described "United Nations of chefs" as they cook up plenty of delicious drama while helping restaurants go from simmering to sizzling with exciting new culture-based dishes. All this focus around exotic cuisine has us salivating for a night out at our favorite hot spots. Check out favorite Top 10 Latin-Flavored American Restaurants.</p>
 				<p><a href="/series/mission-menu/features" class="no-break">Read More +</a></p>
 			</div>
-		  -->	
+	</div>
+
 
 		
-		<!--
+		
 		<div class="discussion white-box block">
 			<h2>Discussion</h2>
 			<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:comments href="{$page->fullURL}" num_posts="4" width="420"></fb:comments>
 		</div> 
-	  -->	
-		<div class="cast padded-box block">
+	  	
+		<div class="discussion white-box block">
 			<h2>Meet the Cast</h2>
 			<ul class="unstyled">
 				<li class="first block">
@@ -98,8 +99,8 @@ EOHERO;
 
 			</ul>
 			<a class="sub-page-more" href="/series/mission-menu/cast">See the entire cast +</a>
+
 		</div>
-			</div>
 	</div>
 	<div class="sidebar-right" >
 		<div class="ad ad-box block"></div>
