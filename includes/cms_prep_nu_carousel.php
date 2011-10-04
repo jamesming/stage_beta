@@ -119,14 +119,13 @@ foreach( $sets  as  $set){
 
 //echo '<pre>';print_r(  $carousel_items );echo '</pre>';  exit;
 
-echo $carousel_items[0]['carousel_items_id']."<br />";
-echo $carousel_items[0]['carousel_items_page_link']."<br />";
-echo $carousel_items[0]['carousel_items_video_link']."<br />";
-echo $carousel_items[0]['carousel_items_facebook_link']."<br />";
-echo $carousel_items[0]['images'][0]."<br />";
-echo $carousel_items[0]['images'][1]."<br />";
-echo $carousel_items[0]['images'][2]."<br />";
-
+//echo $carousel_items[3]['carousel_items_id']."<br />";
+//echo $carousel_items[3]['carousel_items_page_link']."<br />";
+//echo $carousel_items[3]['carousel_items_video_link']."<br />";
+//echo $carousel_items[3]['carousel_items_facebook_link']."<br />";
+//echo $carousel_items[3]['images'][0]."<br />";
+//echo $carousel_items[3]['images'][1]."<br />";
+//echo $carousel_items[3]['images'][2]."<br />";
 
 
 

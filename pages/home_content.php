@@ -1,5 +1,5 @@
 <?php     
-include('includes/cms_prep.php'); 
+
 
 $nu_spotlight_li = "";
 for($i=0; $i<=4; $i++){
