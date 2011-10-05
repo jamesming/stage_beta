@@ -145,6 +145,7 @@ foreach( $sets  as  $set){
 	$previous_id = $set['carousel_items_sets_id'];		
 };
 
+//echo $carousel_items[$i]['images'][1]['carousel_items_image_id']."<br />";exit;
 //echo '<pre>';print_r(  $carousel_items );echo '</pre>';  exit;
 
 //echo $carousel_items[3]['carousel_items_id']."<br />";
