@@ -22,9 +22,9 @@ include('includes/cms_prep.php');
 	$right_tab = '';
 	
 	for($i=0;$i<4;$i++){
-		
+		$tab_num = $i + 1;
 		$right_tab = $right_tab . '
-			<li class="tab-1" style="background-image: url('.$base_url.'uploads/carousel_items_images/'. $carousel_items[$i]['images'][2].'/image.png);"></li>
+			<li class="tab-'.$tab_num.'" style="background-image: url('.$base_url.'uploads/carousel_items_images/'. $carousel_items[$i]['images'][2].'/image.png);"></li>
 		';	
 	
 	};
@@ -38,7 +38,7 @@ include('includes/cms_prep.php');
 	for($i=0;$i<4;$i++){	
 	$tune_in = $tune_in .'
 	<li>
-			<div class="offset" style="background:transparent url('.$base_url.'uploads/carousel_items_images/'. $carousel_items[$i]['images'][1].'/image.png) no-repeat 0 0; left:3px; top:270px; width:670px; height:170px;">
+			<div class="offset" style="background:transparent url('.$base_url.'uploads/carousel_items_images/'. $carousel_items[$i]['images'][1]['carousel_items_image_id'].'/image.png) no-repeat 0 0; left:3px; top:270px; width:670px; height:170px;">
 				<a target="_blank" href="http://www.facebook.com/ModelLatina" style="height: 74px; z-index: 2; top: 93px; width: 203px; left: 326px;">facebook</a>
 				<a class="full-link" href="/model-latina-las-vegas/">base link</a>			
 			</div>

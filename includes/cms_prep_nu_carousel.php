@@ -14,7 +14,9 @@ $query = 	"SELECT
 					 	carousel_items.video_link AS 	carousel_items_video_link,
 					 	carousel_items.facebook_link AS 	carousel_items_facebook_link,
 					 	carousel_items.id AS carousel_items_id,
-					 	carousel_items_images.id AS carousel_items_image_id
+					 	carousel_items_images.id AS carousel_items_image_id,
+					 	carousel_items_images.width AS width,
+					 	carousel_items_images.height AS height
 					 FROM 
 					 	carousel_sets_calendars,
 					 	carousel_sets,
@@ -78,10 +80,24 @@ foreach( $sets  as  $set){
 				
 				$carousel_item[$field] = $set[$field];
 				
-				if( $field == 'carousel_items_image_id'){
+				if( $field == 'carousel_items_image_id' ||
+						$field == 'width' ||
+						$field == 'height' 
+				){
 
-					$image[] = $value;
+						$array[$field] = $value;
+			
+
 				};
+				
+				if( count($array) == 3 ){
+					
+						$image[] = $array;
+						unset($array);			
+					
+				};
+				
+
 				
 			};	
 		$carousel_item['images'] = $image;			
@@ -97,9 +113,21 @@ foreach( $sets  as  $set){
 				
 				$carousel_item[$field] = $set[$field];
 				
-				if( $field == 'carousel_items_image_id'){
+				if( $field == 'carousel_items_image_id' ||
+						$field == 'width' ||
+						$field == 'height' 
+				){
 
-					$image[] = $value;
+						$array[$field] = $value;
+			
+
+				};
+				
+				if( count($array) == 3 ){
+					
+						$image[] = $array;
+						unset($array);			
+					
 				};
 				
 			};					
