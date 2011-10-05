@@ -16,7 +16,15 @@ $query = 	"SELECT
 					 	carousel_items.id AS carousel_items_id,
 					 	carousel_items_images.id AS carousel_items_image_id,
 					 	carousel_items_images.width AS width,
-					 	carousel_items_images.height AS height
+					 	carousel_items_images.height AS height,
+					 	carousel_items_images.facebook_width,
+					 	carousel_items_images.facebook_height,
+					 	carousel_items_images.facebook_top,
+					 	carousel_items_images.facebook_left,
+					 	carousel_items_images.video_width,
+					 	carousel_items_images.video_height,
+					 	carousel_items_images.video_top,
+					 	carousel_items_images.video_left
 					 FROM 
 					 	carousel_sets_calendars,
 					 	carousel_sets,
@@ -82,7 +90,15 @@ foreach( $sets  as  $set){
 				
 				if( $field == 'carousel_items_image_id' ||
 						$field == 'width' ||
-						$field == 'height' 
+						$field == 'height' ||
+						$field == 'facebook_top' ||
+						$field == 'facebook_left' ||
+						$field == 'facebook_width' ||
+						$field == 'facebook_height'  ||
+						$field == 'video_top' ||
+						$field == 'video_left' ||
+						$field == 'video_width' ||
+						$field == 'video_height'  
 				){
 
 						$array[$field] = $value;
@@ -90,7 +106,7 @@ foreach( $sets  as  $set){
 
 				};
 				
-				if( count($array) == 3 ){
+				if( count($array) == 11 ){
 					
 						$image[] = $array;
 						unset($array);			
@@ -115,7 +131,15 @@ foreach( $sets  as  $set){
 				
 				if( $field == 'carousel_items_image_id' ||
 						$field == 'width' ||
-						$field == 'height' 
+						$field == 'height' ||
+						$field == 'facebook_top' ||
+						$field == 'facebook_left' ||
+						$field == 'facebook_width' ||
+						$field == 'facebook_height'  ||
+						$field == 'video_top' ||
+						$field == 'video_left' ||
+						$field == 'video_width' ||
+						$field == 'video_height'  
 				){
 
 						$array[$field] = $value;
@@ -123,7 +147,7 @@ foreach( $sets  as  $set){
 
 				};
 				
-				if( count($array) == 3 ){
+				if( count($array) == 11 ){
 					
 						$image[] = $array;
 						unset($array);			
