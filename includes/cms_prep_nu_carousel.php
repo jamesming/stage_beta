@@ -9,6 +9,7 @@ $query = 	"SELECT
 						carousel_sets.name AS carousel_sets_name,
 					 	carousel_items_sets.id  AS carousel_items_sets_id,
 					 	carousel_items_sets.order,
+					 	carousel_items.launch,
 					 	carousel_items.name AS 	carousel_items_name,
 					 	carousel_items.page_link AS 	carousel_items_page_link,
 					 	carousel_items.video_link AS 	carousel_items_video_link,
