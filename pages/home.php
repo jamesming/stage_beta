@@ -51,18 +51,27 @@ include('includes/cms_prep.php');
 		$top = '270';		
 	};
 
-	
+	if( $carousel_items[$i]['images'][1]['facebook_link'] != '' ){
+		$facebook_link ='<a target="_blank" href="'.  $carousel_items[$i]['images'][1]['facebook_link'] .'" style="height: '. $carousel_items[$i]['images'][1]['facebook_height'] .'px; z-index: 2; top: '. $carousel_items[$i]['images'][1]['facebook_top'] .'px; width: '. $carousel_items[$i]['images'][1]['facebook_width'] .'px; left: '. $carousel_items[$i]['images'][1]['facebook_left'] .'px;border:1px solid white">facebook</a> ';
+	}else{
+		$facebook_link = '';
+	};
+
+	if( $carousel_items[$i]['images'][1]['video_link'] != '' ){
+		$video_link = '	<a href="'. $carousel_items[$i]['images'][1]['video_link'] .'" style="left:'. $carousel_items[$i]['images'][1]['video_left'] .'px; top:'. $carousel_items[$i]['images'][1]['video_top'] .'px; width:'. $carousel_items[$i]['images'][1]['video_width'] .'px; height:'. $carousel_items[$i]['images'][1]['video_height'] .'px; z-index:1;border:1px solid white">video</a>';
+	}else{
+		$video_link = '';
+	};
+
 	$tune_in = $tune_in .'
 		<li>
 			<div class="offset tune_in-' . $tune_num  . '" style="background:transparent url('.$base_url.'uploads/carousel_items_images/'. $carousel_items[$i]['images'][1]['carousel_items_image_id'].'/image.png) no-repeat 0 0; left:' . $left  . 'px; top:' . $top . 'px; width:'. $carousel_items[$i]['images'][1]['width'] .'px; height:'. $carousel_items[$i]['images'][1]['height'] .'px;"> '
 			
+			. $facebook_link 
+				
+			.	$video_link
 			
-			. '<a target="_blank" href="http://www.facebook.com/ModelLatina" style="height: '. $carousel_items[$i]['images'][1]['facebook_height'] .'px; z-index: 2; top: '. $carousel_items[$i]['images'][1]['facebook_top'] .'px; width: '. $carousel_items[$i]['images'][1]['facebook_width'] .'px; left: '. $carousel_items[$i]['images'][1]['facebook_left'] .'px;border:1px solid white">facebook</a> ' .
-				
-				
-				
-			'	<a href="http://bcove.me/q16lhvyo" style="left:'. $carousel_items[$i]['images'][1]['video_left'] .'px; top:'. $carousel_items[$i]['images'][1]['video_top'] .'px; width:'. $carousel_items[$i]['images'][1]['video_width'] .'px; height:'. $carousel_items[$i]['images'][1]['video_height'] .'px; z-index:1;border:1px solid white">video</a>			
-			</div>
+			. '</div>
 			<a class="full-link" href="/model-latina-las-vegas/">base link</a>	
 		</li>
 	';

@@ -17,10 +17,12 @@ $query = 	"SELECT
 					 	carousel_items_images.id AS carousel_items_image_id,
 					 	carousel_items_images.width AS width,
 					 	carousel_items_images.height AS height,
+					 	carousel_items_images.facebook_link,
 					 	carousel_items_images.facebook_width,
 					 	carousel_items_images.facebook_height,
 					 	carousel_items_images.facebook_top,
 					 	carousel_items_images.facebook_left,
+					 	carousel_items_images.video_link,
 					 	carousel_items_images.video_width,
 					 	carousel_items_images.video_height,
 					 	carousel_items_images.video_top,
@@ -91,10 +93,12 @@ foreach( $sets  as  $set){
 				if( $field == 'carousel_items_image_id' ||
 						$field == 'width' ||
 						$field == 'height' ||
+						$field == 'facebook_link' ||
 						$field == 'facebook_top' ||
 						$field == 'facebook_left' ||
 						$field == 'facebook_width' ||
 						$field == 'facebook_height'  ||
+						$field == 'video_link' ||
 						$field == 'video_top' ||
 						$field == 'video_left' ||
 						$field == 'video_width' ||
@@ -106,7 +110,7 @@ foreach( $sets  as  $set){
 
 				};
 				
-				if( count($array) == 11 ){
+				if( count($array) == 13 ){
 					
 						$image[] = $array;
 						unset($array);			
@@ -132,10 +136,12 @@ foreach( $sets  as  $set){
 				if( $field == 'carousel_items_image_id' ||
 						$field == 'width' ||
 						$field == 'height' ||
+						$field == 'facebook_link' ||
 						$field == 'facebook_top' ||
 						$field == 'facebook_left' ||
 						$field == 'facebook_width' ||
 						$field == 'facebook_height'  ||
+						$field == 'video_link' ||
 						$field == 'video_top' ||
 						$field == 'video_left' ||
 						$field == 'video_width' ||
@@ -147,7 +153,7 @@ foreach( $sets  as  $set){
 
 				};
 				
-				if( count($array) == 11 ){
+				if( count($array) == 13 ){
 					
 						$image[] = $array;
 						unset($array);			
