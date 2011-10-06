@@ -31,7 +31,7 @@
 
 <?
 
-include('osmin_header.php');
+include('osmin_header_090711.php');
 
 $now = time();
 

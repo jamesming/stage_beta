@@ -72,7 +72,7 @@ include('includes/cms_prep.php');
 			.	$video_link
 			
 			. '</div>
-			<a class="full-link" href="/model-latina-las-vegas/">base link</a>	
+			<a class="full-link" href="' . $carousel_items[$i]['carousel_items_page_link'] .  '">base link</a>	
 		</li>
 	';
 	};
