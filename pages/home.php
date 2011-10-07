@@ -2,10 +2,13 @@
 include('includes/cms_prep.php'); 
 
 
+
+
+
 	$page->template = "standard";	
 
 
-
+	// HERO
 	$theme = '';
 	
 	for($i=0;$i<4;$i++){
@@ -19,64 +22,98 @@ include('includes/cms_prep.php');
 	$page->components["theme"]  = $theme;
 	
 
+
+
+
+	// RIGHT TAB
 	$right_tab = '';
-	
+
+
+
+
 	for($i=0;$i<4;$i++){
+		
+		if(  isset( $carousel_items[$i]['images'][2] ) ){
+			$showHasTuneIn = TRUE;
+		}else{
+			$showHasTuneIn = FALSE;		
+		};
+
+		if(  $showHasTuneIn ){ 
+			$carousel_id_2_use = $carousel_items[$i]['images'][2]['carousel_items_image_id'];
+		}else{
+			$carousel_id_2_use = $carousel_items[$i]['images'][1]['carousel_items_image_id'];
+		};		
+
 		$tab_num = $i + 1;
 		$right_tab = $right_tab . '
-			<li class="tab-'.$tab_num.'" style="background-image: url('.$base_url.'uploads/carousel_items_images/'. $carousel_items[$i]['images'][2]['carousel_items_image_id'].'/image.png);"></li>
+			<li class="tab-'.$tab_num.'" style="background-image: url('.$base_url.'uploads/carousel_items_images/'. $carousel_id_2_use  .'/image.png);"></li>
 		';	
 	
 	};
 	
 
 
-
+	// TUNE IN
 	$tune_in = '';
 	
+ 
 	for($i=0;$i<4;$i++){
-	
-	$full_width = 640;
 		
-	if( $carousel_items[$i]['images'][1]['width'] < $full_width  ){
-		$left = $full_width - $carousel_items[$i]['images'][1]['width'];
-	}else{
-		$left = 670 - $carousel_items[$i]['images'][1]['width'];	
-	};
-	
-	
-	if( $carousel_items[$i]['images'][1]['height'] > 167){
-		$top = '260';
-	}else{
-		$top = '270';		
-	};
+		if(  isset( $carousel_items[$i]['images'][2] ) ){
+			$showHasTuneIn = TRUE;
+		}else{
+			$showHasTuneIn = FALSE;		
+		};
+		
 
-	if( $carousel_items[$i]['images'][1]['facebook_link'] != '' ){
-		$facebook_link ='<a target="_blank" href="'.  $carousel_items[$i]['images'][1]['facebook_link'] .'" style="height: '. $carousel_items[$i]['images'][1]['facebook_height'] .'px; z-index: 2; top: '. $carousel_items[$i]['images'][1]['facebook_top'] .'px; width: '. $carousel_items[$i]['images'][1]['facebook_width'] .'px; left: '. $carousel_items[$i]['images'][1]['facebook_left'] .'px;border:0px solid white">facebook</a> ';
-	}else{
-		$facebook_link = '';
-	};
-
-	if( $carousel_items[$i]['images'][1]['video_link'] != '' ){
-		$video_link = '	<a href="'. $carousel_items[$i]['images'][1]['video_link'] .'" style="left:'. $carousel_items[$i]['images'][1]['video_left'] .'px; top:'. $carousel_items[$i]['images'][1]['video_top'] .'px; width:'. $carousel_items[$i]['images'][1]['video_width'] .'px; height:'. $carousel_items[$i]['images'][1]['video_height'] .'px; z-index:1;border:0px solid white">video</a>';
-	}else{
-		$video_link = '';
-	};
-
-	$tune_in = $tune_in .'
-		<li>
-			<div class="offset tune_in-' . $tune_num  . '" style="background:transparent url('.$base_url.'uploads/carousel_items_images/'. $carousel_items[$i]['images'][1]['carousel_items_image_id'].'/image.png) no-repeat 0 0; left:' . $left  . 'px; top:' . $top . 'px; width:'. $carousel_items[$i]['images'][1]['width'] .'px; height:'. $carousel_items[$i]['images'][1]['height'] .'px;"> '
-			
-			. $facebook_link 
+		
+		if(  $showHasTuneIn ){
+					$full_width = 640;
+						
+					if( $carousel_items[$i]['images'][1]['width'] < $full_width  ){
+						$left = $full_width - $carousel_items[$i]['images'][1]['width'];
+					}else{
+						$left = 670 - $carousel_items[$i]['images'][1]['width'];	
+					};
+					
+					
+					if( $carousel_items[$i]['images'][1]['height'] > 167){
+						$top = '260';
+					}else{
+						$top = '270';		
+					};
 				
-			.	$video_link
+					if( $carousel_items[$i]['images'][1]['facebook_link'] != '' ){
+						$facebook_link ='<a target="_blank" href="'.  $carousel_items[$i]['images'][1]['facebook_link'] .'" style="height: '. $carousel_items[$i]['images'][1]['facebook_height'] .'px; z-index: 2; top: '. $carousel_items[$i]['images'][1]['facebook_top'] .'px; width: '. $carousel_items[$i]['images'][1]['facebook_width'] .'px; left: '. $carousel_items[$i]['images'][1]['facebook_left'] .'px;border:0px solid white">facebook</a> ';
+					}else{
+						$facebook_link = '';
+					};
+				
+					if( $carousel_items[$i]['images'][1]['video_link'] != '' ){
+						$video_link = '	<a href="'. $carousel_items[$i]['images'][1]['video_link'] .'" style="left:'. $carousel_items[$i]['images'][1]['video_left'] .'px; top:'. $carousel_items[$i]['images'][1]['video_top'] .'px; width:'. $carousel_items[$i]['images'][1]['video_width'] .'px; height:'. $carousel_items[$i]['images'][1]['video_height'] .'px; z-index:1;border:0px solid white">video</a>';
+					}else{
+						$video_link = '';
+					};
+				
+					$tune_in = $tune_in .'
+						<li>
+							<div class="offset tune_in-' . $tune_num  . '" style="background:transparent url('.$base_url.'uploads/carousel_items_images/'. $carousel_items[$i]['images'][1]['carousel_items_image_id'].'/image.png) no-repeat 0 0; left:' . $left  . 'px; top:' . $top . 'px; width:'. $carousel_items[$i]['images'][1]['width'] .'px; height:'. $carousel_items[$i]['images'][1]['height'] .'px;"> '
+							
+							. $facebook_link 
+								
+							.	$video_link
+							
+							. '</div>
+							<a class="full-link" ' .  ( $carousel_items[$i]['launch'] == 1 ? ' target="_blank" ' : '' ) . 'href="' . $carousel_items[$i]['carousel_items_page_link'] .  '">base link</a>	
+						</li>
+					';
+		}else{
 			
-			. '</div>
-			<a class="full-link" ' .  ( $carousel_items[$i]['launch'] == 1 ? ' target="_blank" ' : '' ) . 'href="' . $carousel_items[$i]['carousel_items_page_link'] .  '">base link</a>	
-		</li>
-	';
+			$tune_in = '<li></li>';
+			
+		};
 	};
-	
 
 	$page->components["hero"] = '
 	<ul class="unstyled tabs">'.$right_tab.'</ul>
