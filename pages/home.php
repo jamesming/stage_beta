@@ -63,12 +63,14 @@ include('includes/cms_prep.php');
 		if(  isset( $carousel_items[$i]['images'][2] ) ){
 			$showHasTuneIn = TRUE;
 		}else{
-			$showHasTuneIn = FALSE;		
+			$showHasTuneIn = FALSE;
 		};
 		
 
 		
 		if(  $showHasTuneIn ){
+			
+			
 					$full_width = 640;
 						
 					if( $carousel_items[$i]['images'][1]['width'] < $full_width  ){
@@ -110,10 +112,12 @@ include('includes/cms_prep.php');
 					';
 		}else{
 			
-			$tune_in = '<li></li>';
+			$tune_in = $tune_in.'<li><a class="full-link" ' .  ( $carousel_items[$i]['launch'] == 1 ? ' target="_blank" ' : '' ) . 'href="' . $carousel_items[$i]['carousel_items_page_link'] .  '">base link</a>	</li>';
 			
 		};
 	};
+	
+
 
 	$page->components["hero"] = '
 	<ul class="unstyled tabs">'.$right_tab.'</ul>

@@ -9,7 +9,6 @@ $query = 	"SELECT
 						carousel_sets.name AS carousel_sets_name,
 					 	carousel_items_sets.id  AS carousel_items_sets_id,
 					 	carousel_items_sets.order,
-					 	carousel_items.launch,
 					 	carousel_items.name AS 	carousel_items_name,
 					 	carousel_items.page_link AS 	carousel_items_page_link,
 					 	carousel_items.video_link AS 	carousel_items_video_link,
@@ -177,7 +176,7 @@ foreach( $sets  as  $set){
 };
 
 //echo $carousel_items[$i]['images'][1]['carousel_items_image_id']."<br />";exit;
-//echo '<pre>';print_r(  $carousel_items );echo '</pre>';  exit;
+
 
 //echo $carousel_items[3]['carousel_items_id']."<br />";
 //echo $carousel_items[3]['carousel_items_page_link']."<br />";
@@ -188,5 +187,5 @@ foreach( $sets  as  $set){
 //echo $carousel_items[3]['images'][2]."<br />";
 
 
-
+//echo '<pre>';print_r(  $carousel_items );echo '</pre>';  exit;
 ?>
