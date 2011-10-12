@@ -10,7 +10,7 @@
 EOTHEME;
 	
 	$page->components["hero"] = <<<EOHERO
-	<div class="controls" style="background:transparent url(/assets/images/heroes/series/txt_pastport-PR.png) no-repeat 0 0; left:344px; top:70px; width:684px; height:138px;">
+	<div class="controls" style="background:transparent url(/assets/images/heroes/series/txt_pastport_Panama.png) no-repeat 0 0; left:344px; top:70px; width:684px; height:138px;">
 		<a href="http://www.facebook.com/Pastport" style="left:285px; top:59px; width:217px; height:73px;">facebook</a>
 	</div>
 EOHERO;
@@ -45,7 +45,10 @@ EOHERO;
 		</div>
 		<div class="about white-box block">
 			<h2>About</h2>
-			<p>Actress Alanna Ubach (HBO's <i>Hung</i>, <i>Meet the Fockers</i>, <i>Legally Blonde</i>) has everything going for her &mdash;a successful acting career and a budding relationship with her Swedish boyfriend, Pelle. Now, a return to Puerto Rico will pay homage to her father, Rodolfo, who passed away 17 years ago. The time has come to make peace with her father's memory and connect with the Latino roots she lost.  But when Pelle joins her on this intimate journey, will it prove to be too much for the two of them to handle?</p>
+			<p>
+			
+On <i>Pastport: Panama</i>, multi-talented actress-musician Tatyana Ali, best known for her role as Will Smith's little cousin on <i>The Fresh Prince of Bel-Air</i>, explores her fascinating family history with a life-affirming trip to Panama. Add in a jam session with Latin Grammy winners Los Rabanes, a big family surprise and plenty of emotional self-discovery and you get one of <i>Pastport's</i> most inspired episodes.			
+			</p>
 		</div>
 		<div class="ad ad-tall block"></div>
 	</div>

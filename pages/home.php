@@ -52,7 +52,7 @@ include('includes/cms_prep.php');
 	
 	};
 	
-
+	$right_tab = $right_tab . '<li class="countdown_timer"  ><iframe   scrolling="no" frameBorder="0"  allowtransparency="true" src="http://cms.mynuvotv.com/countdown_tiny.php"  ></iframe></li>';
 
 	// TUNE IN
 	$tune_in = '';
@@ -80,10 +80,10 @@ include('includes/cms_prep.php');
 					};
 					
 					
-					if( $carousel_items[$i]['images'][1]['height'] > 167){
+					if( $carousel_items[$i]['images'][1]['height'] > 100){
 						$top = '260';
 					}else{
-						$top = '270';		
+						$top = '300';		
 					};
 				
 					if( $carousel_items[$i]['images'][1]['facebook_link'] != '' ){
@@ -117,7 +117,6 @@ include('includes/cms_prep.php');
 		};
 	};
 	
-
 
 	$page->components["hero"] = '
 	<ul class="unstyled tabs">'.$right_tab.'</ul>

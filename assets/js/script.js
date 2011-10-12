@@ -115,6 +115,7 @@ function wireHeroes() {
 
 	var fadeDuration = 500;
 	var heroDuration = 10000;
+//		var heroDuration = 1000;
 /*
 	$(".home .theme").each(function(i, item) {
 		var pager = $("<ul class=\"inline pager\"></ul>")
@@ -190,7 +191,7 @@ function wireHeroes() {
 	
 	function advanceHeroCycle() {
 		var next = $(".hero .tabs li.active").next();
-		if (next.length == 0) {
+		if (next.length == 0 || next.attr('class') == 'countdown_timer') {
 			next = $(".hero .tabs li:first");
 		}
 		
@@ -676,10 +677,23 @@ function getShowSchedule() {
 				result = list;
 			}
 		}
-		if (result == "") {
-			result = $("<p />").html("This show is currently not scheduled. Please check back often for updates!");
-		}
-		$(".schedule").append(result);		
+		if( id == 'Mission Menu'){
+			result = '';$("<p />").html("Tune into the Series Premiere October 18th 9/8c");
+		}else{
+			if (result == "") {
+				result = $("<p />").html("This show is currently not scheduled. Please check back often for updates!");
+			}			
+		};
+		
+		
+		if( id != 'Mission Menu'){
+				$(".schedule").append(result);			
+		}else{
+
+		};
+		
+		
+		
 	});
 }
 
@@ -1072,6 +1086,8 @@ function addYouTubeWidget(){
 //    }
 //}
 
+
+
 $(document).ready(function () {
 
 pageDesiredHeight = $(".container").height();
@@ -1087,7 +1103,7 @@ wireFancyBox();
 skinSelect();
 addFlashAlternates();
 addYouTubeWidget();
-	
+
 	if ($(".section-series, .section-movies").length > 0 && $(".schedule").length > 0) {
 		getShowSchedule();
 	} else if ($(".page-home").length > 0) {

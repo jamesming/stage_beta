@@ -11,14 +11,17 @@
 EOTHEME;
 	
 	$page->components["hero"] = <<<EOHERO
-	<div  class="controls" style="height: 171px;left: 388px;top: 65px;width: 568px;background:transparent url(/assets/images/heroes/series/txt-SP-MISSIONMENU.png) no-repeat 0 0; ">
-		<a href="http://www.facebook.com/pages/Mission-Menu/124750807626746" style="left:235px; top:52px; width:247px; height:73px;">facebook</a>
+	<div  class="controls" style="height: 171px;left: 412px;top: 125px;width: 568px;background:transparent url(/assets/images/heroes/series/txt-SP-MISSIONMENU.png) no-repeat 0 0; ">
+		<a href="http://www.facebook.com/pages/Mission-Menu/124750807626746" style="left:235px; top:55px; width:245px; height:72px;">facebook</a>
 	</div>
 EOHERO;
 
 
 	$seriesBase = "mission-menu";
-	$schedule = getSchedule("model-latina-nyc");
+	
+
+$schedule = "<p><iframe  frameBorder='0' src='http://cms.mynuvotv.com/countdown.php'   style='height:157px'  ></iframe></p>";	
+	//getSchedule("model-latina-nyc");
 	
 	
 	$page->components["content"] = <<<EOCONTENT
@@ -54,9 +57,9 @@ EOHERO;
 	<div class="featured white-box block">
 
 			<h2>Top 10 Latin-Flavored American Restaurants</h2>
-			<img class="bordered media" src="/assets/images/featured/thumbs/screen_shot_2011-05-24_at_10.50.01_am_138x138.jpg" />
+			<img class="bordered media" src="/assets/images/featured/thumbs/MissionMenu_138x138.jpg" />
 			<div class="copy">
-				<p>Nuvo's Mission Menu follows a self-described "United Nations of chefs" as they cook up plenty of delicious drama while helping restaurants go from simmering to sizzling with exciting new culture-based dishes. All this focus around exotic cuisine has us salivating for a night out at our favorite hot spots. Check out favorite Top 10 Latin-Flavored American Restaurants.</p>
+				<p>Nuvo's <i>Mission Menu</i> follows a self-described "United Nations of chefs" as they cook up delicious drama while helping restaurants go from simmering to sizzling with exciting new culture-based dishes. All this focus on exotic cuisine has us salivating for our favorite hot spots. Check out our favorite Top 10 Latin-Flavored American Restaurants.</p>
 				<p><a href="/series/mission-menu/features" class="no-break">Read More +</a></p>
 			</div>
 	</div>
@@ -68,8 +71,17 @@ EOHERO;
 			<h2>Discussion</h2>
 			<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:comments href="{$page->fullURL}" num_posts="4" width="420"></fb:comments>
 		</div> 
-	  	
-		<div class="discussion white-box block">
+	  	<style>
+	  	.cast_section li img{
+	  	float:left;
+	  	}
+	  	.cast_section li img{
+	  	margin-right:15px;
+	  	margin-bottom:0px;
+	  	margin-top:5px;
+	  	}
+	  	</style>
+		<div class="cast_section discussion white-box block">
 			<h2>Meet the Cast</h2>
 			<ul class="unstyled">
 				<li class="first block">

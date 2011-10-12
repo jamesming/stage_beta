@@ -3,7 +3,7 @@
 								<ul class="links">
 									<li><a href="/about-us">About Us</a></li>
 									<li><a href="/contact">Contact</a></li>
-									<li><a href="http://press.sitv.com/">Press</a></li>
+									<li><a href="/press">Press</a></li>
 									<li><a href="http://affiliates.mynuvotv.com">Affiliate</a></li>
 								</ul>
 								<ul class="links">

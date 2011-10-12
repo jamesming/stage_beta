@@ -1,4 +1,6 @@
 <?
+
+
 	$time_start = microtime(true);
 
 	// prevent simple hacking attempts -- someone trying to access files directly
@@ -7,13 +9,15 @@
 	// error reporting
 	ini_set('display_errors', '0');
 	error_reporting(E_ALL ^ E_STRICT);
-	date_default_timezone_set('America/New_York');
+//	date_default_timezone_set('America/New_York');
 
 	// determin which page to render
 	$pageID = strtolower(isset($_GET["pageID"]) ? $_GET["pageID"] : "");
 	if ($pageID == "") {
 		$pageID = "home";
 	}
+
+
 
 	// check if we need to redirect
 	require_once("includes/redirects.php");

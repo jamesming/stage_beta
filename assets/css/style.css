@@ -270,9 +270,33 @@ button::-moz-focus-inner { border: 0; }
 .page-home .hero .tabs li.tab-2 { left: 39px; top: 100px; z-index: 3; }
 .page-home .hero .tabs li.tab-3 { left: 79px; top: 200px; z-index: 2; }
 .page-home .hero .tabs li.tab-4 { left: 118px; top: 300px; z-index: 1; }
+.page-home .hero .tabs li.countdown_timer {
+  background-image: url('/assets/images/timer-frame_v2.png');
+  background-position: 5px -1px;
+	background-repeat: no-repeat;
+	left: 217px;
+	top: 434px;
+	width: 229px; 
+	height: 105px; 
+	-webkit-background-size: 229px 105px; 
+}
+.page-home .hero .tabs li.countdown_timer iframe{ 
+    height: 32px;
+    overflow: hidden;
+    padding-left: 0px;
+    width: 150px;
+    margin-left: 20px;
+    padding-right: 0px;
+    background-color: transparent;
+    padding-top:0px;
+    
+    
+}
 .page-home .hero .controls { position:absolute; height: 465px; width:750px; z-index:1; }
+
 /* .page-home .hero .controls li { position: absolute; z-index: 2; }
 .page-home .hero .controls li { visibility: hidden; position: absolute; z-index: 1; } */
+
 .page-home .hero .controls li { left: 0; height: 465px; position: absolute; top: 0; visibility: hidden; width: 750px; z-index: 1; }
 .page-home .hero .controls li .offset { position:absolute; z-index:2; }
 .page-home .hero .controls li .full-link { height: 100%; left: 0; position: absolute; top: 0; width: 100%; z-index: 0; }
@@ -450,6 +474,7 @@ select.skinned option { font-size: 14px; padding:2px 5px; }
 .section-pastport-colombia .theme div { background: transparent url(/assets/images/heroes/series/_bg_PastPort_Colombia2.jpg) no-repeat; }
 .section-pastport-cuba .theme div { background: transparent url(/assets/images/heroes/series/_bg_PastPort_Cuba2.jpg) no-repeat; }
 .section-pastport-puerto-rico .theme div { background: transparent url(/assets/images/heroes/series/_bg_SP_pastpot-PR.jpg) no-repeat; }
+.section-pastport-panama .theme div { background: transparent url(/assets/images/heroes/series/_bg_PP_Panama_series.jpg) no-repeat; }
 .section-pastport-venezuela .theme div { background: transparent url(/assets/images/heroes/series/_bg_PastPort_Venez.jpg) no-repeat; }
 .section-prison-break .theme div { background: transparent url(/assets/images/heroes/series/_bg_PrisonBreak.jpg) no-repeat; }
 .section-dark-angel .theme div { background: transparent url(/assets/images/heroes/series/_bg_SP_darkangel.jpg) no-repeat; }
@@ -691,3 +716,13 @@ margin:0px 0px 0px 33px;
 .fancybox-ie #fancybox-bg-w { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/assets/images/libs/fancybox/fancy_shadow_w.png', sizingMethod='scale') }
 .fancybox-ie #fancybox-bg-nw { filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/assets/images/libs/fancybox/fancy_shadow_nw.png', sizingMethod='scale') }
 
+/* CSS for the tune-in image*/
+
+.tune_in_container {
+	
+    right: -290px;
+	left: 0; 
+    top: 260px;
+	width: 100%;
+	height: 100%;
+}

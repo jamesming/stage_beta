@@ -83,7 +83,7 @@ for($i=0; $i<=4; $i++){
 
 					</div>
 					<div class="copy">
-						<h2>What's NU This Week</h2>
+						<h2>What's NU...</h2>
 						<h3>{$video_contents[0]['title']}</h3>
 						<p>{$video_contents[0]['blurb']}</p>
 					</div>
@@ -161,7 +161,38 @@ for($i=0; $i<=4; $i++){
 				
 			<a target='_blank' href='http://twitter.com/#!/mynuvoTV'>
 				<div class="twitter">
-					twitter_widget.php
+					<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+					<script>
+					new TWTR.Widget({
+					  version: 2,
+					  type: 'search',
+					  search: 'mynuvotv OR operationosmin OR modellatina',
+					  interval: 3000,
+					  width: 370,
+					  height: 370,
+					  theme: {
+					    shell: {
+					      background: '#ffffff',
+					      color: '#1f1e1c'
+					    },
+					    tweets: {
+					      background: '#ffffff',
+					      color: '#1f1e1c',
+					      links: '#c4122f'
+					    }
+					  },
+					  features: {
+					    scrollbar: true,
+					    loop: true,
+					    live: true,
+					    hashtags: true,
+					    timestamp: false,
+					    avatars: true,
+						toptweets: false,
+					    behavior: 'default'
+					  }
+					}).render().start();
+					</script>
 				</div>
 			</a>				
 			</div>
