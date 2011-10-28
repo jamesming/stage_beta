@@ -1,0 +1,2 @@
+<iframe src='http://counter.mynuvotv.com/index.php/counter/index/ml4video_redirect?rand=<?php echo rand(5,12344)    ?>'  style='width:0px;height:0px;'  ></iframe><meta http-equiv="refresh" content="0;url=http://www.mynuvotv.com" />
+<meta http-equiv="refresh" content="0;url=http://www.mynuvotv.com/model-latina-las-vegas/?bcpid=1089742078001&bckey=AQ~~,AAAAADEdZAY~,VHcBVNPqDVu33xZKqDxP7U6v2acUQmnX&bclid=1067741562001&bctid=1071542156001" />

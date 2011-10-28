@@ -44,20 +44,14 @@ for($i=0; $i<=4; $i++){
 						width:242px;
 						height:222px;
 						'  >
+<!--
+By use of this code snippet, I agree to the Brightcove Publisher T and C
+found at http://corp.brightcove.com/legal/terms_publisher.cfm.
+-->
 
-								<!-- Start of Brightcove Player -->
-								
-								<div style="display:none">
-								
-								</div>
-								
-								<!--
-								By use of this code snippet, I agree to the Brightcove Publisher T and C 
-								found at https://accounts.brightcove.com/en/terms-and-conditions/. 
-								-->
-								
-								<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
-							 	
+<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+<script type="text/javascript" src="http://admin.brightcove.com/js/APIModules_all.js"></script>
+
 								<object id="myExperience" class="BrightcoveExperience">
 								  <param name="wmode" value="transparent" />
 								  <param name="width" value="242" />
@@ -69,17 +63,9 @@ for($i=0; $i<=4; $i++){
 								  <param name="dynamicStreaming" value="true" />
 								  
 								</object>
-								 
-								<!-- 
-								This script tag will cause the Brightcove Players defined above it to be created as soon
-								as the line is read by the browser. If you wish to have the player instantiated only after
-								the rest of the HTML is processed and the page load is complete, remove the line.
-								-->
-								<script type="text/javascript">
-								//	brightcove.createExperiences();
-								</script>
-								
-								<!-- End of Brightcove Player -->
+
+<!-- End of Brightcove Player -->
+
 
 					</div>
 					<div class="copy">

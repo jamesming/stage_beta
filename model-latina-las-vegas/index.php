@@ -101,6 +101,37 @@ br { clear: both; }
 .twtr-tweet-text a {
 	font-size: 12px;
 }
+#defaultCountdown{
+white-space:nowrap;
+width: 100%;
+overflow:hidden;	
+margin:0px 0px 0px 0px;
+padding:0px 0px 0px 0px;
+margin-top:-5px;
+}
+.countdown_block{
+    background: none repeat scroll 0 0 white;
+    color: black;
+    float: left;
+    font-family: 'Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    height: 19px;
+    margin-right: 0;
+    padding-left: 3px;
+    padding-right: 0;
+    padding-top: 2px;
+    width: 17px;
+}
+.colon{
+    font-family: 'Helvetica Neue',Arial,Helvetica,sans-serif;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 2px;
+    width: 9px;
+    padding-right:5px;
+    color: white;
+}
 
 </style>
 
@@ -114,12 +145,50 @@ br { clear: both; }
 <script type="text/javascript" src="js/jquery-easing-compatibility.1.2.pack.js"></script>
 <script type="text/javascript" src="js/coda-slider.1.1.1.pack.js"></script>
 <script type="text/javascript" src="js/jquery.countdown.js"></script> -->
+<script type="text/javascript" language="Javascript" src = "js/jquery_countdown.js"></script>
 <script src="/misc/prettyphoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" src="/sites/all/themes/sitv/js/puzzle.js"></script>
 
 <script type="text/javascript" charset="utf-8">
 //var center_html = '<div style=&quot;margin-top: 150px; margin-left: 25px; background-image: url(images/ML--MODELS-v2.png); width: 759px; height: 415px;&quot;><div id=&quot;Sarah&quot; style=&quot;height: 200px; float: left; margin-top: -4px; margin-left: 67px; width: 63px;&quot;><img width=&quot;96&quot; height=&quot;288&quot; src=&quot;images/Sarah.png&quot; onMouseOver=&quot;this.src=\'images/Sarah-rollover.png\'&quot; onMouseOut=&quot;this.src=\'images/Sarah.png\'&quot; style=&quot;cursor: pointer;&quot; /></div><div id=&quot;anisa&quot; style=&quot;height: 200px; width: 90px; float: left; margin-top: 121px; margin-left: 0px;&quot;><img width=&quot;96&quot; height=&quot;288&quot; src=&quot;images/elimination/anisa.png&quot; onMouseOver=&quot;this.src=\'images/elimination/anisa-rollover.png\'&quot; onMouseOut=&quot;this.src=\'images/elimination/anisa.png\'&quot; style=&quot;cursor: pointer;&quot; /></div><div id=&quot;jennifer&quot; style=&quot;margin-left: 200px; margin-top: 100px; height: 200px; width: 90px;&quot;><img width=&quot;96&quot; height=&quot;288&quot; src=&quot;images/elimination/jennifer.png&quot; onMouseOver=&quot;this.src=\'images/elimination/jennifer-rollover.png\'&quot; onMouseOut=&quot;this.src=\'images/elimination/jennifer.png\'&quot; style=&quot;cursor: pointer;&quot; /></div><div id=&quot;erika&quot; style=&quot;margin-left: 200px; margin-top: 100px; height: 200px; width: 90px;&quot;><img width=&quot;96&quot; height=&quot;288&quot; src=&quot;images/erika.png&quot; onMouseOver=&quot;this.src=\'images/erika-rollover.png\'&quot; onMouseOut=&quot;this.src=\'images/erika.png\'&quot; style=&quot;cursor: pointer;&quot; /></div><div id=&quot;lornalitz&quot; style=&quot;margin-left: 200px; margin-top: 100px; height: 200px; width: 90px;&quot;><img width=&quot;96&quot; height=&quot;288&quot; src=&quot;images/lornalitz.png&quot; onMouseOver=&quot;this.src=\'images/lornalitz-rollover.png\'&quot; onMouseOut=&quot;this.src=\'images/lornalitz.png\'&quot; style=&quot;cursor: pointer;&quot; /></div></div>';
+
+function getTimeZone(){
+var localTime = new Date();
+return localTime.getTimezoneOffset()/60 ;
+}
+
 	$(document).ready(function(){
+
+
+				if( 	 getTimeZone() == 7 	  // Pacific Coast
+						|| getTimeZone() == 4){   // Eastern
+					air_time = 21; // 9pm
+				}else if(getTimeZone() == 5){ // Central
+					air_time = 20;  // 8pm
+				}else if(getTimeZone() == 6){ // Mountain
+					air_time = 19;  // 7pm
+				};
+
+				month = 9; // Should be 10 for October but javascript takes it down one number
+
+				var austDay = new Date();
+				austDay = new Date(
+					2011, 
+					month, 
+					24, // day of month
+					air_time, 
+					0 // minutes
+					);
+				
+				$('#defaultCountdown').countdown({
+					until: austDay, 
+    			layout: "<div  class=' countdown_block' >{dn}</div><div  class='colon ' >d</div><div  class=' countdown_block' >{hnn}</div><div  class='colon ' >h</div><div  class=' countdown_block' >{mnn}</div><div  class='colon ' >m</div><div  class=' countdown_block' >{snn}</div><div  style='float:left;font-size:15px;font-weight:bold;color:white'>&nbsp;s</div>"})
+
+
+
+
+
+		
 		$('#close1').mousedown(function() {
 			$('.center_content').fadeOut(100, function() {
 			});
@@ -168,7 +237,7 @@ br { clear: both; }
 			var text= '<div style="width: 350px; margin-top: 70px; margin-left: 345px; color: #FFFFFF; float: left;"><div style="font-size: 16px; font-weight: bold;"><u>Sarah</u></div><div style="padding-top: 10px;"><b>Age:</b> 22<br/ ><br /><b>Height:</b> 5\' 5&quot;<br/ ><br /><b>Background:</b> Mexican<br/ ><br /><b>Hometown:</b> Downey, CA<br/ ><br /><b>Now Resides in:</b> Nevada<br/ ><br /><b>Occupation:</b> Network Marketing<br/ ><br /><b>Fun Fact:</b> Everyone mistakes her for a mean girl, but they\'re wrong... or are they?</div><div style="margin-top: 50px;"><a href="http://bcove.me/xqwd2iu0" id="sarah_video" style="float: left; margin-top: 8px; margin-right: 10px; color: #FFFFFF !important;" ><b>VIDEO PROFILE</b></a>&nbsp;<a href="http://bcove.me/xqwd2iu0" id="sarah_video" ><img src="images/video-icon.png" /></a></div></div>';
 			$('.center_content').fadeOut(1000, function() {
 				// Animation complete.
-				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/SARAH-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
+				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/elimination/SARAH-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
 			});
 			$('.center_content').fadeIn(1000, function() {
 				// Animation complete.
@@ -208,7 +277,7 @@ br { clear: both; }
 			var text= '<div style="width: 350px; margin-top: 70px; margin-left: 345px; color: #FFFFFF; float: left;"><div style="font-size: 16px; font-weight: bold;"><u>Lornalitz</u></div><div style="padding-top: 10px;"><b>Age:</b> 28<br/><br/><b>Height:</b> 5\' 9&quot;<br/ ><br /><b>Background:</b> Puerto Rican<br/ ><br /><b>Hometown:</b> Brooklyn, NY<br/ ><br /><b>Now Resides in:</b> NYC<br/ ><br /><b>Occupation:</b> Graduated with honors in business administration management; currently creating an "Imagine if..." T-shirt line<br/ ><br /><b>Fun Fact:</b> A boy in school nicknamed her &quot;Gringa&quot; because she wasn\'t born in Puerto Rico.  He didn\'t make that mistake twice.</div><div style="margin-top: 50px;"><a href="http://bcove.me/qthqace5" id="lornalitz_video" style="float: left; margin-top: 8px; margin-right: 10px; color: #FFFFFF !important;" ><b>VIDEO PROFILE</b></a>&nbsp;<a href="http://bcove.me/qthqace5" id="lornalitz_video" ><img src="images/video-icon.png" /></a></div></div>';
 			$('.center_content').fadeOut(1000, function() {
 				// Animation complete.
-				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/LORNALITZ-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
+				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/elimination/LORNALITZ-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
 			});
 			$('.center_content').fadeIn(1000, function() {
 				// Animation complete.
@@ -238,7 +307,7 @@ br { clear: both; }
 			var text= '<div style="width: 350px; margin-top: 70px; margin-left: 345px; color: #FFFFFF; float: left;"><div style="font-size: 16px; font-weight: bold;"><u>Martii</u></div><div style="padding-top: 10px;"><b>Age:</b> 26<br/><br/><b>Height:</b> 5\' 4&quot;<br/ ><br /><b>Background:</b> Mexican<br/ ><br /><b>Hometown:</b> El Paso, TX<br/ ><br /><b>Now Resides in:</b> Southern California<br/ ><br /><b>Occupation:</b> Rapper/founded a non-profit called L.A.T.I.N.A.S.<br/ ><br /><b>Fun Fact:</b> Martii was featured on another nuvoTV classic series. Do you know which?</div><div style="margin-top: 50px;"><a href="http://bcove.me/tntmrtwu" id="martii_video" style="float: left; margin-top: 8px; margin-right: 10px; color: #FFFFFF !important;" ><b>VIDEO PROFILE</b></a>&nbsp;<a href="http://bcove.me/tntmrtwu" id="martii_video" ><img src="images/video-icon.png" /></a></div></div>';
 			$('.center_content').fadeOut(1000, function() {
 				// Animation complete.
-				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/MARTII-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
+				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/elimination/MARTII-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
 			});
 			$('.center_content').fadeIn(1000, function() {
 				// Animation complete.
@@ -268,7 +337,7 @@ br { clear: both; }
 			var text= '<div style="width: 350px; margin-top: 70px; margin-left: 345px; color: #FFFFFF; float: left;"><div style="font-size: 16px; font-weight: bold;"><u>Natasha</u></div><div style="padding-top: 10px;"><b>Age:</b> 24<br/><br/><b>Height:</b> 5\' 7&quot;<br/ ><br /><b>Background:</b> Portuguese, Irish &amp; Indian<br/ ><br /><b>Hometown:</b> Sydney, Australia<br/ ><br /><b>Now Resides in:</b> Miami, FL<br/ ><br /><b>Occupation:</b> Model, actress, designer, chef &amp; co-owner of Foreignity music<br/ ><br /><b>Fun Fact:</b> This Aussie hottie married her high school sweetheart. Vegas is full of temptation, sweetie.  Let\'s see if it lasts.</div><div style="margin-top: 50px;"><a href="http://bcove.me/t9agfcfd" id="natasha_video" style="float: left; margin-top: 8px; margin-right: 10px; color: #FFFFFF !important;" ><b>VIDEO PROFILE</b></a>&nbsp;<a href="http://bcove.me/t9agfcfd" id="natasha_video" ><img src="images/video-icon.png" /></a></div></div>';
 			$('.center_content').fadeOut(1000, function() {
 				// Animation complete.
-				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/NATASHA-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
+				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/elimination/NATASHA-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
 			});
 			$('.center_content').fadeIn(1000, function() {
 				// Animation complete.
@@ -278,7 +347,7 @@ br { clear: both; }
 			var text= '<div style="width: 350px; margin-top: 70px; margin-left: 345px; color: #FFFFFF; float: left;"><div style="font-size: 16px; font-weight: bold;"><u>Sacha</u></div><div style="padding-top: 10px;"><b>Age:</b> 28<br/><br/><b>Height:</b> 5\' 10&quot;<br/ ><br /><b>Background:</b> Puerto Rican<br/ ><br /><b>Hometown:</b> Bayamon, Puerto Rico<br/ ><br /><b>Now Resides in:</b> Puerto Rico<br/ ><br /><b>Occupation:</b> Works in advertising at Revista Ego fashion magazine<br/ ><br /><b>Fun Fact:</b> Vegas is known for great boxing events. Fortunately, this Puerto Rican beauty has a mean left hook. She\'ll need it.</div><div style="margin-top: 50px;"><a href="http://bcove.me/siwsai75" id="sacha_video" style="float: left; margin-top: 8px; margin-right: 10px; color: #FFFFFF !important;" ><b>VIDEO PROFILE</b></a>&nbsp;<a href="http://bcove.me/siwsai75" id="sacha_video" ><img src="images/video-icon.png" /></a></div></div>';
 			$('.center_content').fadeOut(1000, function() {
 				// Animation complete.
-				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/SACHA-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
+				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/elimination/SACHA-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
 			});
 			$('.center_content').fadeIn(1000, function() {
 				// Animation complete.
@@ -397,38 +466,38 @@ br { clear: both; }
 		});*/
 		$('#videos').mousedown(function() {
 			//var text= '<div style="width: 700px; margin-top: -4px; margin-left: 112px; color: #FFFFFF; float: left;">'+$('#video_player').html()+'</div>';
-			var text= '<div style="width: 700px; margin-top: -4px; margin-left: 112px; color: #FFFFFF; float: left;"><div style="float: left; height: 130px;"><img id="panel-1" style="cursor: pointer; margin-top: 33px; margin-left: 56px;" src="images/B- Erika & Elizabeth talking ANIM---.gif" /><img id="panel-2" style="cursor: pointer;" src="images/C-Girls-attributes-ANIM---.gif" /><img id="panel-3" style="cursor: pointer;" src="images/E-Juggling-game-ANIM---.gif" /></div><div style="float: left; height: 97px;"><img id="panel-4" style="cursor: pointer; margin-left: 56px;" src="images/G-Lornas-b-day-1-ANIM---.gif" /><img id="panel-5" style="cursor: pointer;" src="images/H-Lornas-b-day-2-ANIM---.gif" /><img id="panel-6" style="cursor: pointer;" src="images/K-Martis-advice-to-Madeline-ANIM---.gif" /></div><div style="float: left;"><img id="panel-7" style="cursor: pointer; margin-left: 56px;" src="images/Michelles Self-defense-tip-ep.gif" /><img id="panel-8" style="cursor: pointer;" src="images/M-Voting-talk-ANIM---.gif" /><img id="panel-9" style="cursor: pointer;" src="images/The-Story_-game-ANIM---.gif" /></div></div>';
+			var text= '<div style="width: 700px; margin-top: -4px; margin-left: 112px; color: #FFFFFF; float: left;"><div style="float: left; height: 130px;"><img id="panel-1" style="cursor: pointer; margin-top: 33px; margin-left: 56px;" src="images/activity_break_ep409.gif" /><img id="panel-2" style="cursor: pointer;" src="images/elizabeth_erikaandsarah_ep409.gif" /><img id="panel-3" style="cursor: pointer;" src="images/i_trust_him_part_1_ep409.gif" /></div><div style="float: left; height: 97px;"><img id="panel-4" style="cursor: pointer; margin-left: 56px;" src="images/ive_only_tried_it_ep409.gif" /><img id="panel-5" style="cursor: pointer;" src="images/mafe_spontaneous_relation_ep409.gif" /><img id="panel-6" style="cursor: pointer;" src="images/rich_poor_ep409.gif" /></div><div style="float: left;"><img id="panel-7" style="cursor: pointer; margin-left: 56px;" src="images/stephanie_exboyfriend_ep409.gif" /><img id="panel-8" style="cursor: pointer;" src="images/temptation_isoutthere_1_ep409.gif" /><img id="panel-9" style="cursor: pointer;" src="images/who_can_be_molded_ep409.gif" /></div></div>';
 			$('.center_content').fadeOut(1000, function() {
 				// Animation complete.
 				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/VIDEO-CONTROL-TAB.jpg);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
 			});
 			$('.center_content').fadeIn(1000, function() {
 				$('#panel-1').mousedown(function() {
-					$('.center_content').html(playerCode(1127338341001));
+					$('.center_content').html(playerCode(1204554769001));
 				});
 				$('#panel-2').mousedown(function() {
-					$('.center_content').html(playerCode(1127338343001));
+					$('.center_content').html(playerCode(1204554766001));
 				});
 				$('#panel-3').mousedown(function() {
-					$('.center_content').html(playerCode(1127378374001));
+					$('.center_content').html(playerCode(1204554777001));
 				});			
 				$('#panel-4').mousedown(function() {
-					$('.center_content').html(playerCode(1127367378001));
+					$('.center_content').html(playerCode(1204561427001));
 				});
 				$('#panel-5').mousedown(function() {
-					$('.center_content').html(playerCode(1127374242001));
+					$('.center_content').html(playerCode(1204554768001));
 				});
 				$('#panel-6').mousedown(function() {
-					$('.center_content').html(playerCode(1127378419001));
+					$('.center_content').html(playerCode(1204605698001));
 				});
 				$('#panel-7').mousedown(function() {
-					$('.center_content').html(playerCode(1127411593001));
+					$('.center_content').html(playerCode(1204615691001));
 				});
 				$('#panel-8').mousedown(function() {
-					$('.center_content').html(playerCode(1127411087001));
+					$('.center_content').html(playerCode(1204554784001));
 				});
 				$('#panel-9').mousedown(function() {
-					$('.center_content').html(playerCode(1127338297001));
+					$('.center_content').html(playerCode(1204561432001));
 				});
 			});
 		
@@ -437,7 +506,7 @@ br { clear: both; }
 			var text= '<div style="width: 700px; margin-top: -4px; margin-left: 112px; color: #FFFFFF; float: left;">'+$('#video_player').html()+'</div>';
 			$('.center_content').fadeOut(1000, function() {
 				// Animation complete.
-				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/VIDEOS-CONTENT.jpg);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
+				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/video_profiles.jpg);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
 			});
 			$('.center_content').fadeIn(1000, function() {
 				// Animation complete.
@@ -495,7 +564,7 @@ br { clear: both; }
 			var text= '<div style="width: 350px; margin-top: 70px; margin-left: 345px; color: #FFFFFF; float: left;"><div style="font-size: 16px; font-weight: bold;"><u>Sarah</u></div><div style="padding-top: 10px;"><b>Age:</b> 22<br/ ><br /><b>Height:</b> 5\' 5&quot;<br/ ><br /><b>Background:</b> Mexican<br/ ><br /><b>Hometown:</b> Downey, CA<br/ ><br /><b>Now Resides in:</b> Nevada<br/ ><br /><b>Occupation:</b> Network Marketing<br/ ><br /><b>Fun Fact:</b> Everyone mistakes her for a mean girl, but they\'re wrong... or are they?</div><div style="margin-top: 50px;"><a href="http://bcove.me/xqwd2iu0" id="sarah_video" style="float: left; margin-top: 8px; margin-right: 10px; color: #FFFFFF !important;" ><b>VIDEO PROFILE</b></a>&nbsp;<a href="http://bcove.me/xqwd2iu0" id="sarah_video" ><img src="images/video-icon.png" /></a></div></div>';
 			$('.center_content').fadeOut(1000, function() {
 				// Animation complete.
-				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/SARAH-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
+				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/elimination/SARAH-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
 			});
 			$('.center_content').fadeIn(1000, function() {
 				// Animation complete.
@@ -535,7 +604,7 @@ br { clear: both; }
 			var text= '<div style="width: 350px; margin-top: 70px; margin-left: 345px; color: #FFFFFF; float: left;"><div style="font-size: 16px; font-weight: bold;"><u>Lornalitz</u></div><div style="padding-top: 10px;"><b>Age:</b> 28<br/><br/><b>Height:</b> 5\' 9&quot;<br/ ><br /><b>Background:</b> Puerto Rican<br/ ><br /><b>Hometown:</b> Brooklyn, NY<br/ ><br /><b>Now Resides in:</b> NYC<br/ ><br /><b>Occupation:</b> Graduated with honors in business administration management; currently creating an "Imagine if..." T-shirt line<br/ ><br /><b>Fun Fact:</b> A boy in school nicknamed her &quot;Gringa&quot; because she wasn\'t born in Puerto Rico.  He didn\'t make that mistake twice.</div><div style="margin-top: 50px;"><a href="http://bcove.me/qthqace5" id="lornalitz_video" style="float: left; margin-top: 8px; margin-right: 10px; color: #FFFFFF !important;" ><b>VIDEO PROFILE</b></a>&nbsp;<a href="http://bcove.me/qthqace5" id="lornalitz_video" ><img src="images/video-icon.png" /></a></div></div>';
 			$('.center_content').fadeOut(1000, function() {
 				// Animation complete.
-				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/LORNALITZ-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
+				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/elimination/LORNALITZ-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
 			});
 			$('.center_content').fadeIn(1000, function() {
 				// Animation complete.
@@ -565,7 +634,7 @@ br { clear: both; }
 			var text= '<div style="width: 350px; margin-top: 70px; margin-left: 345px; color: #FFFFFF; float: left;"><div style="font-size: 16px; font-weight: bold;"><u>Martii</u></div><div style="padding-top: 10px;"><b>Age:</b> 26<br/><br/><b>Height:</b> 5\' 4&quot;<br/ ><br /><b>Background:</b> Mexican<br/ ><br /><b>Hometown:</b> El Paso, TX<br/ ><br /><b>Now Resides in:</b> Southern California<br/ ><br /><b>Occupation:</b> Rapper/founded a non-profit called L.A.T.I.N.A.S.<br/ ><br /><b>Fun Fact:</b> Martii was featured on another nuvoTV classic series. Do you know which?</div><div style="margin-top: 50px;"><a href="http://bcove.me/tntmrtwu" id="martii_video" style="float: left; margin-top: 8px; margin-right: 10px; color: #FFFFFF !important;" ><b>VIDEO PROFILE</b></a>&nbsp;<a href="http://bcove.me/tntmrtwu" id="martii_video" ><img src="images/video-icon.png" /></a></div></div>';
 			$('.center_content').fadeOut(1000, function() {
 				// Animation complete.
-				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/MARTII-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
+				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/elimination/MARTII-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
 			});
 			$('.center_content').fadeIn(1000, function() {
 				// Animation complete.
@@ -595,7 +664,7 @@ br { clear: both; }
 			var text= '<div style="width: 350px; margin-top: 70px; margin-left: 345px; color: #FFFFFF; float: left;"><div style="font-size: 16px; font-weight: bold;"><u>Natasha</u></div><div style="padding-top: 10px;"><b>Age:</b> 24<br/><br/><b>Height:</b> 5\' 7&quot;<br/ ><br /><b>Background:</b> Portuguese, Irish &amp; Indian<br/ ><br /><b>Hometown:</b> Sydney, Australia<br/ ><br /><b>Now Resides in:</b> Miami, FL<br/ ><br /><b>Occupation:</b> Model, actress, designer, chef &amp; co-owner of Foreignity music<br/ ><br /><b>Fun Fact:</b> This Aussie hottie married her high school sweetheart. Vegas is full of temptation, sweetie.  Let\'s see if it lasts.</div><div style="margin-top: 50px;"><a href="http://bcove.me/t9agfcfd" id="natasha_video" style="float: left; margin-top: 8px; margin-right: 10px; color: #FFFFFF !important;" ><b>VIDEO PROFILE</b></a>&nbsp;<a href="http://bcove.me/t9agfcfd" id="natasha_video" ><img src="images/video-icon.png" /></a></div></div>';
 			$('.center_content').fadeOut(1000, function() {
 				// Animation complete.
-				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/NATASHA-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
+				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/elimination/NATASHA-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
 			});
 			$('.center_content').fadeIn(1000, function() {
 				// Animation complete.
@@ -605,7 +674,7 @@ br { clear: both; }
 			var text= '<div style="width: 350px; margin-top: 70px; margin-left: 345px; color: #FFFFFF; float: left;"><div style="font-size: 16px; font-weight: bold;"><u>Sacha</u></div><div style="padding-top: 10px;"><b>Age:</b> 28<br/><br/><b>Height:</b> 5\' 10&quot;<br/ ><br /><b>Background:</b> Puerto Rican<br/ ><br /><b>Hometown:</b> Bayamon, Puerto Rico<br/ ><br /><b>Now Resides in:</b> Puerto Rico<br/ ><br /><b>Occupation:</b> Works in advertising at Revista Ego fashion magazine<br/ ><br /><b>Fun Fact:</b> Vegas is known for great boxing events. Fortunately, this Puerto Rican beauty has a mean left hook. She\'ll need it.</div><div style="margin-top: 50px;"><a href="http://bcove.me/siwsai75" id="sacha_video" style="float: left; margin-top: 8px; margin-right: 10px; color: #FFFFFF !important;" ><b>VIDEO PROFILE</b></a>&nbsp;<a href="http://bcove.me/siwsai75" id="sacha_video" ><img src="images/video-icon.png" /></a></div></div>';
 			$('.center_content').fadeOut(1000, function() {
 				// Animation complete.
-				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/SACHA-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
+				$('.center_content').html('<div style="margin-top: 118px; height: 434px; width: 765px; background-image: url(images/elimination/SACHA-tab.png);"><span onClick="closeWindow();" class="close" style="float: right; width: 70px; height: 30px; cursor: pointer;">&nbsp;</span>'+text+'</div>');
 			});
 			$('.center_content').fadeIn(1000, function() {
 				// Animation complete.
@@ -702,11 +771,29 @@ br { clear: both; }
 				</div>
 				<!--end of header -->
 					
-				<div style="margin-left: 190px; padding-top: 5px; float: left;">
+				<div style="margin-left: 185px; padding-top: 5px; float: left;">
 					<img src="images/MLLV-LOGO-fullanimation.gif" />
 				</div>
-				<div style="float: right; width: 195px; padding-top: 0px;">
-					<img src="images/tune-in-animation.gif" />
+				<div style="
+					float: right; 
+					width: 195px; 
+					height:100px;
+					background-image:url(images/countdown-animation.gif);
+					background-repeat: no-repeat;
+					background-position:0 0;
+					padding-top:36px;
+					padding-left:0px;
+					">
+					<table>
+						<tr>
+							<td   style='width:36px'  >&nbsp;
+							</td>
+							<td><span id='defaultCountdown' ></span>
+							</td>
+						</tr>
+					</table>
+								
+
 				</div>
 					
 
@@ -730,14 +817,14 @@ br { clear: both; }
 					</div>
 					<div id="center_content" class="center_content" style="height: 556px; float: left; width: 768px; position: relative; z-index: 20;">
 						<div id="models_center" style="margin-top: 150px; margin-left: 25px; background-image: url(images/ML--MODELS-v2.png); width: 759px; height: 415px;">
-							<div id="Sarah" style="height: 200px; float: left; margin-top: -4px; margin-left: 63px; width: 0px; position: relative;"><img width="102" height="281" src="images/Sarah.png" onMouseOver="this.src='images/Sarah-rollover.png'" onMouseOut="this.src='images/Sarah.png'" style="cursor: pointer;" /></div>
+							<div id="Sarah" style="height: 200px; float: left; margin-top: -4px; margin-left: 63px; width: 0px; position: relative;"><img width="102" height="281" src="images/elimination/Sarah.png" onMouseOver="this.src='images/elimination/Sarah-rollover.png'" onMouseOut="this.src='images/elimination/Sarah.png'" style="cursor: pointer;" /></div>
 							<div id="muriel" style="height: 200px; float: left; z-index: 20; position: relative; margin-top: 127px; width: 31px; margin-left: -66px;"><img width="183" height="296" src="images/muriel.png" onMouseOver="this.src='images/muriel-rollover.png'" onMouseOut="this.src='images/muriel.png'" style="cursor: pointer;" /></div>
 							<div id="yolanda" style="height: 200px; float: left; z-index: 15; position: relative; margin-left: 71px; margin-top: 8px; width: 0px;"><img width="96" height="276" src="images/elimination/yolanda.png" onMouseOver="this.src='images/elimination/yolanda-rollover.png'" onMouseOut="this.src='images/elimination/yolanda.png'" style="cursor: pointer;" /></div>
 							<div id="anisa" style="height: 200px; float: left; margin-top: 119px; z-index: 19; position: relative; width: 57px; margin-left: -5px;"><img width="96" height="288" src="images/elimination/anisa.png" onMouseOver="this.src='images/elimination/anisa-rollover.png'" onMouseOut="this.src='images/elimination/anisa.png'" style="cursor: pointer;" /></div>
-							<div id="martii" style="height: 200px; float: left; margin-top: 15px; z-index: 10; position: relative; width: 0px; margin-left: 14px;"><img width="117" height="265" src="images/martii.png" onMouseOver="this.src='images/martii-rollover.png'" onMouseOut="this.src='images/martii.png'" style="cursor: pointer;" /></div>
+							<div id="martii" style="height: 200px; float: left; margin-top: 15px; z-index: 10; position: relative; width: 0px; margin-left: 14px;"><img width="117" height="265" src="images/elimination/martii.png" onMouseOver="this.src='images/elimination/martii-rollover.png'" onMouseOut="this.src='images/elimination/martii.png'" style="cursor: pointer;" /></div>
 							<div id="olissa" style="height: 200px; float: left; z-index: 18; position: relative; margin-top: 124px; margin-left: -14px; width: 32px;"><img width="104" height="281" src="images/elimination/olissa.png" onMouseOver="this.src='images/elimination/olissa-rollover.png'" onMouseOut="this.src='images/elimination/olissa.png'" style="cursor: pointer;" /></div>
 							<div id="jennifer" style="float: left; margin-left: 11px; margin-top: 123px; height: 200px; width: 90px; position: relative; z-index: 17;"><img width="156" height="286" src="images/elimination/jennifer.png" onMouseOver="this.src='images/elimination/jennifer-rollover.png'" onMouseOut="this.src='images/elimination/jennifer.png'" style="cursor: pointer;" /></div>
-							<div id="natasha" style="height: 200px; float: left; z-index: 11; position: relative; width: 0px; margin-top: 9px; margin-left: -23px;"><img width="111" height="280" src="images/natasha.png" onMouseOver="this.src='images/natasha-rollover.png'" onMouseOut="this.src='images/natasha.png'" style="cursor: pointer;" /></div>
+							<div id="natasha" style="height: 200px; float: left; z-index: 11; position: relative; width: 0px; margin-top: 9px; margin-left: -23px;"><img width="111" height="280" src="images/elimination/natasha.png" onMouseOver="this.src='images/elimination/natasha-rollover.png'" onMouseOut="this.src='images/elimination/natasha.png'" style="cursor: pointer;" /></div>
 							<div id="erika" style="float: left; margin-left: 13px; margin-top: 16px; height: 200px; width: 90px; position: relative; z-index: 10;"><img width="156" height="277" src="images/erika.png" onMouseOver="this.src='images/erika-rollover.png'" onMouseOut="this.src='images/erika.png'" style="cursor: pointer;" /></div>
 							<div id="cecilia" style="float: left; height: 200px; position: relative; width: 39px; z-index: 15; margin-top: 114px; margin-left: -76px;"><img width="87" height="291" src="images/elimination/cecilia.png" onMouseOver="this.src='images/elimination/cecilia-rollover.png'" onMouseOut="this.src='images/elimination/cecilia.png'" style="cursor: pointer;" /></div>
 							<div id="mafe" style="float: left; height: 200px; position: relative; width: 39px; z-index: 12; margin-top: 113px; margin-left: -15px;"><img width="150" height="291" src="images/mafe.png" onMouseOver="this.src='images/mafe-rollover.png'" onMouseOut="this.src='images/mafe.png'" style="cursor: pointer;" /></div>
@@ -755,9 +842,9 @@ br { clear: both; }
 <?
 		}
 ?>			
-							<div id="sacha" style="height: 200px; float: left; z-index: 10; position: relative; width: 0px; margin-top: 5px; margin-left: 14px;"><img width="105" height="283" src="images/sacha.png" onMouseOver="this.src='images/sacha-rollover.png'" onMouseOut="this.src='images/sacha.png'" style="cursor: pointer;" /></div>
-							<div id="lornalitz" style="float: left; margin-top: 119px; height: 200px; width: 90px; position: relative; z-index: 11; margin-left: 0px;"><img width="181" height="286" src="images/lornalitz.png" onMouseOver="this.src='images/lornalitz-rollover.png'" onMouseOut="this.src='images/lornalitz.png'" style="cursor: pointer;" /></div>
-							<a href="/model-latina-vegas-cast/twitter.php"><img src="images/revealing-text_mondays.png" style="position: relative; z-index: 200; margin-right: 85px; float: right; margin-top: -30px;" /></a>					
+							<div id="sacha" style="height: 200px; float: left; z-index: 10; position: relative; width: 0px; margin-top: 5px; margin-left: 14px;"><img width="105" height="283" src="images/elimination/sacha.png" onMouseOver="this.src='images/elimination/sacha-rollover.png'" onMouseOut="this.src='images/elimination/sacha.png'" style="cursor: pointer;" /></div>
+							<div id="lornalitz" style="float: left; margin-top: 119px; height: 200px; width: 90px; position: relative; z-index: 11; margin-left: 0px;"><img width="181" height="286" src="images/elimination/lornalitz.png" onMouseOver="this.src='images/elimination/lornalitz-rollover.png'" onMouseOut="this.src='images/elimination/lornalitz.png'" style="cursor: pointer;" /></div>
+							<a href="/model-latina-vegas-cast/twitter.php"><img src="images/revealing-text_mondays_new.png" style="position: relative; z-index: 200; margin-right: 85px; float: right; margin-top: -30px;" /></a>					
 						</div>
 					</div>	
 					<div style="height: 103px; width: 100%; float: left;">
@@ -834,7 +921,7 @@ br { clear: both; }
 				</div>
 
 				<div class="social_links" style="float: left; background: url('images/footer-box.png') no-repeat scroll 0% 0pt #000000;  margin-left: 7px; width: 178px; height: 267px;" >
-					<div id="social_network_links_small" style="float: left; width: 140px; padding-top: 30px; padding-left: 28px;"><a target="_blank" href="https://www.facebook.com/ModelLatina" class="sn_icon"><img width="24" height="24" alt="Facebook" src="/sites/all/themes/sitv/images/socialMedia/facebook.png" /></a> 	<a target="_blank" href="http://twitter.com/ModelLatina" class="sn_icon"><img width="24" height="24" alt="Twitter" src="/sites/all/themes/sitv/images/socialMedia/twitter.png" /></a> 	<a target="_blank" href="http://www.myspace.com/nuvotv" class="sn_icon"><img width="24" height="24" alt="Myspace" src="/sites/all/themes/sitv/images/socialMedia/myspace.png" /></a> 	<a target="_blank" href="https://foursquare.com/mynuvotv" class="sn_icon"><img width="24" height="24" alt="Foursquare" src="/sites/all/themes/sitv/images/socialMedia/foursquare.png" /></a> 	<a target="_blank" href="http://www.youtube.com/user/mynuvoTV" class="sn_icon"><img width="24" height="24" alt="YouTube" src="/sites/all/themes/sitv/images/socialMedia/youtube.png" /></a> 	<a target="_blank" href="http://www.hulu.com/model-latina" class="sn_icon"><img width="24" height="24" alt="Hulu" src="/sites/all/themes/sitv/images/socialMedia/hulu.png" /></a> 	<a target="_blank" href="http://itunes.apple.com/us/podcast/si-tv-video-podcast/id409237747" class="sn_icon"><img width="24" height="24" alt="Podcast" src="/sites/all/themes/sitv/images/socialMedia/podcast.png" /></a> 	<a target="_blank" href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewRoom?fcId=259316686&amp;id=37" class="sn_icon"><img width="24" height="24" alt="iTunes" src="/sites/all/themes/sitv/images/socialMedia/itunes.png" /></a></div>
+					<div id="social_network_links_small" style="float: left; width: 140px; padding-top: 30px; padding-left: 28px;"><a target="_blank" href="http://www.facebook.com/ModelLatina" class="sn_icon"><img width="24" height="24" alt="Facebook" src="/sites/all/themes/sitv/images/socialMedia/facebook.png" /></a> 	<a target="_blank" href="http://twitter.com/ModelLatina" class="sn_icon"><img width="24" height="24" alt="Twitter" src="/sites/all/themes/sitv/images/socialMedia/twitter.png" /></a> 	<a target="_blank" href="http://www.myspace.com/nuvotv" class="sn_icon"><img width="24" height="24" alt="Myspace" src="/sites/all/themes/sitv/images/socialMedia/myspace.png" /></a> 	<a target="_blank" href="http://foursquare.com/mynuvotv" class="sn_icon"><img width="24" height="24" alt="Foursquare" src="/sites/all/themes/sitv/images/socialMedia/foursquare.png" /></a> 	<a target="_blank" href="http://www.youtube.com/user/mynuvoTV" class="sn_icon"><img width="24" height="24" alt="YouTube" src="/sites/all/themes/sitv/images/socialMedia/youtube.png" /></a> 	<a target="_blank" href="http://www.hulu.com/model-latina" class="sn_icon"><img width="24" height="24" alt="Hulu" src="/sites/all/themes/sitv/images/socialMedia/hulu.png" /></a> 	<a target="_blank" href="http://itunes.apple.com/us/podcast/si-tv-video-podcast/id409237747" class="sn_icon"><img width="24" height="24" alt="Podcast" src="/sites/all/themes/sitv/images/socialMedia/podcast.png" /></a> 	<a target="_blank" href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewRoom?fcId=259316686&amp;id=37" class="sn_icon"><img width="24" height="24" alt="iTunes" src="/sites/all/themes/sitv/images/socialMedia/itunes.png" /></a></div>
 					<div class="footer_links" style="float: left; padding-top: 12px; padding-left: 12px; width: 155px;">
 						<div>
 							<a title="ABOUT" href="/about-us">ABOUT US</a>
@@ -898,14 +985,14 @@ br { clear: both; }
 
 			<div id="model_center_content" style="display: none;">
 				<div style="margin-top: 150px; margin-left: 25px; background-image: url(images/ML--MODELS-v2.png); width: 759px; height: 415px;">
-					<div id="Sarah" style="height: 200px; float: left; margin-top: -4px; margin-left: 63px; width: 0px; position: relative;"><img width="102" height="281" src="images/Sarah.png" onMouseOver="this.src='images/Sarah-rollover.png'" onMouseOut="this.src='images/Sarah.png'" style="cursor: pointer;" /></div>
+					<div id="Sarah" style="height: 200px; float: left; margin-top: -4px; margin-left: 63px; width: 0px; position: relative;"><img width="102" height="281" src="images/elimination/Sarah.png" onMouseOver="this.src='images/elimination/Sarah-rollover.png'" onMouseOut="this.src='images/elimination/Sarah.png'" style="cursor: pointer;" /></div>
 					<div id="muriel" style="height: 200px; float: left; z-index: 20; position: relative; margin-top: 127px; width: 31px; margin-left: -66px;"><img width="183" height="296" src="images/muriel.png" onMouseOver="this.src='images/muriel-rollover.png'" onMouseOut="this.src='images/muriel.png'" style="cursor: pointer;" /></div>
 					<div id="yolanda" style="height: 200px; float: left; z-index: 15; position: relative; margin-left: 71px; margin-top: 8px; width: 0px;"><img width="96" height="276" src="images/elimination/yolanda.png" onMouseOver="this.src='images/elimination/yolanda-rollover.png'" onMouseOut="this.src='images/elimination/yolanda.png'" style="cursor: pointer;" /></div>
 					<div id="anisa" style="height: 200px; float: left; margin-top: 119px; z-index: 19; position: relative; width: 57px; margin-left: -5px;"><img width="96" height="288" src="images/elimination/anisa.png" onMouseOver="this.src='images/elimination/anisa-rollover.png'" onMouseOut="this.src='images/elimination/anisa.png'" style="cursor: pointer;" /></div>
-					<div id="martii" style="height: 200px; float: left; margin-top: 15px; z-index: 10; position: relative; width: 0px; margin-left: 14px;"><img width="117" height="265" src="images/martii.png" onMouseOver="this.src='images/martii-rollover.png'" onMouseOut="this.src='images/martii.png'" style="cursor: pointer;" /></div>
+					<div id="martii" style="height: 200px; float: left; margin-top: 15px; z-index: 10; position: relative; width: 0px; margin-left: 14px;"><img width="117" height="265" src="images/elimination/martii.png" onMouseOver="this.src='images/elimination/martii-rollover.png'" onMouseOut="this.src='images/elimination/martii.png'" style="cursor: pointer;" /></div>
 					<div id="olissa" style="height: 200px; float: left; z-index: 18; position: relative; margin-top: 124px; margin-left: -14px; width: 32px;"><img width="104" height="281" src="images/elimination/olissa.png" onMouseOver="this.src='images/elimination/olissa-rollover.png'" onMouseOut="this.src='images/elimination/olissa.png'" style="cursor: pointer;" /></div>
 					<div id="jennifer" style="float: left; margin-left: 11px; margin-top: 123px; height: 200px; width: 90px; position: relative; z-index: 17;"><img width="156" height="286" src="images/elimination/jennifer.png" onMouseOver="this.src='images/elimination/jennifer-rollover.png'" onMouseOut="this.src='images/elimination/jennifer.png'" style="cursor: pointer;" /></div>
-					<div id="natasha" style="height: 200px; float: left; z-index: 11; position: relative; width: 0px; margin-top: 9px; margin-left: -23px;"><img width="111" height="280" src="images/natasha.png" onMouseOver="this.src='images/natasha-rollover.png'" onMouseOut="this.src='images/natasha.png'" style="cursor: pointer;" /></div>
+					<div id="natasha" style="height: 200px; float: left; z-index: 11; position: relative; width: 0px; margin-top: 9px; margin-left: -23px;"><img width="111" height="280" src="images/elimination/natasha.png" onMouseOver="this.src='images/elimination/natasha-rollover.png'" onMouseOut="this.src='images/elimination/natasha.png'" style="cursor: pointer;" /></div>
 					<div id="erika" style="float: left; margin-left: 13px; margin-top: 16px; height: 200px; width: 90px; position: relative; z-index: 10;"><img width="156" height="277" src="images/erika.png" onMouseOver="this.src='images/erika-rollover.png'" onMouseOut="this.src='images/erika.png'" style="cursor: pointer;" /></div>
 					<div id="cecilia" style="float: left; height: 200px; position: relative; width: 39px; z-index: 15; margin-top: 114px; margin-left: -76px;"><img width="87" height="291" src="images/elimination/cecilia.png" onMouseOver="this.src='images/elimination/cecilia-rollover.png'" onMouseOut="this.src='images/elimination/cecilia.png'" style="cursor: pointer;" /></div>
 					<div id="mafe" style="float: left; height: 200px; position: relative; width: 39px; z-index: 12; margin-top: 113px; margin-left: -15px;"><img width="150" height="291" src="images/mafe.png" onMouseOver="this.src='images/mafe-rollover.png'" onMouseOut="this.src='images/mafe.png'" style="cursor: pointer;" /></div>
@@ -923,9 +1010,9 @@ br { clear: both; }
 <?
 		}
 ?>					
-					<div id="sacha" style="height: 200px; float: left; z-index: 10; position: relative; width: 0px; margin-top: 5px; margin-left: 14px;"><img width="105" height="283" src="images/sacha.png" onMouseOver="this.src='images/sacha-rollover.png'" onMouseOut="this.src='images/sacha.png'" style="cursor: pointer;" /></div>
-					<div id="lornalitz" style="float: left; margin-top: 119px; height: 200px; width: 90px; position: relative; z-index: 11; margin-left: 0px;"><img width="181" height="286" src="images/lornalitz.png" onMouseOver="this.src='images/lornalitz-rollover.png'" onMouseOut="this.src='images/lornalitz.png'" style="cursor: pointer;" /></div>
-					<a href="/model-latina-vegas-cast/twitter.php"><img src="images/revealing-text_mondays.png" style="position: relative; z-index: 200; margin-right: 85px; float: right; margin-top: -30px;" /></a>					
+					<div id="sacha" style="height: 200px; float: left; z-index: 10; position: relative; width: 0px; margin-top: 5px; margin-left: 14px;"><img width="105" height="283" src="images/elimination/sacha.png" onMouseOver="this.src='images/elimination/sacha-rollover.png'" onMouseOut="this.src='images/elimination/sacha.png'" style="cursor: pointer;" /></div>
+					<div id="lornalitz" style="float: left; margin-top: 119px; height: 200px; width: 90px; position: relative; z-index: 11; margin-left: 0px;"><img width="181" height="286" src="images/elimination/lornalitz.png" onMouseOver="this.src='images/elimination/lornalitz-rollover.png'" onMouseOut="this.src='images/elimination/lornalitz.png'" style="cursor: pointer;" /></div>
+					<a href="/model-latina-vegas-cast/twitter.php"><img src="images/revealing-text_mondays_new.png" style="position: relative; z-index: 200; margin-right: 85px; float: right; margin-top: -30px;" /></a>					
 				</div>
 			</div>
 		</div>

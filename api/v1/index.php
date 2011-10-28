@@ -72,6 +72,169 @@
 		}
 	}
 
+
+	if( getvar("timezone") ){
+
+		$skip_show = FALSE;		
+		$schedule = object_to_array($schedule);
+		
+		switch (getvar("timezone")) {
+			
+	    case 'E':  // eastern time
+	    
+	    	$revised_schedule = $schedule;
+	    
+	    break;
+			
+	    case 'C':  // central time
+	    
+	    		$hours_different_from_eastern_timezone = 1;
+	    		
+					$skip_time_Array = array(
+						'00:00',
+						'00:30'
+					);
+
+					foreach( $schedule  as  $key => $show){
+						
+						if( $show['show_date'] == getvar("start_date")
+						){
+
+								$show_container = skip_shows_earlier_than_zones_west_of_eastern_USA(
+									$number_of_hours_behind = $hours_different_from_eastern_timezone,
+									$show,
+									$skip_time_Array
+								);
+								
+								
+								if( !$show_container['skip_show'] ){
+									$revised_schedule[] = $show_container['revised_show'];
+								};
+		
+						}
+						else{
+
+								$revised_show =  add_shows_for_timezones_earlier_than__zones_west_of_eastern_USA(
+									$number_of_hours_ahead  = 24 - $hours_different_from_eastern_timezone ,
+									$show,
+									$skip_time_Array
+								);
+								
+								if( $revised_show ) $revised_schedule[] = $revised_show;
+
+
+						}
+						
+					}
+				 
+	    break;
+	    
+	    case 'M':  // mountain time
+	    
+	    		$hours_different_from_eastern_timezone = 2;
+
+					foreach( $schedule  as  $key => $show){
+						
+						$skip_time_Array = array(
+							'00:00',
+							'00:30',
+							'01:00',
+							'01:30'
+						);
+												
+						
+						
+						if( $show['show_date'] == getvar("start_date")
+						){
+
+								
+								$show_container = skip_shows_earlier_than_zones_west_of_eastern_USA(
+									$number_of_hours_behind = $hours_different_from_eastern_timezone,
+									$show,
+									$skip_time_Array
+								);
+								
+								
+								if( !$show_container['skip_show'] ){
+									$revised_schedule[] = $show_container['revised_show'];
+								};
+		
+						}
+						else{
+
+								$revised_show =  add_shows_for_timezones_earlier_than__zones_west_of_eastern_USA(
+									$number_of_hours_ahead  = 24 - $hours_different_from_eastern_timezone ,
+									$show,
+									$skip_time_Array
+								);
+								
+								if( $revised_show ) $revised_schedule[] = $revised_show;
+
+
+						}
+						
+					}
+				 
+	    break;
+	    
+	    case 'P':  // pacific time
+	
+					$hours_different_from_eastern_timezone = 3;
+											    
+					foreach( $schedule  as  $key => $show){
+						
+						$skip_time_Array = array(
+							'00:00',
+							'00:30',
+							'01:30',
+							'02:00',
+							'02:30'
+						);						
+						
+						
+						if( $show['show_date'] == getvar("start_date")
+						){
+
+								$show_container = skip_shows_earlier_than_zones_west_of_eastern_USA(
+									$number_of_hours_behind = $hours_different_from_eastern_timezone,
+									$show,
+									$skip_time_Array
+								);
+								
+								
+								if( !$show_container['skip_show'] ){
+									$revised_schedule[] = $show_container['revised_show'];
+								};
+		
+						}
+						else{
+
+								$revised_show =  add_shows_for_timezones_earlier_than__zones_west_of_eastern_USA(
+									$number_of_hours_ahead  = 24 - $hours_different_from_eastern_timezone ,
+									$show,
+									$skip_time_Array
+								);
+								
+								if( $revised_show ) $revised_schedule[] = $revised_show;
+
+
+						}
+						
+					};
+
+	    
+	    break;	   
+	     
+	  };
+
+		$schedule = $revised_schedule;
+		
+	
+	};
+	
+	
+//	echo '<pre>';print_r(  $schedule );echo '</pre>';  exit;
+
 	if ( !$callback ) {
 		// no callback given, return in JSON format
 		header('Cache-Control: no-cache, must-revalidate');
@@ -89,6 +252,113 @@
 
 	die();
 
+
+function add_shows_for_timezones_earlier_than__zones_west_of_eastern_USA(
+	$number_of_hours_ahead ,
+	$show,
+	$skip_time_Array
+){
+	
+			if (  in_array( $show['start_time'], $skip_time_Array)  ) {		
+								
+					foreach( $show as  $key => $value){
+					
+							if( $key == 'start_time' ||  $key == 'end_time'){
+
+								$revised_show[$key] = revise_show_time(
+																				$direction = 'ahead',
+																				$time = $value,
+																				$number_of_hours_ahead
+																			);
+							
+							}else{
+								$revised_show[$key] = $value;
+							};
+							
+						
+					};
+			
+				return $revised_show;
+				
+			};		
+								
+		
+	
+}
+
+function skip_shows_earlier_than_zones_west_of_eastern_USA(
+	$number_of_hours_behind,
+	$show,
+	$skip_time_Array
+){
+	
+								$skip_show = FALSE;
+								
+								foreach( $show as  $key => $value){
+									
+										if( $key == 'start_time' ||  $key == 'end_time'){
+
+												foreach( $skip_time_Array  as $skip_time){
+													if($key   == 'start_time' && 
+														 $value == $skip_time 
+													) {
+														$skip_show = TRUE;
+													};
+												}
+								
+												$revised_show[$key] = revise_show_time(
+																								$direction = 'behind',
+																								$time = $value,
+																								$number_of_hours_behind
+																							);
+										
+										}else{
+											$revised_show[$key] = $value;
+										};
+			
+								}
+								
+								$show_container['revised_show'] = $revised_show;
+								$show_container['skip_show'] = $skip_show;
+
+								return $show_container;
+
+}
+
+
+function revise_show_time(
+	$direction = 'ahead',
+	$time,
+	$number_of_hours = 1
+){
+							$time_array   = explode(':', $time); // $time_array[0] is the hour eg: '06' in 06:30
+																									 // $time_array[1] is the minute eg: '30' in 06:30						
+							if( $direction == 'ahead'){
+								$new_hour  = $time_array[0] + $number_of_hours;	
+							}elseif( $direction == 'behind'){
+								$new_hour  = $time_array[0] - $number_of_hours;	
+							};
+
+							if( strlen($new_hour) < 2  ){ // if the hour consist of one characters just prepend a '0'
+								$new_hour  = '0' . $new_hour;
+							};
+							
+							return $new_hour . ':' . $time_array[1];
+}
+
+
+
+function object_to_array($data){
+if(is_array($data) || is_object($data)){
+  $result = array(); 
+  foreach($data as $key => $value)
+  { 
+    $result[$key] = object_to_array($value); 
+  }
+  return $result;
+}
+return $data;
+}
 
 // api functions
 function getScheduleByDate() {
@@ -153,16 +423,14 @@ function getScheduleByTimeRange() {
 function getScheduleByTitle() {
 	global $db;
 	$title = getvar("title");	// required
-	$episode_title = getvar("episode_title"); // optional.. for now applies only to the Pastport Series
-
+	$episode_title = getvar("episode_title");	// required
+	
 	if( $episode_title ){
 		$add_where_episode_title = " AND episode_title = '".$episode_title."'";
 	}else{
 		$add_where_episode_title = "";
 	};
 	
-
-
 	if ( $title ) {
 		// no dates given, default to listing all scheduled airings of this show
 		$query = "SELECT * FROM " . TABLE_SCHEDULE . " WHERE title = '" . $title . "' ".$add_where_episode_title." AND archived = 0 AND show_date >= CURDATE() ORDER BY show_date, start_time ASC";
@@ -170,6 +438,9 @@ function getScheduleByTitle() {
 		// error, missing title
 		$query = false;
 	}
+	
+	
+
 	return $query;
 }
 
@@ -194,4 +465,3 @@ function getvar($name, $default = false) {
 	return (isset($_GET[$name]) && !empty($_GET[$name])) ? $db->escape($_GET[$name]) : $default;
 }
 
-?>

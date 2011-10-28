@@ -10,7 +10,7 @@
 EOTHEME;
 	
 	$page->components["hero"] = <<<EOHERO
-	<div class="controls" style="background:transparent url(/assets/images/heroes/series/txt_pastport-PR.png) no-repeat 0 0; left:344px; top:70px; width:684px; height:138px;">
+	<div class="controls" style="background:transparent url(/assets/images/heroes/series/txt_pastport_Panama.png) no-repeat 0 0; left:369px; top:132px; width:684px; height:138px;">
 		<a href="http://www.facebook.com/Pastport" style="left:285px; top:59px; width:217px; height:73px;">facebook</a>
 	</div>
 EOHERO;
@@ -23,16 +23,16 @@ EOHERO;
 			<li class="first"><a href="/series/$seriesBase">Show</a></li>
 			<li class="active"><a href="/series/$seriesBase/cast">Cast</a></li>
 			<li><a href="/series/$seriesBase/video">Video</a></li>
-			<li><a href="/series/$seriesBase/features">Features</a></li>
+			<li class=""><a href="/series/$seriesBase/features">Features</a></li>
 			<li class="last"><a href="/series/$seriesBase/photos">Photos</a></li>
 			<li class="season-nav">
-				<span>Season:</span>
+				<span>Episode:</span>
 				<ul class="inline">
 					<li><a href="/series/pastport-cuba">1</a></li>
 					<li><a href="/series/pastport-colombia">2</a></li>
 					<li><a href="/series/pastport-argentina">3</a></li>
-					<li><a href="/series/pastport-venezuela">4</a></li>
-					<li class="active"><a href="/series/pastport-panama">5</a></li>
+					<li><a href="/series/pastport-venezuela">4</a></li><li><a href="/series/pastport-puerto-rico">5</a></li>
+					<li class="active"><a href="/series/pastport-panama">6</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -63,9 +63,9 @@ Panamanian-American actress Tatyana Ali grew up in a predominantly Jewish neighb
 <div><br /></div>
 <div>All things considered, it's no wonder why the L.A.-based Caribbean Heritage Organization bestowed the brainy beauty with its Living Legacy Award earlier this year.</div>
 <div><br /></div>
-Follow <a href="http://www.tatyanaalionline.com">Tatyana online</a>.
+Follow Tatyana<a href="http://www.tatyanaalionline.com">Online</a>.
 <div>Friend her on <a href="http://www.facebook.com/OfficialTatyanaAli">Facebook</a>.</div>
-<div>Catch her <a href="http://twitter.com/#!/OfficialTatyana">tweets</a>.</div>
+<div>Follow Tatyana on <a href="http://twitter.com/#!/OfficialTatyana">Twitter</a>.</div>
 <div>See her career highlights on <a href="http://www.imdb.com/name/nm0004700/">IMDb</a>.</div>
 						
 <br />						
@@ -82,7 +82,7 @@ Follow <a href="http://www.tatyanaalionline.com">Tatyana online</a>.
 						<div class="meta">
 							<h3>Anastasia Ali</h3>
 						</div>
-						<p>"I definitely think that this experience brought us closer…this trip made not only myself but also Tatyana wanna come back to Panama," says Anastasia, Tatyana's sibling and business partner in Hazrah Entertainment. She is one of Tatyana's two younger sisters, along with Kimberly, and accompanies her older sister/BFF on the trip to Panama.</p>
+						<p>"I definitely think that this experience brought us closer... this trip made not only myself but also Tatyana wanna come back to Panama," says Anastasia, Tatyana's sibling and business partner in Hazrah Entertainment. She is one of Tatyana's two younger sisters, along with Kimberly, and accompanies her older sister/BFF on the trip to Panama.</p>
 					</div>
 				</li>
 				<li class="block">
@@ -131,14 +131,7 @@ Janeska and Okarina Carlos</h3>
 				</li>						
 
 				
-				<li class="block">
-					<img class="bordered media" src="/assets/images/cast/Pastport-panama/?" />
-					<div class="meta">
-						<h3>Tio Xavier Jose Rivera</h3>
-					</div>
-					<p>Tio is Sonia's older brother, who lives in Aguadulce, an agricultural, coastal city on the Bahia de Parita.</p>
-				</li>		
-				
+
 				
 				<li class="block">
 					<img class="bordered media" src="/assets/images/cast/Pastport-panama/guillermo_148x148.jpg" />
@@ -148,14 +141,7 @@ Janeska and Okarina Carlos</h3>
 					<p>Tatyana's great uncle. After catching Tatyana perform at her impromptu family reunion, he reveals to her that he considers his visiting relative more of a daughter than a distant great niece.</p>
 				</li>			
 				
-				
-				<li class="block">
-					<img class="bordered media" src="/assets/images/cast/Pastport-panama/?" />
-					<div class="meta">
-						<h3>"Papito"</h3>
-					</div>
-					<p>Tatyana's beloved grandfather, affectionately referred to as "Papito," has a place in history as being among the first black and Panamanian electrical contractors to work on the Panama Canal, a job he began in 1973.</p>
-				</li>										
+								
 								
 			</ul>
 		</div>

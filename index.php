@@ -1,6 +1,8 @@
 <?
 
 
+
+
 	$time_start = microtime(true);
 
 	// prevent simple hacking attempts -- someone trying to access files directly
@@ -35,12 +37,17 @@
 	}
 	
 
+
+
 	if (!empty($page->template)) {
 		include("templates/{$page->template}.php");
 		$template->render();
 	} else {
 		echo $page->components["raw"];
 	}
+	
+	
+
 	
 	$time_end = microtime(true);
 	$time = $time_end - $time_start;

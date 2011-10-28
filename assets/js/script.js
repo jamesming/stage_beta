@@ -615,6 +615,7 @@ function getShowSchedule() {
 	scheduleKeys["series/latino-101-s2"] = "Latino 101";
 	scheduleKeys["series/miami-ink"] = "Miami Ink";
 	scheduleKeys["series/mission-menu"] = "Mission Menu";
+	scheduleKeys["series/curvygirls"] = "Curvy Girls";
 	scheduleKeys["series/model-latina-nyc"] = "Model Latina NYC";
 	scheduleKeys["series/model-latina-miami"] = "Model Latina Miami";
 	scheduleKeys["series/model-latina-la"] = "Model Latina";
@@ -653,7 +654,7 @@ function getShowSchedule() {
 	},
 	function(data) {
 
-		
+
 		var result = "";
 		if (data && data.length > 0) {
 			results = parseScheduleData(data).data;
@@ -677,8 +678,14 @@ function getShowSchedule() {
 				result = list;
 			}
 		}
+
+
 		if( id == 'Mission Menu'){
 			result = '';$("<p />").html("Tune into the Series Premiere October 18th 9/8c");
+		}else if( id == 'Curvy Girls'){
+			if (result == "") {
+				result = $("<p />").html("SPECIAL PREVIEW, MONDAY 8/7c");
+			}			
 		}else{
 			if (result == "") {
 				result = $("<p />").html("This show is currently not scheduled. Please check back often for updates!");
@@ -687,9 +694,17 @@ function getShowSchedule() {
 		
 		
 		if( id != 'Mission Menu'){
-				$(".schedule").append(result);			
+					
+				
+			if( episode_title != 'Panama'){
+				$(".schedule").append(result);
+			}else{
+				$(".schedule").append("<p>Tune into the Series Tuesday, November 8TH 10/9c.</p>");				
+			};
+				
+						
 		}else{
-
+			
 		};
 		
 		

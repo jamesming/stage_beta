@@ -1,5 +1,5 @@
 <?
-	$page->title = "Pastport Puerto Rico - Photos | nuvoTV Official Site";
+	$page->title = "Pastport Panama - Photos | nuvoTV Official Site";
 	$page->template = "standard";
 
 	$page->bodyClasses[] = "layout-ms";
@@ -10,10 +10,29 @@
 EOTHEME;
 	
 	$page->components["hero"] = <<<EOHERO
-	<div class="controls" style="background:transparent url(/assets/images/heroes/series/txt_pastport-PR.png) no-repeat 0 0; left:344px; top:70px; width:684px; height:138px;">
+	<div class="controls" style="background:transparent url(/assets/images/heroes/series/txt_pastport_Panama.png) no-repeat 0 0; left:369px; top:132px; width:684px; height:138px;">
 		<a href="http://www.facebook.com/Pastport" style="left:285px; top:59px; width:217px; height:73px;">facebook</a>
 	</div>
 EOHERO;
+
+
+
+
+$images_raw = scandir("assets/images/galleries/_PastportPanama/_full/");
+
+for($i=17;$i<=31;$i++){
+	
+	$images[] = $images_raw[$i];
+}
+
+$images_li = "";
+
+foreach( $images  as  $image){
+	
+	
+	$images_li = $images_li . "<img title='' alt=''  src='/assets/images/galleries/_PastportPanama/_full/".$image."'>";
+	
+}
 
 
 	$seriesBase = "pastport-panama";
@@ -23,61 +42,24 @@ EOHERO;
 			<li class="first"><a href="/series/$seriesBase">Show</a></li>
 			<li><a href="/series/$seriesBase/cast">Cast</a></li>
 			<li><a href="/series/$seriesBase/video">Video</a></li>
-			<li><a href="/series/$seriesBase/features">Features</a></li>
+			<li class=""><a href="/series/$seriesBase/features">Features</a></li>
 			<li class="active last"><a href="/series/$seriesBase/photos">Photos</a></li>
 			<li class="season-nav">
-				<span>Season:</span>
+				<span>Episode:</span>
 				<ul class="inline">
 					<li><a href="/series/pastport-cuba">1</a></li>
 					<li><a href="/series/pastport-colombia">2</a></li>
 					<li><a href="/series/pastport-argentina">3</a></li>
-					<li><a href="/series/pastport-venezuela">4</a></li>
-					<li class="active"><a href="/series/pastport-panama">5</a></li>
+					<li><a href="/series/pastport-venezuela">4</a></li><li><a href="/series/pastport-puerto-rico">5</a></li>
+					<li class="active"><a href="/series/pastport-panama">6</a></li>
 				</ul>
 			</li>
 		</ul>
 	</div>
 	<div class="main">
 		<div class="black-box gallery block">
-			<h2>Pastport Puerto Rico</h2>
-	        <div class="galleria">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_PastportPuertoRico/_full/7834.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_PastportPuertoRico/_full/7866.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_PastportPuertoRico/_full/7868.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_PastportPuertoRico/_full/7877.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_PastportPuertoRico/_full/7882.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_PastportPuertoRico/_full/7906.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_PastportPuertoRico/_full/7923.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_PastportPuertoRico/_full/7927.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_PastportPuertoRico/_full/7946.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_PastportPuertoRico/_full/7960.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_PastportPuertoRico/_full/7972.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_PastportPuertoRico/_full/8000.jpg">
-	        </div>
+			<h2>Pastport Panama</h2>
+	        <div class="galleria">{$images_li}</div>
 		</div>	
 		<div class="ad ad-box"></div>
 		<div class="facebook white-box block">
@@ -90,8 +72,8 @@ EOHERO;
 		<div class="galleries black-box block">
 			<h2>Galleries</h2>
 			<a href="#">
-				<img class="bordered" src="/assets/images/galleries/_PastportPuertoRico/_thmbs/thmb_4.jpg" />
-				Pastport Puerto Rico
+				<img class="bordered" src="/assets/images/galleries/_PastportPanama/_thmbs/_PAN4313.jpg" />
+				Pastport Panama
 			</a>
 		</div>
 		<div class="ad ad-tall"></div>

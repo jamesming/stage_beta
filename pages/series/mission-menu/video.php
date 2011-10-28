@@ -56,12 +56,14 @@ found at https://accounts.brightcove.com/en/terms-and-conditions/.
 
 <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
 
+
+
 <object id="myExperience" class="BrightcoveExperience">
   <param name="bgcolor" value="#FFFFFF" />
   <param name="width" value="802" />
   <param name="height" value="427" />
-  <param name="playerID" value="1163476888001" />
-  <param name="playerKey" value="AQ~~,AAAAADEdZAY~,VHcBVNPqDVv1hbovC_S_pUDKY6qz8ZaO" />
+  <param name="playerID" value="1213645769001" />
+  <param name="playerKey" value="AQ~~,AAAAADEdZAY~,VHcBVNPqDVvpuUtUVsa3lE0M1kcvEzef" />
   <param name="isVid" value="true" />
   <param name="isUI" value="true" />
   <param name="dynamicStreaming" value="true" />

@@ -10,7 +10,7 @@
 EOTHEME;
 	
 	$page->components["hero"] = <<<EOHERO
-	<div class="controls" style="background:transparent url(/assets/images/heroes/series/txt_pastport-PR.png) no-repeat 0 0; left:344px; top:70px; width:684px; height:138px;">
+	<div class="controls" style="background:transparent url(/assets/images/heroes/series/txt_pastport_Panama.png) no-repeat 0 0; left:369px; top:132px; width:684px; height:138px;">
 		<a href="http://www.facebook.com/Pastport" style="left:285px; top:59px; width:217px; height:73px;">facebook</a>
 	</div>
 EOHERO;
@@ -24,16 +24,16 @@ EOHERO;
 			<li><a href="/series/$seriesBase/cast">Cast</a></li>
 			<li><a href="/series/$seriesBase/video">Video</a></li>
 			<li class="active"><a href="/series/$seriesBase/episodes">Episodes</a></li>
-			<li><a href="/series/$seriesBase/features">Features</a></li>
+			<li class=""><a href="/series/$seriesBase/features">Features</a></li>
 			<li class="last"><a href="/series/$seriesBase/photos">Photos</a></li>
 			<li class="season-nav">
-				<span>Season:</span>
+				<span>Episode:</span>
 				<ul class="inline">
 					<li><a href="/series/pastport-cuba">1</a></li>
 					<li><a href="/series/pastport-colombia">2</a></li>
 					<li><a href="/series/pastport-argentina">3</a></li>
-					<li><a href="/series/pastport-venezuela">4</a></li>
-					<li class="active"><a href="/series/pastport-panama">5</a></li>
+					<li><a href="/series/pastport-venezuela">4</a></li><li><a href="/series/pastport-puerto-rico">5</a></li>
+					<li class="active"><a href="/series/pastport-panama">6</a></li>
 				</ul>
 			</li>
 		</ul>

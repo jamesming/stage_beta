@@ -1,7 +1,4 @@
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr">
-
+<!doctype html>
 <!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
@@ -12,17 +9,13 @@
 		<title><? echo $page->title; ?></title>
 		<meta name="description" content="<? echo $page->description; ?>" />
 		<meta name="keywords" content="<? echo $page->keywords; ?>" />
-
+		<meta name="alexaVerifyID" content="IS_7QGhgTHrlz0zevBoPHRiFDpY" />
 		<link rel="shortcut icon" href="/favicon.ico" />
 		
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=1000">
 	
 		<link rel="stylesheet" href="/assets/css/style.css?<? echo time(); ?>">
-		
-		
-
-		
 		<script type="text/javascript">
 			var currentPage = "<? echo $page->path ?>";
 
@@ -52,10 +45,7 @@ var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-6608993-1"]);_gaq.push(["_tr
 			<div id="fb-root">&nbsp;</div>
 			<script src="http://connect.facebook.net/en_US/all.js#appId=193574447346913&amp;xfbml=1"></script>
 		</div>
-		<div class="wrapper"   >
-			<?
-			 echo $page->components["theme"] . "\n"; 
-			?>
+		<div class="wrapper"><? echo $page->components["theme"] . "\n"; ?>
 			<div class="stripe">
 <?
 
@@ -95,7 +85,7 @@ if(($now > $start AND $now < $end) AND $day == 'Wed') {
 					<div class="se-bg">
 						<div class="container">
 							<div class="header">
-								<div class="ad ad-long" ><!--<script type="text/javascript">printAd(1, 1);</script>--></div>
+								<div class="ad ad-long"><!--<script type="text/javascript">printAd(1, 1);</script>--></div>
 								<a class="logo" href="/">Home</a>
 								<ul class="inline nav">
 									<li class="has-dropdown">
@@ -105,29 +95,31 @@ if(($now > $start AND $now < $end) AND $day == 'Wed') {
 												<li><a href="/series/adrenalina" data-menu-image="/assets/images/dropdown/_drop_Adrenalina.jpg">Adrenalina</a></li>
 												<li><a href="/series/chicago-hope" data-menu-image="/assets/images/dropdown/_drop_ChicagoHope.jpg">Chicago Hope</a></li>
 												<li><a href="/series/cristinas-court" data-menu-image="/assets/images/dropdown/_drop_ChristinaCourt.jpg">Cristina's Court</a></li>
+												<li><a href="/series/curvygirls" data-menu-image="/assets/images/dropdown/_drop_CurvyGirls.jpg">Curvy Girls</a></li>
 												<li><a href="/series/dark-angel" data-menu-image="/assets/images/dropdown/_drop_DarkAngel.jpg">Dark Angel</a></li>
 												<li><a href="/series/fame" data-menu-image="/assets/images/dropdown/_drop_Fame.jpg">Fame</a></li>
 												<li><a href="/series/hill-street-blues" data-menu-image="/assets/images/dropdown/_drop_HillStBlues.jpg">Hill Street Blues</a></li>
-												<li><a href="/series/in-living-color" data-menu-image="/assets/images/dropdown/_drop_inLivingColor.jpg">In Living Color</a></li>
-												<li><a href="/series/la-law" data-menu-image="/assets/images/dropdown/_drop_LAlaw3.jpg">L.A. Law</a></li>
-												<li><a href="/series/latino-101-s1" data-menu-image="/assets/images/dropdown/_drop_Latino101_S1-v2.jpg">Latino 101 Season 1</a></li>
+												<li><a href="/series/in-living-color" data-menu-image="/assets/images/dropdown/_drop_InLivingColor.jpg">In Living Color</a></li>
+												<li><a href="/series/la-law" data-menu-image="/assets/images/dropdown/_drop_LALaw.jpg">L.A. Law</a></li>
+												<li><a href="/series/latino-101-s1" data-menu-image="/assets/images/dropdown/_drop_Latino101_S1.jpg">Latino 101 Season 1</a></li>
 												<li><a href="/series/latino-101-s2" data-menu-image="/assets/images/dropdown/_drop_Latino101_S2.jpg">Latino 101 Season 2</a></li>
 												<li><a href="/series/miami-ink" data-menu-image="/assets/images/dropdown/_drop_MiamiInk.jpg">Miami Ink</a></li>
 												<li><a href="/series/mission-menu" data-menu-image="/assets/images/dropdown/_drop_MissionMenu.jpg">Mission Menu</a></li>
-												<li><a href="/series/mission-menu" data-menu-image="/assets/images/dropdown/_drop_ML_LA.jpg">Model Latina L.A.</a></li>
+												<li><a href="/series/model-latina-la" data-menu-image="/assets/images/dropdown/_drop_ML_LA.jpg">Model Latina L.A.</a></li>
 											</ul>
 											<ul class="unstyled">
 												<li><a href="/model-latina-las-vegas/" data-menu-image="/assets/images/dropdown/_drop_ML_Vegas.jpg">Model Latina Las Vegas</a></li>
-												<li><a href="/series/model-latina-miami" data-menu-image="/assets/images/dropdown/_drop_ML_Miami2.jpg">Model Latina Miami</a></li>												
-												<li><a href="/series/model-latina-nyc" data-menu-image="/assets/images/dropdown/_drop_ML_NYC_ELORA.jpg">Model Latina NYC</a></li>
+												<li><a href="/series/model-latina-miami" data-menu-image="/assets/images/dropdown/_drop_ML_Miami.jpg">Model Latina Miami</a></li>												
+												<li><a href="/series/model-latina-nyc" data-menu-image="/assets/images/dropdown/_drop_ML_NYC.jpg">Model Latina NYC</a></li>
 												<li><a href="/series/new-york-undercover" data-menu-image="/assets/images/dropdown/_drop_NYUndercover.jpg">New York Undercover</a></li>
-												<li><a href="/series/nypd-blue" data-menu-image="/assets/images/dropdown/_drop_NYPDBlue2.jpg">NYPD Blue</a></li>
+												<li><a href="/series/nypd-blue" data-menu-image="/assets/images/dropdown/_drop_NYPDBlue.jpg">NYPD Blue</a></li>
 												<li><a href="/operation-osmin/" data-menu-image="/assets/images/dropdown/_drop_Osmin.jpg">Operation Osmin</a></li>
 												<li><a href="/series/pastport-argentina" data-menu-image="/assets/images/dropdown/_drop_Past_Arg.jpg">Pastport Argentina</a></li>
-												<li><a href="/series/pastport-colombia" data-menu-image="/assets/images/dropdown/_drop_Past_Columbia2.jpg">Pastport Colombia</a></li>
-												<li><a href="/series/pastport-cuba" data-menu-image="/assets/images/dropdown/_drop_Past_Cuba2.jpg">Pastport Cuba</a></li>
+												<li><a href="/series/pastport-colombia" data-menu-image="/assets/images/dropdown/_drop_Past_Colombia.jpg">Pastport Colombia</a></li>
+												<li><a href="/series/pastport-cuba" data-menu-image="/assets/images/dropdown/_drop_Past_Cuba.jpg">Pastport Cuba</a></li>
+												<li><a href="/series/pastport-panama" data-menu-image="/assets/images/dropdown/_drop_Past_Panama.jpg">Pastport Panama</a></li>
 												<li><a href="/series/pastport-puerto-rico" data-menu-image="/assets/images/dropdown/_drop_Past_PuertoRico.jpg">Pastport Puerto Rico</a></li>
-												<li><a href="/series/pastport-venezuela" data-menu-image="/assets/images/dropdown/_drop_Past_venez.jpg">Pastport Venezuela</a></li>
+												<li><a href="/series/pastport-venezuela" data-menu-image="/assets/images/dropdown/_drop_Past_Vene.jpg">Pastport Venezuela</a></li>
 												<li><a href="/series/prison-break" data-menu-image="/assets/images/dropdown/_drop_PrisonBreak.jpg">Prison Break</a></li>
 											</ul>
 										</div>

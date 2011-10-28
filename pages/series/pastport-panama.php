@@ -1,5 +1,5 @@
 <?
-	$page->title = "Pastport Puerto Rico | nuvoTV Official Site";
+	$page->title = "Pastport Panama | nuvoTV Official Site";
 	$page->template = "standard";
 
 	$page->bodyClasses[] = "layout-s2mb";
@@ -10,30 +10,31 @@
 EOTHEME;
 	
 	$page->components["hero"] = <<<EOHERO
-	<div class="controls" style="background:transparent url(/assets/images/heroes/series/txt_pastport_Panama.png) no-repeat 0 0; left:344px; top:70px; width:684px; height:138px;">
+	<div class="controls" style="background:transparent url(/assets/images/heroes/series/txt_pastport_Panama.png) no-repeat 0 0; left:369px; top:132px; width:684px; height:138px;">
 		<a href="http://www.facebook.com/Pastport" style="left:285px; top:59px; width:217px; height:73px;">facebook</a>
 	</div>
 EOHERO;
 
 
 	$seriesBase = "pastport-panama";
-	$schedule = getSchedule("pastport-puerto rico");
+	$schedule = '';
 	$page->components["content"] = <<<EOCONTENT
 	<div class="series-nav">
 		<ul class="unstyled">
 			<li class="active first"><a href="/series/$seriesBase">Show</a></li>
 			<li><a href="/series/$seriesBase/cast">Cast</a></li>
 			<li><a href="/series/$seriesBase/video">Video</a></li>
-			<li><a href="/series/$seriesBase/features">Features</a></li>
+			<li class=""><a href="/series/$seriesBase/features">Features</a></li>
 			<li class="last"><a href="/series/$seriesBase/photos">Photos</a></li>
 			<li class="season-nav">
-				<span>Season:</span>
+				<span>Episode:</span>
 				<ul class="inline">
 					<li><a href="/series/pastport-cuba">1</a></li>
 					<li><a href="/series/pastport-colombia">2</a></li>
 					<li><a href="/series/pastport-argentina">3</a></li>
 					<li><a href="/series/pastport-venezuela">4</a></li>
-					<li class="active"><a href="/series/pastport-panama">5</a></li>
+					<li><a href="/series/pastport-puerto-rico">5</a></li>
+					<li class="active"><a href="/series/pastport-panama">6</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -54,10 +55,10 @@ On <i>Pastport: Panama</i>, multi-talented actress-musician Tatyana Ali, best kn
 	</div>
 	<div class="main">
 		<div class="featured white-box block">
-			<h2>Five Reasons Why Alanna Ubach Rocks</h2>
-			<img class="bordered media" src="/assets/images/featured/thumbs/pastport-puertorico_138x138.jpg" />
+			<h2>Travel Tunes: 10 Timeless Serenades to Latin America</h2>
+			<img class="bordered media" src="/assets/images/featured/thumbs/PP_panama_138x138.jpg" />
 			<div class="copy">
-				<p>Find out why this half-Mexican, half-Puerto Rican actress, who's known for her killer bod, kicks major booty. </p>
+				<p>On Pastport: Panama, Tatyana Ali, The Fresh Prince of Bel-Air alum who moonlights as a gold-selling R&B singer, adds an exciting soundtrack to her trip to her mom's homeland when she performs a self-penned bilingual duet with Los Rabanes. We can't hook you up with the Latin Grammy winning band, but our list of 10 Timeless Serenades to Latin America can help you plan the perfect soundtrack for your next trip -- or family reunion. </p>
 				<p><a href="/series/pastport-panama/features" class="no-break">Read More +</a></p>
 			</div>
 		</div>
@@ -69,21 +70,29 @@ On <i>Pastport: Panama</i>, multi-talented actress-musician Tatyana Ali, best kn
 			<h2>Meet the Cast</h2>
 			<ul class="unstyled">
 				<li class="first block">
-					<img class="bordered media" src="/assets/images/cast/Pastport-panama/cast_PP-PR-Alanna-Ubach.jpg" />
+					<img class="bordered media" src="/assets/images/cast/Pastport-panama/tatyana_148x148.jpg" />
 					<div class="copy">
 						<div class="meta">
-							<h3>Alanna Ubach</h3>
+							<h3>Tatyana Ali</h3>
 						</div>
-						<p><a href="http://www.alannaubach.net/" target="_blank">Alanna</a>, 36, was born and raised in Downey, California to a Puerto Rican father and Mexican mother. The Latina actress is best known for her roles in <i>Legally Blonde</i> and <i>Meet the Fockers</i>. She's also a voice-over star who's lent her chops to the main character, Manny, in Nickelodeon's first ever flash animation series, <i>El Tigre: The Adventures of Manny Rivera</i>, cheerleader <a href="/series/pastport-panama/cast">[...]</a></p>
+						
+						
+						
+Panamanian-American actress Tatyana Ali grew up in a predominantly Jewish neighborhood on Long Island and later relocated to Los Angeles, where she found fame as the loveable Ashley Banks on <i>The Fresh Prince of Bel-Air</i>. But her parents' family history and move to America, where they encountered racial barriers and financial hardships, comprised a lifestyle that was the polar opposite of her privileged TV family.<a href="/series/pastport-panama/cast">[...]</a>					
+						
+						
+						
+						
+						
 					</div>
 				</li>
 				<li class="last block">
-					<img class="bordered media" src="/assets/images/cast/Pastport-panama/cast_PP-PR-Pelle.jpg" />
+					<img class="bordered media" src="/assets/images/cast/Pastport-panama/anastasia_148x148.jpg" />
 					<div class="copy">
 						<div class="meta">
-							<h3>Pelle</h3>
+							<h3>Anastasia Ali</h3>
 						</div>
-						<p> Alanna's boyfriend, Pelle, was born in Sweden and has lived in the U.S. for 16 years. He runs an import/export business in L.A., has never been to Puerto Rico, and doesn't speak a lick of Spanish. According to Alanna, Pelle's a workaholic just like her dad was. Let's see if he can work in some time to help Alanna cope with the death of her father.</p>
+						<p>"I definitely think that this experience brought us closer... this trip made not only myself but also Tatyana wanna come back to Panama," says Anastasia, Tatyana's sibling and business partner in Hazrah Entertainment. She is one of Tatyana's two younger sisters, along with Kimberly, and accompanies her older sister/BFF on the trip to Panama. </p>
 					</div>
 				</li>
 			</ul>
@@ -103,7 +112,7 @@ On <i>Pastport: Panama</i>, multi-talented actress-musician Tatyana Ali, best kn
 		<div class="facebook block">
 			<fb:like-box href="http://www.facebook.com/Pastport" width="300" height="475" show_faces="true" border_color="#fff" stream="true" header="false"></fb:like-box>
 		</div>
-		<div class="photos block">
+		<!--<div class="photos block">
 			<h2>Photos</h2>
 			<div class="col">
 				<img class="bordered" src="/assets/images/galleries/_PastportPuertoRico/_thmbs/7866.jpg" />
@@ -114,7 +123,7 @@ On <i>Pastport: Panama</i>, multi-talented actress-musician Tatyana Ali, best kn
 				<img class="bordered" src="/assets/images/galleries/_PastportPuertoRico/_thmbs/7906.jpg" />
 			</div>
 			<a class="sub-page-more" href="/series/$seriesBase/photos">See all photos +</a>
-		</div>
+		</div>-->
 	</div>
 EOCONTENT;
 

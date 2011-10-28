@@ -28,7 +28,7 @@ EOHERO;
 			<li><a href="/series/$seriesBase/features">Features</a></li>
 			<li class="last"><a href="/series/$seriesBase/photos">Photos</a></li>
 			<li class="season-nav">
-				<span>Season:</span>
+				<span>Episode:</span>
 				<ul class="inline">
 					<li class="active"><a href="/series/pastport-cuba">1</a></li>
 					<li><a href="/series/pastport-colombia">2</a></li>

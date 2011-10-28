@@ -3,7 +3,7 @@
 								<ul class="links">
 									<li><a href="/about-us">About Us</a></li>
 									<li><a href="/contact">Contact</a></li>
-									<li><a href="/press">Press</a></li>
+									<li><a href="/index.php?pageID=press">Press</a></li>
 									<li><a href="http://affiliates.mynuvotv.com">Affiliate</a></li>
 								</ul>
 								<ul class="links">
@@ -36,6 +36,8 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.js"></script>
 		<script type="text/javascript" src="/assets/js/plugins.js"></script>
 		<script type="text/javascript" src="/assets/js/script.js"></script>
+		<script type="text/javascript" src="/assets/js/disable_brightcove_frontpage_sound.js"></script>
+
 	</body>
 </html>
 <?

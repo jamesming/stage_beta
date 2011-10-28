@@ -26,13 +26,13 @@ EOHERO;
 			<li><a href="/series/$seriesBase/features">Features</a></li>
 			<li class="active last"><a href="/series/$seriesBase/photos">Photos</a></li>
 			<li class="season-nav">
-				<span>Season:</span>
+				<span>Episode:</span>
 				<ul class="inline">
 					<li><a href="/series/pastport-cuba">1</a></li>
 					<li><a href="/series/pastport-colombia">2</a></li>
 					<li><a href="/series/pastport-argentina">3</a></li>
 					<li><a href="/series/pastport-venezuela">4</a></li>
-					<li class="active"><a href="/series/pastport-puerto-rico">5</a></li>
+					<li class="active"><a href="/series/pastport-puerto-rico">5</a></li><li><a href="/series/pastport-panama">6</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -90,7 +90,7 @@ EOHERO;
 		<div class="galleries black-box block">
 			<h2>Galleries</h2>
 			<a href="#">
-				<img class="bordered" src="/assets/images/galleries/_PastportPuertoRico/_thmbs/thmb_4.jpg" />
+				<img class="bordered" src="/assets/images/galleries/_PastportPuertoRico/_thmbs/7866.jpg" />
 				Pastport Puerto Rico
 			</a>
 		</div>

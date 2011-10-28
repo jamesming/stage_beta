@@ -3,7 +3,6 @@
 <?php     
 
 
-
 $query = 	"SELECT
 						carousel_sets_calendars.day_of_year,
 						carousel_sets.name AS carousel_sets_name,
@@ -62,8 +61,10 @@ $query = 	"SELECT
 					 	carousel_items_sets.id,
 					 	carousel_items_sets.order,
 					 	carousel_items_images.image_type_id ASC
-					 LIMIT 0, 12
+					 LIMIT 0, 24
 					 	";
+					 	
+					 // LIMIT 24 =  4 shows/sets of 6 images(show, show_iphone, right_tab, right_tab_iphone, tune_in, tune_in_iphone)
 
 $result = mysql_query($query);
 

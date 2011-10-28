@@ -4,7 +4,6 @@ include('includes/cms_prep.php');
 
 
 
-
 	$page->template = "standard";	
 
 
