@@ -34,13 +34,13 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 
 foreach( $showpage_items_images  as $showpage_items_image){
-	if( $showpage_items_image['image_type'] == showpage_dropdown){
+	if( $showpage_items_image['image_type'] == 'showpage_dropdown'){
 		$showpage_dropdown = $showpage_items_image['id'];
 	};
-	if( $showpage_items_image['image_type'] == showpage_title){
+	if( $showpage_items_image['image_type'] == 'showpage_title'){
 		$showpage_title = $showpage_items_image['id'];
 	};
-	if( $showpage_items_image['image_type'] == showpage_hero){
+	if( $showpage_items_image['image_type'] == 'showpage_hero'){
 		$showpage_hero = $showpage_items_image['id'];
 	};
 }
@@ -77,6 +77,44 @@ EOTHEME;
 EOHERO;
 
 
+
+
+$query = 	"SELECT 
+						name,
+						content, 
+						showpage_cast_items_images.id as  showpage_cast_items_image_id
+					 FROM 
+					 	showpage_cast_items,
+					 	showpage_cast_items_images
+					 WHERE
+					 	showpage_cast_items.id = showpage_cast_items_images.showpage_cast_item_id
+					 AND
+					 	showpage_cast_items.showpage_item_id = 10
+					 	";				 	
+
+
+			 	
+$result = mysql_query($query);
+
+while ($row = mysql_fetch_assoc($result)) {
+	$showpage_items_casts[] = $row;
+}
+	$list='';
+	foreach( $showpage_items_casts  as $showpage_items_cast){
+
+	
+		$list=$list."
+		<li class='first block'>
+			<img class='bordered media' src='http://cms.mynuvotv.com/uploads/showpage_cast_items_images/".$showpage_items_cast['showpage_cast_items_image_id']."/image.png' />
+			<div class='meta'>
+				<h3>".$showpage_items_cast['name']."</h3>
+			</div>
+			<p>".$showpage_items_cast['content']."</p>
+		</li>";	
+   
+	}
+
+
 	$seriesBase = "la-ink";
 	$page->components["content"] = <<<EOCONTENT
 	<div class="series-nav">
@@ -95,48 +133,7 @@ EOHERO;
 		<div class="cast white-box block">
 			<h2>Meet the Cast</h2>
 			<ul class="unstyled">
-				<li class="first block">
-					<img class="bordered media" src="/assets/images/cast/Miami-Ink/kat-von-d-CAST_148X148.jpg" />
-					<div class="meta">
-						<h3>Kat Von D</h3>
-					</div>
-					<p>After beefing with the crew of Miami Ink at the end of season 2, Kat opened her own tattoo shop in LA called LA Ink, which was also the name of her show.</p>
-				</li>
-				<li class="block">
-					<img class="bordered media" src="/assets/images/cast/Miami-Ink/ami-james-CAST_148X148.jpg" />
-					<div class="meta">
-						<h3>Ami James</h3>
-					</div>
-					<p>This tattoo artist is at it again in NY Ink, the latest Miami Ink spin-off set in SoHo. His mission: To become the Tattoo King of New York.</p>
-				</li>
-				<li class="block">
-					<img class="bordered media" src="/assets/images/cast/Miami-Ink/darren-brass-CAST_148X148.jpg" />
-					<div class="meta">
-						<h3>Darren Brass</h3>
-					</div>
-					<p>This tattoo artist considers Chris Garver, Joe Vegas, Bob Roberts, and Ed Hardy his influences. </p>
-				</li>
-				<li class="block">
-					<img class="bordered media" src="/assets/images/cast/Miami-Ink/chris-nunez-CAST_148X148.jpg" />
-					<div class="meta">
-						<h3>Chris Nu&ntilde;ez</h3>
-					</div>
-					<p>This Cuban tattoo artist received his first tattoo at 16. Now, it's  buried under a sea of new ones. </p>
-				</li>
-				<li class="block">
-					<img class="bordered media" src="/assets/images/cast/Miami-Ink/yojiro-harada-CAST_148X148.jpg" />
-					<div class="meta">
-						<h3>Yojiro Harada</h3>
-					</div>
-					<p>This Japanese tat artist began as the shop's apprentice, and is now tattooing full time. He sings in a punk rock band and is covered in ink. </p>
-				</li>
-				<li class="last block">
-					<img class="bordered media" src="/assets/images/cast/Miami-Ink/chris-garver-CAST_148X148.jpg" />
-					<div class="meta">
-						<h3>Chris Garver</h3>
-					</div>
-					<p>Considered one of the best tattoo artists in the world, Garver is said to have a two-year waiting list of clients.</p>
-				</li>
+{$list}
 			</ul>
 		</div>
 	</div>

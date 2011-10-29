@@ -74,7 +74,7 @@ EOTHEME;
 EOHERO;
 
 
-	$seriesBase = "miami-ink";
+	$seriesBase = "la-ink";
 	$page->components["content"] = <<<EOCONTENT
 	<div class="series-nav">
 		<ul class="unstyled">
