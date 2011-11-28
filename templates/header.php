@@ -37,7 +37,7 @@ var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-6608993-1"]);_gaq.push(["_tr
 			})();
 
 		</script>		
-		
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.js"></script>
 	</head>
 	
 	<body class="<? echo $page->getBodyClasses(); ?>">
