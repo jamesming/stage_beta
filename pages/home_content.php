@@ -51,7 +51,7 @@
   } 
 	
 	
-	$first_set_of_playlist_scroll_left_right = 5;
+
 	
 	$playlists = array(
 		0 => array(
@@ -94,6 +94,55 @@
 			$videos[]= 	$video;
 	}
 
+
+
+
+	$evergreens = array(
+		0 => array(
+			'name' => 'name0',
+			'img' => 'assets/images/VIDEO-thumbnail-size.jpg',
+			'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+			),
+		1 => array(
+			'name' => 'name1',
+			'img' => 'assets/images/VIDEO-thumbnail-size.jpg',
+			'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+			),
+		2 => array(
+			'name' => 'name2',
+			'img' => 'assets/images/VIDEO-thumbnail-size.jpg',
+			'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+			),
+		3 => array(
+			'name' => 'name3',
+			'img' => 'assets/images/VIDEO-thumbnail-size.jpg',
+			'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+			),
+		4 => array(
+			'name' => 'name4',
+			'img' => 'assets/images/VIDEO-thumbnail-size.jpg',
+			'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+			)												
+	);
+
+$evergreen_section = '';
+
+foreach( $evergreens  as  $evergreen){
+	
+		$evergreen_section =	$evergreen_section . "	
+					<div class=' evergreen'> 
+						<div  class='title ' >".$evergreen['name']."
+						</div>
+						<div  class='image_div ' >
+							<img src='".$evergreen['img']."'>
+						</div>
+						<div  class='content ' >".$evergreen['description']."
+						</div>
+					</div>";
+				
+}
+
+	
 
 $nu_spotlight_li = "";
 for($i=0; $i<=4; $i++){
@@ -261,6 +310,8 @@ for($i=0; $i<=4; $i++){
 
 	<div  class='red-area-container ' >{$red_section}</div>
 
+
+	<div  class='evergreen-container ' >{$evergreen_section}</div>
 	
 	<div class="c-spot block">
 		<div class="ad ad-tall"></div>

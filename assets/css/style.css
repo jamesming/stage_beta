@@ -860,3 +860,38 @@ background-repeat: no-repeat;
 height:33px;
 width: 150px;
 }
+
+.evergreen-container{
+clear:both;
+margin-bottom:20px;
+height: 227px;
+}
+.evergreen{
+    background: url("/assets/images/Evergreen_tab.png") no-repeat scroll center center transparent;
+    float: left;
+    height: 227px;
+    margin-right: 5px;
+    width: 191px;
+}
+.evergreen .title{
+    color: white;
+    font-family: san-serif;
+    font-size: 14px;
+    padding-left: 10px;
+    padding-top: 8px;
+    height: 34px;
+}
+.evergreen .image_div {
+    padding-left: 5px;
+}
+.evergreen .image_div img {
+    width: 181px;
+}
+.evergreen .content{
+    height: 70px;
+    overflow: hidden;
+    padding-left: 15px;
+    width: 165px;
+    padding-top: 3px;
+    font-size: 11px;
+}
