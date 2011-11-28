@@ -73,16 +73,7 @@
 		5 => array(
 					'playlist_name' => 'Model Latina Las Vegas Profiles',
 					'id' => '1067741562001'
-					),
-		6 => array(
-					'playlist_name' => 'Mission Menu',
-					'id' => '1163757251001'
-					),
-					
-		7 => array(
-					'playlist_name' => 'Exclusives',
-					'id' => '58551281001'
-					),					
+					)		
 												
 									
 	);
@@ -129,7 +120,7 @@ for($i=0; $i<=4; $i++){
 
 	foreach($videos[0]['clips'] as  $video ){
 					    	
-		$episodes_videos = $episodes_videos."<li onClick='playTitleFromList(".$video->id.")'    style='list-style: none;'  >
+		$episodes_videos = $episodes_videos."<li onClick='playTitleFromList(".$video->id.")'  >
 
 																						<div   class='img-div ' >
 																							<img   src='".$video->thumbnailURL."' alt='".$video->name."' >
@@ -142,9 +133,7 @@ for($i=0; $i<=4; $i++){
 											
 																				</li>";
 	}
-	
 
-	
 	$clips_videos = '';
 	
 	foreach($videos[1]['clips'] as  $video ){
@@ -165,9 +154,66 @@ for($i=0; $i<=4; $i++){
 	}
 	
 	
+	
+	
+	
+	function get_li( $clips ){
+ 
+			$count = 0;
+			$li = "";
+			
+			foreach($clips as  $video ){
+				
+				$count++;
+			
+				if( $count == 4){	
+					return $li;
+				};
+				
+				$li = $li . "
+				<li onClick='playTitleFromList(".$video->id.")'>
+					<div>
+						<div   class='img-div ' >
+							<img   src='".$video->thumbnailURL."' alt='".$video->name."' >
+						</div>
+						<div  class='text-div ' >
+							<div  class='video-name '  >".$video->name."</div>
+							<div  class='watch-now ' >&nbsp;											
+							</div>
+						</div>
+					
+					</div>
+	
+				</li>";
+				
+			}
+			
+			return $li; 
+		
+	}
+	
+	
+	$red_section = '';
+	
+	for( $i = 2; $i < count($playlists); $i++){
+		
+	$red_section =	$red_section ." 		
+	
+				<div  class='red-column ' >
+					<div  class='red-title ' >".$videos[$i]['playlist_name']."
+					</div>
+					<div  class='red-videos ' >
+						<ul>".get_li( $clips = $videos[$i]['clips'] )."</ul>
+					</div>
+										
+				</div>";
+				
+	}
+	
+
+
 	$page->components["content"] = <<<EOCONTENT
-		
-		
+
 	<div class="schedule">
 		<ul class="inline nav">
 			<li class="prime-time"><span class="corner"></span>Prime Time</li>
@@ -176,93 +222,7 @@ for($i=0; $i<=4; $i++){
 		</ul>
 	</div>
 	
-<style>
-.b-spot.block{
-	padding-top:20px;
-	clear:both;
-	height:250px;
-}
-.b-spot.block .thirds{
-float:left;
-width:300px;
-height:250px;
-margin-right:10px;
-}
-.b-spot.block .first.thirds{
-width:360px;	
-}
-.b-spot.block .second.thirds{
-width:280px;	
-}
 
-#black-tab-box{
-	background-image: url("assets/images/Episodes_tab.png");
-	background-position: center center;
-	background-repeat: no-repeat;
-	height:252px;
-	width: 319px;	
-}
-#black-tab-box .playlist-title{
-    border: 0px solid white;
-    color: white;
-    cursor: pointer;
-    float: left;
-    height: 31px;
-    margin-right: 0px;
-    padding-top: 8px;
-    width: 143px;
-    padding-left: 15px;
-}
-#black-tab-box .episodes-videos{
-	border:0px solid gray; 
-	width:320px; 
-	height:213px; 
-	overflow-y:scroll;
-	clear:both;
-}
-#black-tab-box .clips-videos{
-	display:none;
-}
-#black-tab-box .episodes-videos ul{
-padding:0px;	
-
-}
-#black-tab-box .episodes-videos li{
-		list-style: none;
-    border: 0px solid red;
-    clear: both;
-    color: white;
-    height: 78px;
-    margin-bottom: 12px;    
-    margin-left: 0px;    
-}
-#black-tab-box .episodes-videos .img-div{
-	float:left;	
-	width:152px;
-}
-		#black-tab-box .episodes-videos .img-div img{
-		width:152px;
-		height:85px;	
-		}
-#black-tab-box .episodes-videos .text-div{
-	float: left;
-	width: 119px;
-	padding-top:4px;
-}	
-
-#black-tab-box .episodes-videos .text-div .video-name{
-	padding-left:11px;
-	height:54px;
-}
-#black-tab-box .episodes-videos .text-div .watch-now{
-	background-image: url("assets/images/watch_now.png");
-	background-position: center center;
-	background-repeat: no-repeat;
-	height:33px;
-	width: 150px;
-}	
-
-</style>
 
 	<div class="b-spot block"   >
 		<div   class='first thirds '     >
@@ -296,6 +256,12 @@ padding:0px;
 		</div>
 		<div class="thirds ad ad-box" ></div>
 	</div>
+	
+
+
+	<div  class='red-area-container ' >{$red_section}</div>
+
+	
 	<div class="c-spot block">
 		<div class="ad ad-tall"></div>
 		<div class="social">
