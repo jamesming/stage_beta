@@ -18,7 +18,7 @@ $db = mysql_connect($host,$user,$pw)
 mysql_select_db($database,$db)
     or die("Cannot connect to database.");
  
-if( $_GET['date'] ){
+if( isset($_GET['date']) && $_GET['date'] ){
 	
 		$date_array = explode('-', $_GET['date']);
 		$year_to_view = $date_array[0];

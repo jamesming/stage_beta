@@ -1,5 +1,5 @@
 <?
-	$page->title = "Miami Ink - Episodes | nuvoTV Official Site";
+	$page->title = "LA Ink - Episodes | nuvoTV Official Site";
 	$page->template = "standard";
 		
 	$page->bodyClasses[] = "layout-bms";

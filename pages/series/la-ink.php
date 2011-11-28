@@ -2,7 +2,7 @@
 
 	include('showpage_include.php');
 
-	$page->title = "Miami Ink | nuvoTV Official Site";
+	$page->title = "LA Ink | nuvoTV Official Site";
 	$page->template = "standard";
 
 	$page->bodyClasses[] = "layout-s2mb";
@@ -13,7 +13,7 @@
 EOTHEME;
 	
 	$page->components["hero"] = <<<EOHERO
-	<div class="controls" style="background:transparent url(http://cms.mynuvotv.com/uploads/showpage_items_images/{$showpage_title}/image.png) no-repeat 0 0; left:409px; top:96px; width:463px; height:111px;">
+	<div class="controls" style="background:transparent url(http://cms.mynuvotv.com/uploads/showpage_items_images/{$showpage_title}/image.png) no-repeat 0 0; left:{$showpage_title_left_margin}px; top:96px; width:463px; height:111px;">
 	</div>
 	
 <style>
@@ -36,7 +36,67 @@ $query = 	"SELECT *
 					 	
 $result = mysql_query($query);
 
-$row = mysql_fetch_assoc($result);
+$showpage_item = mysql_fetch_assoc($result);
+
+$query = 	"SELECT
+						title, 
+						short_version,  
+						showpage_feature_items_images.id as showpage_items_feature_id
+					 FROM 
+					 	showpage_feature_items,
+					 	showpage_feature_items_images
+					 WHERE
+					 	showpage_feature_items.id = showpage_feature_items_images.showpage_feature_item_id
+					 AND
+					 	showpage_feature_items.showpage_item_id = 10
+					 AND showpage_feature_items_images.image_type_id = 15
+					 	";			
+					 	
+$result = mysql_query($query);
+
+while ($row = mysql_fetch_assoc($result)) {
+	$showpage_items_features[] = $row;
+}
+
+
+$query = 	"SELECT 
+						name,
+						content, 
+						showpage_cast_items_images.id as  showpage_cast_items_image_id
+					 FROM 
+					 	showpage_cast_items,
+					 	showpage_cast_items_images
+					 WHERE
+					 	showpage_cast_items.id = showpage_cast_items_images.showpage_cast_item_id
+					 AND
+					 	showpage_cast_items.showpage_item_id = 10
+					 AND showpage_cast_items_images.show_on_showpage = 1
+					 ORDER BY showpage_cast_items_images.order";				 	
+
+
+			 	
+$result = mysql_query($query);
+
+while ($row = mysql_fetch_assoc($result)) {
+	$showpage_items_casts[] = $row;
+}
+
+	$list='';
+	foreach( $showpage_items_casts  as $showpage_items_cast){
+
+	
+		$list=$list."
+				<li class='last block'>
+				<img class='bordered media' src='http://cms.mynuvotv.com/uploads/showpage_cast_items_images/".$showpage_items_cast['showpage_cast_items_image_id']."/image.png' />
+					<div class='copy'>
+						<div class='meta'>
+							<h3>".$showpage_items_cast['name']."</h3>
+						</div>
+						<p>".$showpage_items_cast['content']."</p>
+					</div>
+				</li>";	
+   
+	}
 
 
 	$seriesBase = "la-ink";
@@ -58,16 +118,17 @@ $row = mysql_fetch_assoc($result);
 		</div>
 		<div class="about white-box block">
 			<h2>About</h2>
-			<p>{$row['about']}</p>
+			<p>{$showpage_item['about']}</p>
 		</div>
 		<div class="ad ad-tall block"></div>
 	</div>
 	<div class="main">
 		<div class="featured white-box block">
-			<h2>Five Things to Consider Before You Get a Tattoo</h2>
-			<img class="bordered media" src="/assets/images/featured/thumbs/miamiink_138x138.jpg" />
+			<h2>{$showpage_items_features[0]['title']}</h2>
+
+			<img class='bordered media' src='http://cms.mynuvotv.com/uploads/showpage_feature_items_images/{$showpage_items_features[0]['showpage_items_feature_id']}/image.png' />
 			<div class="copy">
-				<p>When Miami Ink premiered it revolutionized TV by bringing tattoo art to the mainstream and giving audiences the story behind the tat. But before you go out and get your own work of body art, consider these five things.</p>
+				<p>{$showpage_items_features[0]['short_version']}</p>
 				<p><a href="/series/la-ink/features" class="no-break">Read More +</a></p>
 			</div>
 		</div>
@@ -77,33 +138,22 @@ $row = mysql_fetch_assoc($result);
 		</div>
 		<div class="cast padded-box block">
 			<h2>Meet the Cast</h2>
-			<ul class="unstyled">
-				<li class="first block">
-					<img class="bordered media" src="/assets/images/cast/Miami-Ink/kat-von-d-CAST_148X148.jpg" />
-					<div class="copy">
-						<div class="meta">
-							<h3>Kat Von D</h3>
-						</div>
-						<p>After beefing with the crew of Miami Ink at the end of season 2, Kat opened her own tattoo shop in LA called LA Ink, which was also the name of her show.</p>
-					</div>
-				</li>
-				<li class="last block">
-					<img class="bordered media" src="/assets/images/cast/Miami-Ink/ami-james-CAST_148X148.jpg" />
-					<div class="copy">
-						<div class="meta">
-							<h3>Ami James</h3>
-						</div>
-						<p>This tattoo artist is at it again in NY Ink, the latest Miami Ink spin-off set in SoHo. His mission: To become the Tattoo King of New York.</p>
-					</div>
-				</li>
-			</ul>
+			<ul class="unstyled">{$list}</ul>
 			<a class="sub-page-more" href="/series/la-ink/cast">See the entire cast +</a>
 		</div>
 	</div>
 	<div class="sidebar-right">
 		<div class="ad ad-box block"></div>
+		<div class="social block">
+			<h2>Find LA Ink on</h2>
+			<ul class="inline">
+				<li><a target='_blank' class="facebook" href="{$showpage_facebook_url}">facebook</a></li>
+				<li><a class="twitter" href="http://twitter.com/#!/MiamiInk_LAInk">twitter</a></li>
+				<!--  <li class="last"><a target="_blank" class="hulu" href="http://www.hulu.com/pastport">hulu</a></li>-->
+			</ul>			
+		</div>		
 		<div class="facebook block">
-			<fb:like-box href="https://www.facebook.com/MiamiInknuvoTV" width="300" height="475" show_faces="true" border_color="#fff" stream="true" header="false"></fb:like-box>
+			<fb:like-box href="{$showpage_facebook_url}" width="300" height="475" show_faces="true" border_color="#fff" stream="true" header="false"></fb:like-box>
 		</div>
 		<div class="photos block">
 			<h2>Photos</h2>

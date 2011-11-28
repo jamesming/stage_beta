@@ -3,6 +3,7 @@
 <?php     
 
 
+
 $query = 	"SELECT
 						carousel_sets_calendars.day_of_year,
 						carousel_sets.name AS carousel_sets_name,
@@ -64,7 +65,7 @@ $query = 	"SELECT
 					 LIMIT 0, 24
 					 	";
 					 	
-					 // LIMIT 24 =  4 shows/sets of 6 images(show, show_iphone, right_tab, right_tab_iphone, tune_in, tune_in_iphone)
+					 // LIMIT 24 =  4 shows/sets of 6 images(show, show_iphone, right_tab, right_tab_iphone, right_tab_border_iphone, tune_in)
 
 $result = mysql_query($query);
 
@@ -111,7 +112,7 @@ foreach( $sets  as  $set){
 
 				};
 				
-				if( count($array) == 13 ){
+				if( isset($array) && count($array) == 13 ){
 					
 						$image[] = $array;
 						unset($array);			
@@ -154,7 +155,7 @@ foreach( $sets  as  $set){
 
 				};
 				
-				if( count($array) == 13 ){
+				if( isset($array) && count($array) == 13 ){
 					
 						$image[] = $array;
 						unset($array);			

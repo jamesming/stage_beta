@@ -54,15 +54,15 @@ $now = time();
 $start = strtotime('April 18, 2011 12:01 am');
 $end = strtotime('September 30, 2011 11:59 pm');
 
-if($_GET[wed]) {
+if( isset($_GET['wed']) && $_GET['wed']) {
 	$now = strtotime("August 10, 2011 12:01am");
 }
 
-if($_GET[thu]) {
+if( isset($_GET['thu']) && $_GET['thu']) {
 	$now = strtotime("August 11, 2011 12:01am");
 }
 
-if($_GET[wed2]) {
+if( isset($_GET['wed2']) && $_GET['wed2']) {
 	$now = strtotime("August 17, 2011 12:01am");
 }
 
@@ -89,7 +89,7 @@ if(($now > $start AND $now < $end) AND $day == 'Wed') {
 								<a class="logo" href="/">Home</a>
 								<ul class="inline nav">
 									<li class="has-dropdown">
-										<a href="#">Series</a>
+										<a href="#">Shows</a>
 										<div class="dropdown dd-series">
 											<ul class="unstyled">
 												<li><a href="/series/adrenalina" data-menu-image="/assets/images/dropdown/_drop_Adrenalina.jpg">Adrenalina</a></li>
@@ -103,7 +103,9 @@ if(($now > $start AND $now < $end) AND $day == 'Wed') {
 												<li><a href="/series/la-law" data-menu-image="/assets/images/dropdown/_drop_LALaw.jpg">L.A. Law</a></li>
 												<li><a href="/series/latino-101-s1" data-menu-image="/assets/images/dropdown/_drop_Latino101_S1.jpg">Latino 101 Season 1</a></li>
 												<li><a href="/series/latino-101-s2" data-menu-image="/assets/images/dropdown/_drop_Latino101_S2.jpg">Latino 101 Season 2</a></li>
+												<li><a href="/series/la-ink" data-menu-image="/assets/images/dropdown/_dropDown_LA-INK.jpg">LA Ink</a></li>
 												<li><a href="/series/miami-ink" data-menu-image="/assets/images/dropdown/_drop_MiamiInk.jpg">Miami Ink</a></li>
+
 												<li><a href="/series/mission-menu" data-menu-image="/assets/images/dropdown/_drop_MissionMenu.jpg">Mission Menu</a></li>
 												<li><a href="/series/model-latina-la" data-menu-image="/assets/images/dropdown/_drop_ML_LA.jpg">Model Latina L.A.</a></li>
 											</ul>

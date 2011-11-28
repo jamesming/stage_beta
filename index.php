@@ -6,10 +6,10 @@
 	$time_start = microtime(true);
 
 	// prevent simple hacking attempts -- someone trying to access files directly
-//	if (substr($pageID, 0, 1) == "/" || stristr($pageID, "..") !== FALSE) $pageID = "error";
+	//	if (substr($pageID, 0, 1) == "/" || stristr($pageID, "..") !== FALSE) $pageID = "error";
 
 	// error reporting
-	ini_set('display_errors', '0');
+	ini_set('display_errors', '1');
 	error_reporting(E_ALL ^ E_STRICT);
 //	date_default_timezone_set('America/New_York');
 

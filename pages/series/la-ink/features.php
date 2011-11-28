@@ -20,10 +20,13 @@ mysql_select_db($database,$db)
 
 
 $query = 	"SELECT *
-					 FROM 
+					 FROM
+					 	showpage_items,
 					 	showpage_items_images
 					 WHERE
 					 	showpage_items_images.showpage_item_id = 10
+					 AND
+					 	showpage_items.id = showpage_items_images.showpage_item_id
 					 	";	
 
 					 	
@@ -34,13 +37,15 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 
 foreach( $showpage_items_images  as $showpage_items_image){
-	if( $showpage_items_image['image_type'] == showpage_dropdown){
+	$showpage_title_left_margin = $showpage_items_image['showpage_title_left_margin'];
+	$showpage_facebook_url = $showpage_items_image['facebook_url'];
+	if( $showpage_items_image['image_type'] == 'showpage_dropdown'){
 		$showpage_dropdown = $showpage_items_image['id'];
 	};
-	if( $showpage_items_image['image_type'] == showpage_title){
+	if( $showpage_items_image['image_type'] == 'showpage_title'){
 		$showpage_title = $showpage_items_image['id'];
 	};
-	if( $showpage_items_image['image_type'] == showpage_hero){
+	if( $showpage_items_image['image_type'] == 'showpage_hero'){
 		$showpage_hero = $showpage_items_image['id'];
 	};
 }
@@ -51,7 +56,7 @@ foreach( $showpage_items_images  as $showpage_items_image){
 ?>
 
 <?
-	$page->title = "Miami Ink - Features | nuvoTV Official Site";
+	$page->title = "LA Ink - Features | nuvoTV Official Site";
 	
 	$page->template = "standard";
 
@@ -64,7 +69,7 @@ foreach( $showpage_items_images  as $showpage_items_image){
 EOTHEME;
 	
 	$page->components["hero"] = <<<EOHERO
-	<div class="controls" style="background:transparent url(http://cms.mynuvotv.com/uploads/showpage_items_images/{$showpage_title}/image.png) no-repeat 0 0; left:409px; top:96px; width:463px; height:111px;">
+	<div class="controls" style="background:transparent url(http://cms.mynuvotv.com/uploads/showpage_items_images/{$showpage_title}/image.png) no-repeat 0 0; left:{$showpage_title_left_margin}px; top:96px; width:463px; height:111px;">
 	</div>
 	
 <style>
@@ -124,7 +129,7 @@ while ($row = mysql_fetch_assoc($result)) {
 	<div class="sidebar-right">
 		<div class="ad ad-box block"></div>
 		<div class="facebook block">
-			<fb:like-box href="http://www.facebook.com/nuvoTV" width="300" height="475" show_faces="true" border_color="#fff" stream="true" header="false"></fb:like-box>
+			<fb:like-box href="{$showpage_facebook_url}" width="300" height="475" show_faces="true" border_color="#fff" stream="true" header="false"></fb:like-box>
 		</div>
 	</div>
 EOCONTENT;

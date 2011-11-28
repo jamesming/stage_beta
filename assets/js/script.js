@@ -12,6 +12,7 @@
 	}
 })(jQuery);
 
+
 var pageDesiredHeight;
 function placeFrame() {
 	var width = $(window).width();
@@ -38,6 +39,7 @@ function placeFrame() {
 $(window).resize(function () {
 	placeFrame();
 });
+
 
 function addMenuBehavior() {
 
@@ -115,7 +117,6 @@ function wireHeroes() {
 
 	var fadeDuration = 500;
 	var heroDuration = 10000;
-//		var heroDuration = 1000;
 /*
 	$(".home .theme").each(function(i, item) {
 		var pager = $("<ul class=\"inline pager\"></ul>")
@@ -191,7 +192,7 @@ function wireHeroes() {
 	
 	function advanceHeroCycle() {
 		var next = $(".hero .tabs li.active").next();
-		if (next.length == 0 || next.attr('class') == 'countdown_timer') {
+		if (next.length == 0  || next.attr('class') == 'countdown_timer') {
 			next = $(".hero .tabs li:first");
 		}
 		
@@ -313,7 +314,7 @@ function addFeaturedNavigation() {
 		return false;
 	});
 	
-	$(".page-home .featured .thumbs li a:eq(0)").trigger("click");
+	$(".page-home .featured .thumbs li a:eq(1)").trigger("click");
 }
 			
 
@@ -531,6 +532,7 @@ showImages["In Living Color"] = "/assets/images/programming/series/in-living-col
 showImages["LA Law"] = "/assets/images/programming/series/la-law.jpg";
 showImages["Latino 101"] = "/assets/images/programming/series/latino-101-s2.jpg";
 showImages["Miami Ink"] = "/assets/images/programming/series/miami-ink.jpg";
+showImages["LA Ink"] = "/assets/images/programming/series/la-ink.jpg";
 showImages["Mission Menu"] = "/assets/images/programming/series/mission-menu.jpg";
 showImages["Model Latina NYC"] = "/assets/images/programming/series/model-latina-nyc.jpg";
 showImages["Model Latina Miami"] = "/assets/images/programming/series/model-latina-las-vegas.jpg";
@@ -600,37 +602,50 @@ function parseScheduleData(data, manualOffset) {
 	return { data: retval, offset: hourOffset, "naturalOffset": naturalOffset};
 }
 
+id = '';  // MAKE THIS A GLOBAL VARIABLE FOR USE OF MISSION MENU FILTER 
+
+
 function getShowSchedule() {
+	
+
 
 	var scheduleKeys = [];
 	
-	scheduleKeys["series/adrenalina"] = "Adrenalina";
-	scheduleKeys["series/chicago-hope"] = "Chicago Hope";
-	scheduleKeys["series/cristinas-court"] = "Cristina's Court";
-	scheduleKeys["series/dark-angel"] = "Dark Angel";
-	scheduleKeys["series/fame"] = "Fame";
-	scheduleKeys["series/hill-street-blues"] = "Hill Street Blues";
-	scheduleKeys["series/in-living-color"] = "In Living Color";
-	scheduleKeys["series/la-law"] = "LA Law";
-	scheduleKeys["series/latino-101-s2"] = "Latino 101";
-	scheduleKeys["series/miami-ink"] = "Miami Ink";
-	scheduleKeys["series/mission-menu"] = "Mission Menu";
-	scheduleKeys["series/curvygirls"] = "Curvy Girls";
-	scheduleKeys["series/model-latina-nyc"] = "Model Latina NYC";
-	scheduleKeys["series/model-latina-miami"] = "Model Latina Miami";
-	scheduleKeys["series/model-latina-la"] = "Model Latina";
-	scheduleKeys["series/new-york-undercover"] = "New York Undercover";
-	scheduleKeys["series/nypd-blue"] = "NYPD Blue";
-	scheduleKeys["series/pastport-argentina"] = "Pastport";
-	scheduleKeys["series/pastport-colombia"] = "Pastport";
-	scheduleKeys["series/pastport-cuba"] = "Pastport";
-	scheduleKeys["series/pastport-puerto-rico"] = "Pastport";
-	scheduleKeys["series/pastport-venezuela"] = "Pastport";
-	scheduleKeys["series/prison-break"] = "Prison Break";
+	scheduleKeys["/series/adrenalina"] = "Adrenalina";
+	scheduleKeys["/series/chicago-hope"] = "Chicago Hope";
+	scheduleKeys["/series/cristinas-court"] = "Cristina's Court";
+	scheduleKeys["/series/dark-angel"] = "Dark Angel";
+	scheduleKeys["/series/fame"] = "Fame";
+	scheduleKeys["/series/hill-street-blues"] = "Hill Street Blues";
+	scheduleKeys["/series/in-living-color"] = "In Living Color";
+	scheduleKeys["/series/la-law"] = "LA Law";
+	scheduleKeys["/series/latino-101-s2"] = "Latino 101";
+	scheduleKeys["/series/miami-ink"] = "Miami Ink";
+	scheduleKeys["/shows/la-ink"] = "LA Ink";
+	scheduleKeys["/series/mission-menu"] = "Mission Menu";
+	scheduleKeys["/series/curvygirls"] = "Curvy Girls";
+	scheduleKeys["/series/model-latina-nyc"] = "Model Latina NYC";
+	scheduleKeys["/shows/model-latina-lv"] = "Model Latina Las Vegas";
+	scheduleKeys["/series/model-latina-miami"] = "Model Latina Miami";
+	scheduleKeys["/series/model-latina-la"] = "Model Latina";
+	scheduleKeys["/series/new-york-undercover"] = "New York Undercover";
+	scheduleKeys["/series/nypd-blue"] = "NYPD Blue";
+	scheduleKeys["/shows/operation-osmin"] = "Operation Osmin";	
+	scheduleKeys["/shows/operation-osmin-s2"] = "Operation Osmin S2";	
+	scheduleKeys["/series/pastport-argentina"] = "Pastport";
+	scheduleKeys["/series/pastport-colombia"] = "Pastport";
+	scheduleKeys["/series/pastport-cuba"] = "Pastport";
+	scheduleKeys["/series/pastport-puerto-rico"] = "Pastport";
+	scheduleKeys["/series/pastport-venezuela"] = "Pastport";
+	scheduleKeys["/series/prison-break"] = "Prison Break";
+	
+
+	currentPage = window.location.pathname;
 
 	// ** ADDED TO ACCOMODATE EPISODES OF PASSPORT 
-	var uri = currentPage.split('/');
-	var episode_title_array = uri[1].split('-');
+	var uri = currentPage.split('/');		
+
+	var episode_title_array = uri[2].split('-');
 	var episode_title = "";
 
 	if( episode_title_array[0] == 'pastport'){
@@ -639,7 +654,7 @@ function getShowSchedule() {
 			episode_title = episode_title + ' ' + episode_title_array[2];
 		};
 	};
-	
+
 	episode_title = episode_title.toLowerCase().replace(/\b[a-z]/g, function(letter) {
     return letter.toUpperCase();
 	});
@@ -653,8 +668,6 @@ function getShowSchedule() {
 		"episode_title": episode_title
 	},
 	function(data) {
-
-
 		var result = "";
 		if (data && data.length > 0) {
 			results = parseScheduleData(data).data;
@@ -678,35 +691,21 @@ function getShowSchedule() {
 				result = list;
 			}
 		}
+		
+		
+		
 
+		if (result == "") {
+			result = $("<p />").html("This show is currently not scheduled. Please check back often for updates!");
+		}			
 
-		if( id == 'Mission Menu'){
-			result = '';$("<p />").html("Tune into the Series Premiere October 18th 9/8c");
-		}else if( id == 'Curvy Girls'){
-			if (result == "") {
-				result = $("<p />").html("SPECIAL PREVIEW, MONDAY 8/7c");
-			}			
-		}else{
-			if (result == "") {
-				result = $("<p />").html("This show is currently not scheduled. Please check back often for updates!");
-			}			
-		};
 		
-		
-		if( id != 'Mission Menu'){
-					
-				
-			if( episode_title != 'Panama'){
-				$(".schedule").append(result);
-			}else{
-				$(".schedule").append("<p>Tune into the Series Tuesday, November 8TH 10/9c.</p>");				
-			};
-				
-						
-		}else{
-			
-		};
-		
+
+//		if( episode_title == 'Panama'){
+//			$(".schedule").append("<p>Tune into the Premiere Tuesday, November 8TH 10/9c.</p>");	
+//		}else{
+			$(".schedule").append(result);		
+//		};
 		
 		
 	});
@@ -1049,6 +1048,7 @@ function addFlashAlternates() {
 }
 
 
+
 function addYouTubeWidget(){
 			var playListURL = 'http://gdata.youtube.com/feeds/api/playlists/7F225C87537C948F?v=2&alt=json&callback=?';
 			var videoURL = 'http://www.youtube.com/watch?v=';
@@ -1102,23 +1102,37 @@ function addYouTubeWidget(){
 //}
 
 
+function episode_clips_flip_playlist(){
+		episodes_global = $('.episodes-videos').html();
+		clips_global = $('.clips-videos').html();		
+		
+		$('#clips-title').click(function(event) {
+			$('.episodes-videos').html(clips_global);
+			$('#black-tab-box').css({'background-image':'url("assets/images/Clips_tab.png")'});
+		});	
+		
+		$('#episodes-title').click(function(event) {
+			$('.episodes-videos').html(episodes_global);
+			$('#black-tab-box').css({'background-image':'url("assets/images/Episodes_tab.png")'});
+		});	
+}
 
 $(document).ready(function () {
-
-pageDesiredHeight = $(".container").height();
-placeFrame();
-placeAds();
-wireHeroes();
-addMenuBehavior();
-initSearch();
-addGalleries();
-addFeaturedNavigation();
-addEpisodeNavigation();
-wireFancyBox();
-skinSelect();
-addFlashAlternates();
-addYouTubeWidget();
-
+	pageDesiredHeight = $(".container").height();
+	placeFrame();
+	placeAds();
+	wireHeroes();
+	addMenuBehavior();
+	initSearch();
+	addGalleries();
+	addFeaturedNavigation();
+	addEpisodeNavigation();
+	wireFancyBox();
+	skinSelect();
+	addFlashAlternates();
+	addYouTubeWidget();
+	episode_clips_flip_playlist();
+	
 	if ($(".section-series, .section-movies").length > 0 && $(".schedule").length > 0) {
 		getShowSchedule();
 	} else if ($(".page-home").length > 0) {

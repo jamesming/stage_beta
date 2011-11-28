@@ -4,6 +4,7 @@ include('includes/cms_prep.php');
 
 
 
+
 	$page->template = "standard";	
 
 
@@ -51,7 +52,7 @@ include('includes/cms_prep.php');
 	
 	};
 	
-	$right_tab = $right_tab . '<li class="countdown_timer"  ><iframe   scrolling="no" frameBorder="0"  allowtransparency="true" src="http://cms.mynuvotv.com/countdown_tiny.php"  ></iframe></li>';
+	// $right_tab = $right_tab . '<li class="countdown_timer"  ><iframe   scrolling="no" frameBorder="0"  allowtransparency="true" src="http://cms.mynuvotv.com/countdown_tiny.php"  ></iframe></li>';
 
 	// TUNE IN
 	$tune_in = '';
@@ -79,6 +80,15 @@ include('includes/cms_prep.php');
 					};
 					
 					
+					// A HACK TO ACCOMODATE PASSPORT PANAMA
+					if( $carousel_items[$i]['images'][1]['carousel_items_image_id'] == 122 ||
+							$carousel_items[$i]['images'][1]['carousel_items_image_id'] == 174 
+					){
+						$left = 150;
+					};
+					
+					
+					
 					if( $carousel_items[$i]['images'][1]['height'] > 100){
 						$top = '260';
 					}else{
@@ -99,19 +109,19 @@ include('includes/cms_prep.php');
 				
 					$tune_in = $tune_in .'
 						<li>
-							<div class="offset tune_in-' . $tune_num  . '" style="background:transparent url('.$base_url.'uploads/carousel_items_images/'. $carousel_items[$i]['images'][1]['carousel_items_image_id'].'/image.png) no-repeat 0 0; left:' . $left  . 'px; top:' . $top . 'px; width:'. $carousel_items[$i]['images'][1]['width'] .'px; height:'. $carousel_items[$i]['images'][1]['height'] .'px;"> '
+							<div class="offset tune_in-' . ( isset($tune_num) ? $tune_num : '' )  . '" style="background:transparent url('.$base_url.'uploads/carousel_items_images/'. $carousel_items[$i]['images'][1]['carousel_items_image_id'].'/image.png) no-repeat 0 0; left:' . $left  . 'px; top:' . $top . 'px; width:'. $carousel_items[$i]['images'][1]['width'] .'px; height:'. $carousel_items[$i]['images'][1]['height'] .'px;"> '
 							
 							. $facebook_link 
 								
 							.	$video_link
 							
 							. '</div>
-							<a class="full-link" ' .  ( $carousel_items[$i]['launch'] == 1 ? ' target="_blank" ' : '' ) . 'href="' . $carousel_items[$i]['carousel_items_page_link'] .  '">base link</a>	
+							<a class="full-link" ' .  ( isset($carousel_items[$i]['launch']) && $carousel_items[$i]['launch'] == 1 ? ' target="_blank" ' : '' ) . 'href="' . $carousel_items[$i]['carousel_items_page_link'] .  '">base link</a>	
 						</li>
 					';
 		}else{
 			
-			$tune_in = $tune_in.'<li><a class="full-link" ' .  ( $carousel_items[$i]['launch'] == 1 ? ' target="_blank" ' : '' ) . 'href="' . $carousel_items[$i]['carousel_items_page_link'] .  '">base link</a>	</li>';
+			$tune_in = $tune_in.'<li><a class="full-link" ' .  ( isset($carousel_items[$i]['launch'] ) && $carousel_items[$i]['launch'] == 1 ? ' target="_blank" ' : '' ) . 'href="' . $carousel_items[$i]['carousel_items_page_link'] .  '">base link</a>	</li>';
 			
 		};
 	};

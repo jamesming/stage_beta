@@ -20,10 +20,13 @@ mysql_select_db($database,$db)
 
 
 $query = 	"SELECT *
-					 FROM 
+					 FROM
+					 	showpage_items,
 					 	showpage_items_images
 					 WHERE
 					 	showpage_items_images.showpage_item_id = 10
+					 AND
+					 	showpage_items.id = showpage_items_images.showpage_item_id
 					 	";	
 
 					 	
@@ -34,13 +37,14 @@ while ($row = mysql_fetch_assoc($result)) {
 }
 
 foreach( $showpage_items_images  as $showpage_items_image){
-	if( $showpage_items_image['image_type'] == showpage_dropdown){
+	$showpage_title_left_margin = $showpage_items_image['showpage_title_left_margin'];
+	if( $showpage_items_image['image_type'] == 'showpage_dropdown'){
 		$showpage_dropdown = $showpage_items_image['id'];
 	};
-	if( $showpage_items_image['image_type'] == showpage_title){
+	if( $showpage_items_image['image_type'] == 'showpage_title'){
 		$showpage_title = $showpage_items_image['id'];
 	};
-	if( $showpage_items_image['image_type'] == showpage_hero){
+	if( $showpage_items_image['image_type'] == 'showpage_hero'){
 		$showpage_hero = $showpage_items_image['id'];
 	};
 }
@@ -51,7 +55,7 @@ foreach( $showpage_items_images  as $showpage_items_image){
 ?>
 
 <?
-	$page->title = "Miami Ink - Photos | nuvoTV Official Site";
+	$page->title = "LA Ink - Photos | nuvoTV Official Site";
 	$page->template = "standard";
 
 	$page->bodyClasses[] = "layout-ms";
@@ -63,7 +67,7 @@ foreach( $showpage_items_images  as $showpage_items_image){
 EOTHEME;
 	
 	$page->components["hero"] = <<<EOHERO
-	<div class="controls" style="background:transparent url(http://cms.mynuvotv.com/uploads/showpage_items_images/{$showpage_title}/image.png) no-repeat 0 0; left:409px; top:96px; width:463px; height:111px;">
+	<div class="controls" style="background:transparent url(http://cms.mynuvotv.com/uploads/showpage_items_images/{$showpage_title}/image.png) no-repeat 0 0; left:{$showpage_title_left_margin}px; top:96px; width:463px; height:111px;">
 	</div>
 	
 <style>
@@ -72,6 +76,26 @@ EOTHEME;
 
 </style>
 EOHERO;
+
+
+
+
+$images_raw = scandir("assets/images/galleries/_LAInk");
+
+
+for($i=2;$i<=16;$i++){
+	
+	$images[] = $images_raw[$i];
+}
+
+$images_li = "";
+
+foreach( $images  as  $image){
+	
+	
+	$images_li = $images_li . "<img title='' alt=''  src='/assets/images/galleries/_LAInk/".$image."'>";
+	
+}
 
 
 	$seriesBase = "la-ink";
@@ -87,45 +111,8 @@ EOHERO;
 	</div>
 	<div class="main">
 		<div class="black-box gallery block">
-			<h2>Miami Ink</h2>
-	        <div class="galleria">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_MiamiInk/_full/MIAMI INK PORTRAITS.012.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_MiamiInk/_full/MIAMI INK.121.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_MiamiInk/_full/MIAMI INK.123.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_MiamiInk/_full/MIAMI INK.125.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_MiamiInk/_full/MIAMI INK.128.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_MiamiInk/_full/MIAMI INK.132.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_MiamiInk/_full/MIAMI INK.133.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_MiamiInk/_full/MIAMI INK.134.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_MiamiInk/_full/MIAMI INK.148.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_MiamiInk/_full/MIAMI INK.255.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_MiamiInk/_full/MIAMI INK.287.jpg">
-	        	<img title=""
-	                 alt=""
-	        	     src="/assets/images/galleries/_MiamiInk/_full/miami-ink-poster1.jpg">
-	        </div>
+			<h2>LA Ink</h2>
+	        <div class="galleria">{$images_li}</div>
 		</div>
 		<div class="ad ad-box"></div>
 		<div class="facebook white-box block">
@@ -139,7 +126,7 @@ EOHERO;
 			<h2>Galleries</h2>
 			<a href="#">
 				<img class="bordered" src="/assets/images/galleries/_MiamiInk/_thmbs/thmb_1.jpg" />
-				Miami Ink
+				LA Ink
 			</a>
 		</div>
 		<div class="ad ad-tall"></div>

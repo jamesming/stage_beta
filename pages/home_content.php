@@ -1,5 +1,108 @@
 <?php     
 
+	function object_to_array($data){
+	  if(is_array($data) || is_object($data)){
+	    $result = array(); 
+	    foreach($data as $key => $value)
+	    { 
+	      $result[$key] = $this->object_to_array($value); 
+	    }
+	    return $result;
+	  }
+	  return $data;
+	}
+
+  function jsonDecode ($json) { 
+      $json = str_replace(array("\\\\", "\\\""), array("&#92;", "&#34;"), $json); 
+      $parts = preg_split("@(\"[^\"]*\")|([\[\]\{\},:])|\s@is", $json, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE); 
+      foreach ($parts as $index => $part) 
+      { 
+          if (strlen($part) == 1) 
+          { 
+              switch ($part) 
+              { 
+                  case "[": 
+                  case "{": 
+                      $parts[$index] = "array("; 
+                      break; 
+                  case "]": 
+                  case "}": 
+                      $parts[$index] = ")"; 
+                      break; 
+                  case ":": 
+                    $parts[$index] = "=>"; 
+                    break;    
+                  case ",": 
+                    break; 
+                  default: 
+                      return null; 
+              } 
+          } 
+          else 
+          { 
+              if ((substr($part, 0, 1) != "\"") || (substr($part, -1, 1) != "\"")) 
+              { 
+                  return null; 
+              } 
+          } 
+      } 
+      $json = str_replace(array("&#92;", "&#34;", "$"), array("\\\\", "\\\"", "\\$"), implode("", $parts)); 
+      return eval("return $json;"); 
+  } 
+	
+	
+	$first_set_of_playlist_scroll_left_right = 5;
+	
+	$playlists = array(
+		0 => array(
+					'playlist_name' => '101 Extras',
+					'id' => '48759451001'
+					),
+		1 => array(
+					'playlist_name' => 'Comedy',
+					'id' => '58518976001'
+					),
+		2 => array(
+					'playlist_name' => 'Osmin Webisodes',
+					'id' => '1067741571001'
+					),
+		3 => array(
+					'playlist_name' => 'Extreme Extras',
+					'id' => '58491372001'
+					),	
+		5 => array(
+					'playlist_name' => 'Model Latina Las Vegas Profiles',
+					'id' => '1067741562001'
+					),
+		6 => array(
+					'playlist_name' => 'Mission Menu',
+					'id' => '1163757251001'
+					),
+					
+		7 => array(
+					'playlist_name' => 'Exclusives',
+					'id' => '58551281001'
+					),					
+												
+									
+	);
+	
+	
+	foreach( $playlists  as  $playlist){
+			$json_url = 'http://api.brightcove.com/services/library?command=find_playlist_by_id&media_delivery=http&token=mfu5Nh2a27pJx7LrgZbLx363WrLDHUmtJ5BXY0GkYK4.&playlist_id='.$playlist['id'];
+			$ch = curl_init( $json_url );
+				$options = array(
+				CURLOPT_RETURNTRANSFER => true,
+				CURLOPT_HTTPHEADER => array('Content-type: application/json')
+			);
+			
+			curl_setopt_array( $ch, $options );
+			$result = curl_exec($ch);
+			$video['clips']  = json_decode($result)->videos;	
+			$video['playlist_name'] = $playlist['playlist_name'];
+			$videos[]= 	$video;
+	}
+
 
 $nu_spotlight_li = "";
 for($i=0; $i<=4; $i++){
@@ -22,6 +125,45 @@ for($i=0; $i<=4; $i++){
 		";
 };
 
+	$episodes_videos = '';
+
+	foreach($videos[0]['clips'] as  $video ){
+					    	
+		$episodes_videos = $episodes_videos."<li onClick='playTitleFromList(".$video->id.")'    style='list-style: none;'  >
+
+																						<div   class='img-div ' >
+																							<img   src='".$video->thumbnailURL."' alt='".$video->name."' >
+																						</div>
+																						<div  class='text-div ' >
+																							<div  class='video-name ' >".$video->name."</div>
+																							<div  class='watch-now '   style='	'  >&nbsp;											
+																							</div>
+																						</div>
+											
+																				</li>";
+	}
+	
+
+	
+	$clips_videos = '';
+	
+	foreach($videos[1]['clips'] as  $video ){
+		    	
+		$clips_videos = $clips_videos ."<li onClick='playTitleFromList(".$video->id.")'>
+
+																				<div   class='img-div ' >
+																					<img   src='".$video->thumbnailURL."' alt='".$video->name."' >
+																				</div>
+																				<div  class='text-div ' >
+																					<div  class='video-name ' >".$video->name."</div>
+																					<div  class='watch-now '   style='	'  >&nbsp;											
+																					</div>
+																				</div>
+												
+																		</li>";
+						
+	}
+	
 	
 	$page->components["content"] = <<<EOCONTENT
 		
@@ -33,61 +175,126 @@ for($i=0; $i<=4; $i++){
 			<li class="full-schedule"><span class="corner"></span><a href="/schedule">Full Schedule +</a></li>
 		</ul>
 	</div>
+	
+<style>
+.b-spot.block{
+	padding-top:20px;
+	clear:both;
+	height:250px;
+}
+.b-spot.block .thirds{
+float:left;
+width:300px;
+height:250px;
+margin-right:10px;
+}
+.b-spot.block .first.thirds{
+width:360px;	
+}
+.b-spot.block .second.thirds{
+width:280px;	
+}
+
+#black-tab-box{
+	background-image: url("assets/images/Episodes_tab.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	height:252px;
+	width: 319px;	
+}
+#black-tab-box .playlist-title{
+    border: 0px solid white;
+    color: white;
+    cursor: pointer;
+    float: left;
+    height: 31px;
+    margin-right: 0px;
+    padding-top: 8px;
+    width: 143px;
+    padding-left: 15px;
+}
+#black-tab-box .episodes-videos{
+	border:0px solid gray; 
+	width:320px; 
+	height:213px; 
+	overflow-y:scroll;
+	clear:both;
+}
+#black-tab-box .clips-videos{
+	display:none;
+}
+#black-tab-box .episodes-videos ul{
+padding:0px;	
+
+}
+#black-tab-box .episodes-videos li{
+		list-style: none;
+    border: 0px solid red;
+    clear: both;
+    color: white;
+    height: 78px;
+    margin-bottom: 12px;    
+    margin-left: 0px;    
+}
+#black-tab-box .episodes-videos .img-div{
+	float:left;	
+	width:152px;
+}
+		#black-tab-box .episodes-videos .img-div img{
+		width:152px;
+		height:85px;	
+		}
+#black-tab-box .episodes-videos .text-div{
+	float: left;
+	width: 119px;
+	padding-top:4px;
+}	
+
+#black-tab-box .episodes-videos .text-div .video-name{
+	padding-left:11px;
+	height:54px;
+}
+#black-tab-box .episodes-videos .text-div .watch-now{
+	background-image: url("assets/images/watch_now.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	height:33px;
+	width: 150px;
+}	
+
+</style>
+
 	<div class="b-spot block"   >
-		<div class="featured white-box block">
-			<ul class="unstyled featured-list">	
+		<div   class='first thirds '     >
+
+
+				<div  id='black-tab-box'>
+							<div  class=' playlist_name' >
+								<div   id='episodes-title'  class='playlist-title '  >
+									{$videos[0]['playlist_name']}
+								</div>
+								<div   id='clips-title'   class='playlist-title '>
+									{$videos[1]['playlist_name']}
+								</div>
+								
+							</div>
 				
+							<div   class='episodes-videos'  >
+									    <ul>
+									    	{$episodes_videos}
+									    </ul>
+							</div>		
 				
-				<li  id='video_player_li'>
-					<div  id='video_player_div'  style='
-						float:left;
-						width:242px;
-						height:222px;
-						'  >
-<!--
-By use of this code snippet, I agree to the Brightcove Publisher T and C
-found at http://corp.brightcove.com/legal/terms_publisher.cfm.
--->
+							<div   class='clips-videos'  >
+							    <ul>{$clips_videos}</ul>
+							</div>				
+				</div>
 
-<script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
-<script type="text/javascript" src="http://admin.brightcove.com/js/APIModules_all.js"></script>
-
-								<object id="myExperience" class="BrightcoveExperience">
-								  <param name="wmode" value="transparent" />
-								  <param name="width" value="242" />
-								  <param name="height" value="422" />
-								  <param name="playerID" value="1154506721001" />
-								  <param name="playerKey" value="AQ~~,AAAAADEdZAY~,VHcBVNPqDVshrDLVr-FIOiEabfcn5IxW" />
-								  <param name="isVid" value="true" />
-								  <param name="isUI" value="true" />
-								  <param name="dynamicStreaming" value="true" />
-								  
-								</object>
-
-<!-- End of Brightcove Player -->
-
-
-					</div>
-					<div class="copy">
-						<h2>What's NU...</h2>
-						<h3>{$video_contents[0]['title']}</h3>
-						<p>{$video_contents[0]['blurb']}</p>
-					</div>
-				</li>
-				{$nu_spotlight_li}		
-			</ul>
-			<div style="bottom: 60px; position: absolute; left: 268px;"><b>Click tabs for more spotlights.</b></div>
-			<ul class="inline thumbs">
-				<li id='video_player_link' style="background-image:url(/assets/images/spotlight/spotlight-thumb_video.png);"><a href="#" title="Whats' Nu!">Link2</a></li>
-				<li style="background-image:url({$base_url}uploads/nu_spotlight_items_images/{$nu_spotlight_items[0]['images']['thumb']}/image.png);"><a href="#" title="Exclusive Behind-the-Scenes footage">Link1</a></li>
-				<li style="background-image:url({$base_url}uploads/nu_spotlight_items_images/{$nu_spotlight_items[1]['images']['thumb']}/image.png);"><a href="#" title="Our Nu Store">Link2</a></li>				
-				<li style="background-image:url({$base_url}uploads/nu_spotlight_items_images/{$nu_spotlight_items[2]['images']['thumb']}/image.png);"><a href="#" title="Model Latina on Hulu">Link1</a></li>
-				<li style="background-image:url({$base_url}uploads/nu_spotlight_items_images/{$nu_spotlight_items[3]['images']['thumb']}/image.png);"><a href="#" title="Tweet with Us">Link1</a></li>
-				<li style="background-image:url({$base_url}uploads/nu_spotlight_items_images/{$nu_spotlight_items[4]['images']['thumb']}/image.png);"><a href="#" title="FREE T-Shirt">Link2</a></li>
-			</ul>
-			
 		</div>
-		<div class="ad ad-box"></div>
+		<div    class='second thirds '     >
+		test
+		</div>
+		<div class="thirds ad ad-box" ></div>
 	</div>
 	<div class="c-spot block">
 		<div class="ad ad-tall"></div>
@@ -152,7 +359,7 @@ found at http://corp.brightcove.com/legal/terms_publisher.cfm.
 					new TWTR.Widget({
 					  version: 2,
 					  type: 'search',
-					  search: 'mynuvotv OR operationosmin OR modellatina',
+					  search: 'mynuvotv OR operationosmin OR modellatina OR missionmenu -@getglue',
 					  interval: 3000,
 					  width: 370,
 					  height: 370,
@@ -185,6 +392,8 @@ found at http://corp.brightcove.com/legal/terms_publisher.cfm.
 
 		</div>
 	</div>
+
+
 EOCONTENT;
 
 ?>
